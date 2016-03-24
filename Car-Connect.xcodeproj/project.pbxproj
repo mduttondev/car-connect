@@ -1,0 +1,575 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		C90202F218FC1F060032A053 /* libGoogleAnalyticsServices.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C90202F118FC1F060032A053 /* libGoogleAnalyticsServices.a */; };
+		C90202F418FC1F390032A053 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C90202F318FC1F390032A053 /* CoreData.framework */; };
+		C90202F618FC1F4E0032A053 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C90202F518FC1F4E0032A053 /* SystemConfiguration.framework */; };
+		C90202F818FC1F5D0032A053 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C90202F718FC1F5D0032A053 /* libz.dylib */; };
+		C90203E518FE2A830032A053 /* parking-meter.png in Resources */ = {isa = PBXBuildFile; fileRef = C90203E418FE2A830032A053 /* parking-meter.png */; };
+		C90203F118FE34BD0032A053 /* parking.png in Resources */ = {isa = PBXBuildFile; fileRef = C90203F018FE34BD0032A053 /* parking.png */; };
+		C90203F518FE35E80032A053 /* location_pin.png in Resources */ = {isa = PBXBuildFile; fileRef = C90203F418FE35E80032A053 /* location_pin.png */; };
+		C947390318F2E7DB00060075 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C947390218F2E7DB00060075 /* Foundation.framework */; };
+		C947390518F2E7DB00060075 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C947390418F2E7DB00060075 /* CoreGraphics.framework */; };
+		C947390718F2E7DB00060075 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C947390618F2E7DB00060075 /* UIKit.framework */; };
+		C947390D18F2E7DB00060075 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C947390B18F2E7DB00060075 /* InfoPlist.strings */; };
+		C947390F18F2E7DB00060075 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C947390E18F2E7DB00060075 /* main.m */; };
+		C947391318F2E7DB00060075 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C947391218F2E7DB00060075 /* AppDelegate.m */; };
+		C947391618F2E7DB00060075 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C947391418F2E7DB00060075 /* Main.storyboard */; };
+		C947391E18F2E7DB00060075 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C947391D18F2E7DB00060075 /* Images.xcassets */; };
+		C947392518F2E7DB00060075 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C947392418F2E7DB00060075 /* XCTest.framework */; };
+		C947392618F2E7DB00060075 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C947390218F2E7DB00060075 /* Foundation.framework */; };
+		C947392718F2E7DC00060075 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C947390618F2E7DB00060075 /* UIKit.framework */; };
+		C947392F18F2E7DC00060075 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C947392D18F2E7DC00060075 /* InfoPlist.strings */; };
+		C947393118F2E7DC00060075 /* Car_ConnectTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C947393018F2E7DC00060075 /* Car_ConnectTests.m */; };
+		C947393C18F2E8D000060075 /* ParkCarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C947393B18F2E8D000060075 /* ParkCarViewController.m */; };
+		C947393F18F2E8E200060075 /* FindCarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C947393E18F2E8E200060075 /* FindCarViewController.m */; };
+		C947394518F2E90900060075 /* ParkMeterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C947394418F2E90900060075 /* ParkMeterViewController.m */; };
+		C989E2B018F581E300D860CD /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C989E2AF18F581E300D860CD /* MapKit.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C947392818F2E7DC00060075 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C94738F718F2E7DB00060075 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C94738FE18F2E7DB00060075;
+			remoteInfo = "Car-Connect";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		C90202E818FC1E5A0032A053 /* GAI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GAI.h; sourceTree = "<group>"; };
+		C90202E918FC1E5A0032A053 /* GAIDictionaryBuilder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GAIDictionaryBuilder.h; sourceTree = "<group>"; };
+		C90202EA18FC1E5A0032A053 /* GAIFields.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GAIFields.h; sourceTree = "<group>"; };
+		C90202EB18FC1E5A0032A053 /* GAILogger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GAILogger.h; sourceTree = "<group>"; };
+		C90202EC18FC1E5A0032A053 /* GAITrackedViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GAITrackedViewController.h; sourceTree = "<group>"; };
+		C90202ED18FC1E5A0032A053 /* GAITracker.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GAITracker.h; sourceTree = "<group>"; };
+		C90202F118FC1F060032A053 /* libGoogleAnalyticsServices.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGoogleAnalyticsServices.a; sourceTree = "<group>"; };
+		C90202F318FC1F390032A053 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		C90202F518FC1F4E0032A053 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		C90202F718FC1F5D0032A053 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		C90203E418FE2A830032A053 /* parking-meter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "parking-meter.png"; sourceTree = "<group>"; };
+		C90203F018FE34BD0032A053 /* parking.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = parking.png; sourceTree = "<group>"; };
+		C90203F418FE35E80032A053 /* location_pin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = location_pin.png; sourceTree = "<group>"; };
+		C94738FF18F2E7DB00060075 /* Car-Connect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Car-Connect.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C947390218F2E7DB00060075 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		C947390418F2E7DB00060075 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		C947390618F2E7DB00060075 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		C947390A18F2E7DB00060075 /* Car-Connect-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Car-Connect-Info.plist"; sourceTree = "<group>"; };
+		C947390C18F2E7DB00060075 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		C947390E18F2E7DB00060075 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		C947391018F2E7DB00060075 /* Car-Connect-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Car-Connect-Prefix.pch"; sourceTree = "<group>"; };
+		C947391118F2E7DB00060075 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		C947391218F2E7DB00060075 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		C947391518F2E7DB00060075 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		C947391D18F2E7DB00060075 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		C947392318F2E7DB00060075 /* Car-ConnectTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Car-ConnectTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C947392418F2E7DB00060075 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		C947392C18F2E7DC00060075 /* Car-ConnectTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Car-ConnectTests-Info.plist"; sourceTree = "<group>"; };
+		C947392E18F2E7DC00060075 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		C947393018F2E7DC00060075 /* Car_ConnectTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Car_ConnectTests.m; sourceTree = "<group>"; };
+		C947393A18F2E8D000060075 /* ParkCarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ParkCarViewController.h; path = ../ParkCarViewController.h; sourceTree = "<group>"; };
+		C947393B18F2E8D000060075 /* ParkCarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ParkCarViewController.m; path = ../ParkCarViewController.m; sourceTree = "<group>"; };
+		C947393D18F2E8E200060075 /* FindCarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FindCarViewController.h; path = ../FindCarViewController.h; sourceTree = "<group>"; };
+		C947393E18F2E8E200060075 /* FindCarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FindCarViewController.m; path = ../FindCarViewController.m; sourceTree = "<group>"; };
+		C947394318F2E90900060075 /* ParkMeterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ParkMeterViewController.h; path = ../ParkMeterViewController.h; sourceTree = "<group>"; };
+		C947394418F2E90900060075 /* ParkMeterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ParkMeterViewController.m; path = ../ParkMeterViewController.m; sourceTree = "<group>"; };
+		C95DE3B918FEF690003FD5D5 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		C989E2AF18F581E300D860CD /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C94738FC18F2E7DB00060075 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C90202F818FC1F5D0032A053 /* libz.dylib in Frameworks */,
+				C90202F618FC1F4E0032A053 /* SystemConfiguration.framework in Frameworks */,
+				C90202F418FC1F390032A053 /* CoreData.framework in Frameworks */,
+				C989E2B018F581E300D860CD /* MapKit.framework in Frameworks */,
+				C947390518F2E7DB00060075 /* CoreGraphics.framework in Frameworks */,
+				C947390718F2E7DB00060075 /* UIKit.framework in Frameworks */,
+				C90202F218FC1F060032A053 /* libGoogleAnalyticsServices.a in Frameworks */,
+				C947390318F2E7DB00060075 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C947392018F2E7DB00060075 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C947392518F2E7DB00060075 /* XCTest.framework in Frameworks */,
+				C947392718F2E7DC00060075 /* UIKit.framework in Frameworks */,
+				C947392618F2E7DB00060075 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		C90202EE18FC1E650032A053 /* Google Analytics */ = {
+			isa = PBXGroup;
+			children = (
+				C90202E818FC1E5A0032A053 /* GAI.h */,
+				C90202E918FC1E5A0032A053 /* GAIDictionaryBuilder.h */,
+				C90202EA18FC1E5A0032A053 /* GAIFields.h */,
+				C90202EB18FC1E5A0032A053 /* GAILogger.h */,
+				C90202EC18FC1E5A0032A053 /* GAITrackedViewController.h */,
+				C90202ED18FC1E5A0032A053 /* GAITracker.h */,
+			);
+			name = "Google Analytics";
+			sourceTree = "<group>";
+		};
+		C94738F618F2E7DB00060075 = {
+			isa = PBXGroup;
+			children = (
+				C947390818F2E7DB00060075 /* Car-Connect */,
+				C947392A18F2E7DC00060075 /* Car-ConnectTests */,
+				C947390118F2E7DB00060075 /* Frameworks */,
+				C947390018F2E7DB00060075 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		C947390018F2E7DB00060075 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C94738FF18F2E7DB00060075 /* Car-Connect.app */,
+				C947392318F2E7DB00060075 /* Car-ConnectTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C947390118F2E7DB00060075 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C95DE3B918FEF690003FD5D5 /* AudioToolbox.framework */,
+				C90202F718FC1F5D0032A053 /* libz.dylib */,
+				C90202F518FC1F4E0032A053 /* SystemConfiguration.framework */,
+				C90202F318FC1F390032A053 /* CoreData.framework */,
+				C90202F118FC1F060032A053 /* libGoogleAnalyticsServices.a */,
+				C989E2AF18F581E300D860CD /* MapKit.framework */,
+				C947390218F2E7DB00060075 /* Foundation.framework */,
+				C947390418F2E7DB00060075 /* CoreGraphics.framework */,
+				C947390618F2E7DB00060075 /* UIKit.framework */,
+				C947392418F2E7DB00060075 /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C947390818F2E7DB00060075 /* Car-Connect */ = {
+			isa = PBXGroup;
+			children = (
+				C947391118F2E7DB00060075 /* AppDelegate.h */,
+				C947391218F2E7DB00060075 /* AppDelegate.m */,
+				C947391418F2E7DB00060075 /* Main.storyboard */,
+				C947394618F2E91600060075 /* ParkCar */,
+				C947394718F2E92100060075 /* FindCar */,
+				C947394918F2E94B00060075 /* ParkMeter */,
+				C90202EE18FC1E650032A053 /* Google Analytics */,
+				C947391D18F2E7DB00060075 /* Images.xcassets */,
+				C947390918F2E7DB00060075 /* Supporting Files */,
+			);
+			path = "Car-Connect";
+			sourceTree = "<group>";
+		};
+		C947390918F2E7DB00060075 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				C947390A18F2E7DB00060075 /* Car-Connect-Info.plist */,
+				C947390B18F2E7DB00060075 /* InfoPlist.strings */,
+				C947390E18F2E7DB00060075 /* main.m */,
+				C947391018F2E7DB00060075 /* Car-Connect-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C947392A18F2E7DC00060075 /* Car-ConnectTests */ = {
+			isa = PBXGroup;
+			children = (
+				C947393018F2E7DC00060075 /* Car_ConnectTests.m */,
+				C947392B18F2E7DC00060075 /* Supporting Files */,
+			);
+			path = "Car-ConnectTests";
+			sourceTree = "<group>";
+		};
+		C947392B18F2E7DC00060075 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				C947392C18F2E7DC00060075 /* Car-ConnectTests-Info.plist */,
+				C947392D18F2E7DC00060075 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C947394618F2E91600060075 /* ParkCar */ = {
+			isa = PBXGroup;
+			children = (
+				C947393A18F2E8D000060075 /* ParkCarViewController.h */,
+				C947393B18F2E8D000060075 /* ParkCarViewController.m */,
+				C90203F018FE34BD0032A053 /* parking.png */,
+			);
+			name = ParkCar;
+			sourceTree = "<group>";
+		};
+		C947394718F2E92100060075 /* FindCar */ = {
+			isa = PBXGroup;
+			children = (
+				C947393D18F2E8E200060075 /* FindCarViewController.h */,
+				C947393E18F2E8E200060075 /* FindCarViewController.m */,
+				C90203F418FE35E80032A053 /* location_pin.png */,
+			);
+			name = FindCar;
+			sourceTree = "<group>";
+		};
+		C947394918F2E94B00060075 /* ParkMeter */ = {
+			isa = PBXGroup;
+			children = (
+				C947394318F2E90900060075 /* ParkMeterViewController.h */,
+				C947394418F2E90900060075 /* ParkMeterViewController.m */,
+				C90203E418FE2A830032A053 /* parking-meter.png */,
+			);
+			name = ParkMeter;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C94738FE18F2E7DB00060075 /* Car-Connect */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C947393418F2E7DC00060075 /* Build configuration list for PBXNativeTarget "Car-Connect" */;
+			buildPhases = (
+				C94738FB18F2E7DB00060075 /* Sources */,
+				C94738FC18F2E7DB00060075 /* Frameworks */,
+				C94738FD18F2E7DB00060075 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Car-Connect";
+			productName = "Car-Connect";
+			productReference = C94738FF18F2E7DB00060075 /* Car-Connect.app */;
+			productType = "com.apple.product-type.application";
+		};
+		C947392218F2E7DB00060075 /* Car-ConnectTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C947393718F2E7DC00060075 /* Build configuration list for PBXNativeTarget "Car-ConnectTests" */;
+			buildPhases = (
+				C947391F18F2E7DB00060075 /* Sources */,
+				C947392018F2E7DB00060075 /* Frameworks */,
+				C947392118F2E7DB00060075 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C947392918F2E7DC00060075 /* PBXTargetDependency */,
+			);
+			name = "Car-ConnectTests";
+			productName = "Car-ConnectTests";
+			productReference = C947392318F2E7DB00060075 /* Car-ConnectTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C94738F718F2E7DB00060075 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = "Matthew Dutton";
+				TargetAttributes = {
+					C947392218F2E7DB00060075 = {
+						TestTargetID = C94738FE18F2E7DB00060075;
+					};
+				};
+			};
+			buildConfigurationList = C94738FA18F2E7DB00060075 /* Build configuration list for PBXProject "Car-Connect" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = C94738F618F2E7DB00060075;
+			productRefGroup = C947390018F2E7DB00060075 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C94738FE18F2E7DB00060075 /* Car-Connect */,
+				C947392218F2E7DB00060075 /* Car-ConnectTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C94738FD18F2E7DB00060075 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C90203F518FE35E80032A053 /* location_pin.png in Resources */,
+				C947391E18F2E7DB00060075 /* Images.xcassets in Resources */,
+				C947390D18F2E7DB00060075 /* InfoPlist.strings in Resources */,
+				C90203E518FE2A830032A053 /* parking-meter.png in Resources */,
+				C90203F118FE34BD0032A053 /* parking.png in Resources */,
+				C947391618F2E7DB00060075 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C947392118F2E7DB00060075 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C947392F18F2E7DC00060075 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C94738FB18F2E7DB00060075 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C947394518F2E90900060075 /* ParkMeterViewController.m in Sources */,
+				C947393F18F2E8E200060075 /* FindCarViewController.m in Sources */,
+				C947393C18F2E8D000060075 /* ParkCarViewController.m in Sources */,
+				C947391318F2E7DB00060075 /* AppDelegate.m in Sources */,
+				C947390F18F2E7DB00060075 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C947391F18F2E7DB00060075 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C947393118F2E7DC00060075 /* Car_ConnectTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C947392918F2E7DC00060075 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C94738FE18F2E7DB00060075 /* Car-Connect */;
+			targetProxy = C947392818F2E7DC00060075 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		C947390B18F2E7DB00060075 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C947390C18F2E7DB00060075 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		C947391418F2E7DB00060075 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C947391518F2E7DB00060075 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		C947392D18F2E7DC00060075 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C947392E18F2E7DC00060075 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		C947393218F2E7DC00060075 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = NO;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		C947393318F2E7DC00060075 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = NO;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C947393518F2E7DC00060075 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				ENABLE_BITCODE = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Car-Connect/Car-Connect-Prefix.pch";
+				INFOPLIST_FILE = "Car-Connect/Car-Connect-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		C947393618F2E7DC00060075 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				ENABLE_BITCODE = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Car-Connect/Car-Connect-Prefix.pch";
+				INFOPLIST_FILE = "Car-Connect/Car-Connect-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		C947393818F2E7DC00060075 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Car-Connect.app/Car-Connect";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Car-Connect/Car-Connect-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "Car-ConnectTests/Car-ConnectTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		C947393918F2E7DC00060075 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Car-Connect.app/Car-Connect";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Car-Connect/Car-Connect-Prefix.pch";
+				INFOPLIST_FILE = "Car-ConnectTests/Car-ConnectTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C94738FA18F2E7DB00060075 /* Build configuration list for PBXProject "Car-Connect" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C947393218F2E7DC00060075 /* Debug */,
+				C947393318F2E7DC00060075 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C947393418F2E7DC00060075 /* Build configuration list for PBXNativeTarget "Car-Connect" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C947393518F2E7DC00060075 /* Debug */,
+				C947393618F2E7DC00060075 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C947393718F2E7DC00060075 /* Build configuration list for PBXNativeTarget "Car-ConnectTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C947393818F2E7DC00060075 /* Debug */,
+				C947393918F2E7DC00060075 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C94738F718F2E7DB00060075 /* Project object */;
+}
