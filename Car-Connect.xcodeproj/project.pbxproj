@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C90202F218FC1F060032A053 /* libGoogleAnalyticsServices.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C90202F118FC1F060032A053 /* libGoogleAnalyticsServices.a */; };
+		6A03392FB561CC166B5BE9CB /* libPods-Car-Connect.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EB55B152B626ECE42B375DAF /* libPods-Car-Connect.a */; };
 		C90202F418FC1F390032A053 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C90202F318FC1F390032A053 /* CoreData.framework */; };
 		C90202F618FC1F4E0032A053 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C90202F518FC1F4E0032A053 /* SystemConfiguration.framework */; };
 		C90202F818FC1F5D0032A053 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C90202F718FC1F5D0032A053 /* libz.dylib */; };
@@ -28,6 +28,8 @@
 		C947393F18F2E8E200060075 /* FindCarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C947393E18F2E8E200060075 /* FindCarViewController.m */; };
 		C947394518F2E90900060075 /* ParkMeterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C947394418F2E90900060075 /* ParkMeterViewController.m */; };
 		C989E2B018F581E300D860CD /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C989E2AF18F581E300D860CD /* MapKit.framework */; };
+		C9AB75791D0CC085009CACF0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C9AB75781D0CC085009CACF0 /* GoogleService-Info.plist */; };
+		C9AB757B1D0CCC21009CACF0 /* appIcon1024x1024.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = C9AB757A1D0CCC21009CACF0 /* appIcon1024x1024.jpeg */; };
 		C9D50F961D0CAEE5004EACB8 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9D50F941D0CAEE5004EACB8 /* Fabric.framework */; };
 		C9D50F971D0CAEE5004EACB8 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9D50F951D0CAEE5004EACB8 /* Crashlytics.framework */; };
 /* End PBXBuildFile section */
@@ -43,13 +45,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		C90202E818FC1E5A0032A053 /* GAI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GAI.h; sourceTree = "<group>"; };
-		C90202E918FC1E5A0032A053 /* GAIDictionaryBuilder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GAIDictionaryBuilder.h; sourceTree = "<group>"; };
-		C90202EA18FC1E5A0032A053 /* GAIFields.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GAIFields.h; sourceTree = "<group>"; };
-		C90202EB18FC1E5A0032A053 /* GAILogger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GAILogger.h; sourceTree = "<group>"; };
-		C90202EC18FC1E5A0032A053 /* GAITrackedViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GAITrackedViewController.h; sourceTree = "<group>"; };
-		C90202ED18FC1E5A0032A053 /* GAITracker.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GAITracker.h; sourceTree = "<group>"; };
-		C90202F118FC1F060032A053 /* libGoogleAnalyticsServices.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGoogleAnalyticsServices.a; sourceTree = "<group>"; };
+		37EED6569396510B28BBEBAE /* Pods-Car-Connect.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Car-Connect.release.xcconfig"; path = "Pods/Target Support Files/Pods-Car-Connect/Pods-Car-Connect.release.xcconfig"; sourceTree = "<group>"; };
+		6AEC6D2F4B372F2910516122 /* Pods-Car-ConnectTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Car-ConnectTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Car-ConnectTests/Pods-Car-ConnectTests.debug.xcconfig"; sourceTree = "<group>"; };
+		A94CCA44C4BED01D70A799B0 /* Pods-Car-Connect.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Car-Connect.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Car-Connect/Pods-Car-Connect.debug.xcconfig"; sourceTree = "<group>"; };
 		C90202F318FC1F390032A053 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		C90202F518FC1F4E0032A053 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		C90202F718FC1F5D0032A053 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
@@ -78,8 +76,12 @@
 		C947394418F2E90900060075 /* ParkMeterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ParkMeterViewController.m; path = ../ParkMeterViewController.m; sourceTree = "<group>"; };
 		C95DE3B918FEF690003FD5D5 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		C989E2AF18F581E300D860CD /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		C9AB75781D0CC085009CACF0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		C9AB757A1D0CCC21009CACF0 /* appIcon1024x1024.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = appIcon1024x1024.jpeg; sourceTree = "<group>"; };
 		C9D50F941D0CAEE5004EACB8 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
 		C9D50F951D0CAEE5004EACB8 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
+		EB55B152B626ECE42B375DAF /* libPods-Car-Connect.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Car-Connect.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F1AE9566EEBB1DC8F15A1958 /* Pods-Car-ConnectTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Car-ConnectTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Car-ConnectTests/Pods-Car-ConnectTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,8 +97,8 @@
 				C9D50F961D0CAEE5004EACB8 /* Fabric.framework in Frameworks */,
 				C9D50F971D0CAEE5004EACB8 /* Crashlytics.framework in Frameworks */,
 				C947390718F2E7DB00060075 /* UIKit.framework in Frameworks */,
-				C90202F218FC1F060032A053 /* libGoogleAnalyticsServices.a in Frameworks */,
 				C947390318F2E7DB00060075 /* Foundation.framework in Frameworks */,
+				6A03392FB561CC166B5BE9CB /* libPods-Car-Connect.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -113,17 +115,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		C90202EE18FC1E650032A053 /* Google Analytics */ = {
+		B23A5C3D22EB87349596741B /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				C90202E818FC1E5A0032A053 /* GAI.h */,
-				C90202E918FC1E5A0032A053 /* GAIDictionaryBuilder.h */,
-				C90202EA18FC1E5A0032A053 /* GAIFields.h */,
-				C90202EB18FC1E5A0032A053 /* GAILogger.h */,
-				C90202EC18FC1E5A0032A053 /* GAITrackedViewController.h */,
-				C90202ED18FC1E5A0032A053 /* GAITracker.h */,
+				A94CCA44C4BED01D70A799B0 /* Pods-Car-Connect.debug.xcconfig */,
+				37EED6569396510B28BBEBAE /* Pods-Car-Connect.release.xcconfig */,
+				6AEC6D2F4B372F2910516122 /* Pods-Car-ConnectTests.debug.xcconfig */,
+				F1AE9566EEBB1DC8F15A1958 /* Pods-Car-ConnectTests.release.xcconfig */,
 			);
-			name = "Google Analytics";
+			name = Pods;
 			sourceTree = "<group>";
 		};
 		C94738F618F2E7DB00060075 = {
@@ -133,6 +133,7 @@
 				C947392A18F2E7DC00060075 /* Car-ConnectTests */,
 				C947390118F2E7DB00060075 /* Frameworks */,
 				C947390018F2E7DB00060075 /* Products */,
+				B23A5C3D22EB87349596741B /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -154,12 +155,12 @@
 				C9D50F951D0CAEE5004EACB8 /* Crashlytics.framework */,
 				C90202F518FC1F4E0032A053 /* SystemConfiguration.framework */,
 				C90202F318FC1F390032A053 /* CoreData.framework */,
-				C90202F118FC1F060032A053 /* libGoogleAnalyticsServices.a */,
 				C989E2AF18F581E300D860CD /* MapKit.framework */,
 				C947390218F2E7DB00060075 /* Foundation.framework */,
 				C947390418F2E7DB00060075 /* CoreGraphics.framework */,
 				C947390618F2E7DB00060075 /* UIKit.framework */,
 				C947392418F2E7DB00060075 /* XCTest.framework */,
+				EB55B152B626ECE42B375DAF /* libPods-Car-Connect.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -167,13 +168,14 @@
 		C947390818F2E7DB00060075 /* Car-Connect */ = {
 			isa = PBXGroup;
 			children = (
+				C9AB757A1D0CCC21009CACF0 /* appIcon1024x1024.jpeg */,
+				C9AB75781D0CC085009CACF0 /* GoogleService-Info.plist */,
 				C947391118F2E7DB00060075 /* AppDelegate.h */,
 				C947391218F2E7DB00060075 /* AppDelegate.m */,
 				C947391418F2E7DB00060075 /* Main.storyboard */,
 				C947394618F2E91600060075 /* ParkCar */,
 				C947394718F2E92100060075 /* FindCar */,
 				C947394918F2E94B00060075 /* ParkMeter */,
-				C90202EE18FC1E650032A053 /* Google Analytics */,
 				C947391D18F2E7DB00060075 /* Images.xcassets */,
 				C947390918F2E7DB00060075 /* Supporting Files */,
 			);
@@ -243,10 +245,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C947393418F2E7DC00060075 /* Build configuration list for PBXNativeTarget "Car-Connect" */;
 			buildPhases = (
+				5B36FF5FCFC95E28DFD0C1F7 /* [CP] Check Pods Manifest.lock */,
 				C94738FB18F2E7DB00060075 /* Sources */,
 				C94738FC18F2E7DB00060075 /* Frameworks */,
 				C94738FD18F2E7DB00060075 /* Resources */,
 				C9D50F931D0CAE5F004EACB8 /* ShellScript */,
+				E85CA2DF97E44E560043F6F2 /* [CP] Embed Pods Frameworks */,
+				0FB911E9BD16A54F43F74B43 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -261,9 +266,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C947393718F2E7DC00060075 /* Build configuration list for PBXNativeTarget "Car-ConnectTests" */;
 			buildPhases = (
+				472BDD3F71D1AA7A3015CED7 /* [CP] Check Pods Manifest.lock */,
 				C947391F18F2E7DB00060075 /* Sources */,
 				C947392018F2E7DB00060075 /* Frameworks */,
 				C947392118F2E7DB00060075 /* Resources */,
+				E9C086CE6127F3D1D80C2D00 /* [CP] Embed Pods Frameworks */,
+				9570DBD8EC9820F190BA10F0 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -317,8 +325,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				C947391E18F2E7DB00060075 /* Images.xcassets in Resources */,
+				C9AB75791D0CC085009CACF0 /* GoogleService-Info.plist in Resources */,
 				C947390D18F2E7DB00060075 /* InfoPlist.strings in Resources */,
 				C947391618F2E7DB00060075 /* Main.storyboard in Resources */,
+				C9AB757B1D0CCC21009CACF0 /* appIcon1024x1024.jpeg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -333,6 +343,66 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		0FB911E9BD16A54F43F74B43 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Car-Connect/Pods-Car-Connect-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		472BDD3F71D1AA7A3015CED7 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		5B36FF5FCFC95E28DFD0C1F7 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		9570DBD8EC9820F190BA10F0 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Car-ConnectTests/Pods-Car-ConnectTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		C9D50F931D0CAE5F004EACB8 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -345,6 +415,36 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "./Fabric.framework/run 59f486796c08f97effc9178d1210ee7b7d2862fb d6bc0507f09198ef303827cffa9cf7acce8f24451bd3e338406e554d284f58e8\n";
+		};
+		E85CA2DF97E44E560043F6F2 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Car-Connect/Pods-Car-Connect-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E9C086CE6127F3D1D80C2D00 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Car-ConnectTests/Pods-Car-ConnectTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -480,6 +580,7 @@
 		};
 		C947393518F2E7DC00060075 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A94CCA44C4BED01D70A799B0 /* Pods-Car-Connect.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -506,6 +607,7 @@
 		};
 		C947393618F2E7DC00060075 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 37EED6569396510B28BBEBAE /* Pods-Car-Connect.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -532,6 +634,7 @@
 		};
 		C947393818F2E7DC00060075 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6AEC6D2F4B372F2910516122 /* Pods-Car-ConnectTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Car-Connect.app/Car-Connect";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -555,6 +658,7 @@
 		};
 		C947393918F2E7DC00060075 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F1AE9566EEBB1DC8F15A1958 /* Pods-Car-ConnectTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Car-Connect.app/Car-Connect";
 				FRAMEWORK_SEARCH_PATHS = (

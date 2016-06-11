@@ -7,18 +7,18 @@
 //
 
 #import "AppDelegate.h"
-#import "GAIDictionaryBuilder.h"
+#import <Google/Analytics.h>
 #import "ParkMeterViewController.h"
 #import <Fabric/Fabric.h>
 #import <Crashlytics/Crashlytics.h>
 
 
-@implementation AppDelegate
-{
+@implementation AppDelegate {
 
     BOOL showngoogleOptINOUT;
     
 }
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     UILocalNotification *localNotification = [launchOptions objectForKey:UIApplicationLaunchOptionsLocalNotificationKey];
@@ -37,12 +37,20 @@
         [[NSUserDefaults standardUserDefaults]synchronize];
     }
     
-    // setting up the google analytics
-    [GAI sharedInstance].trackUncaughtExceptions = YES;
-    [[GAI sharedInstance].logger setLogLevel:kGAILogLevelVerbose];
-    [GAI sharedInstance].dispatchInterval = 20;
     
-    id<GAITracker> tracker = [[GAI sharedInstance] trackerWithTrackingId:@"UA-79192441-1"];
+    // Configure tracker from GoogleService-Info.plist.
+    NSError *configureError;
+    [[GGLContext sharedInstance] configureWithError:&configureError];
+    NSAssert(!configureError, @"Error configuring Google services: %@", configureError);
+    
+    // Optional: configure GAI options.
+    GAI *gai = [GAI sharedInstance];
+    
+#ifndef NDEBUG
+    gai.trackUncaughtExceptions = YES;  // report uncaught exceptions
+    gai.logger.logLevel = kGAILogLevelVerbose;  // remove before app release
+#endif
+    
     
     UITabBarController* tabBarController = (UITabBarController*)self.window.rootViewController;
     tabBarController.delegate = self;
@@ -65,34 +73,6 @@
         // if opt in was pressed then opt in
         [[GAI sharedInstance] setOptOut:NO];
     }
-}
-
-// when a different tab is selected:
--(void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController
-{
-    // get the name of the selected tab's VC
-    selectedTabBar = NSStringFromClass([viewController class]);
-    
-    // set all of the tracking information for the different VC's
-    NSLog(@"********Selected View Controller: %@ ", selectedTabBar);
-    id<GAITracker> tracker = [[GAI sharedInstance]defaultTracker];
-    
-    if ( [selectedTabBar isEqualToString:@"ParkCarViewController"] ) {
-        
-        [tracker set:kGAIScreenName value:@"Set Parking Screen"];
-        [tracker send:[[GAIDictionaryBuilder createAppView]build]];
-        
-    } else if ([selectedTabBar isEqualToString:@"FindCarViewController"]){
-        
-        [tracker set:kGAIScreenName value:@"Find Car Screen"];
-        [tracker send:[[GAIDictionaryBuilder createAppView]build]];
-        
-    } else if ([selectedTabBar isEqualToString:@"ParkMeterViewController"]) {
-
-        
-    }
-
-    
 }
 
 

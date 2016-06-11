@@ -7,7 +7,7 @@
 //
 
 #import "ParkMeterViewController.h"
-#import "GAIDictionaryBuilder.h"
+#import <Google/Analytics.h>
 
 @interface ParkMeterViewController ()
 
@@ -62,7 +62,13 @@
     
 }
 
--(void)viewWillAppear:(BOOL)animated{
+
+-(void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    id<GAITracker> tracker = [[GAI sharedInstance]defaultTracker];
+    [tracker set:kGAIScreenName value:self.screenName];
+    [tracker send:[[GAIDictionaryBuilder createScreenView]build]];
     
     NSDate* timeStampForNow = [NSDate date];
     NSTimeInterval timeSince1970 = [timeStampForNow timeIntervalSince1970];

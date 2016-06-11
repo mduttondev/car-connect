@@ -7,7 +7,7 @@
 //
 
 #import "FindCarViewController.h"
-#import "GAIDictionaryBuilder.h"
+#import <Google/Analytics.h>
 
 @interface FindCarViewController ()
 
@@ -48,8 +48,17 @@
     exitDirectionsBtn.backgroundColor = [UIColor colorWithRed:1 green:1 blue:1 alpha:0.2f];
     exitDirectionsBtn.layer.borderColor = [UIColor colorWithRed:255 green:0 blue:0 alpha:1.0].CGColor;
     
-
 }
+
+
+-(void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    id<GAITracker> tracker = [[GAI sharedInstance]defaultTracker];
+    [tracker set:kGAIScreenName value:self.screenName];
+    [tracker send:[[GAIDictionaryBuilder createScreenView]build]];
+}
+
 
 -(void)viewDidAppear:(BOOL)animated{
     // animate activity indicator for 4 seconds as shown in the method

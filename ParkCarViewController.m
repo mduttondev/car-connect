@@ -7,7 +7,7 @@
 //
 
 #import "ParkCarViewController.h"
-#import "GAIDictionaryBuilder.h"
+#import <Google/Analytics.h>
 
 
 
@@ -30,9 +30,6 @@
     
     // analytics information
     self.screenName = @"Set Parking Screen";
-    id<GAITracker> tracker = [[GAI sharedInstance]defaultTracker];
-    [tracker set:kGAIScreenName value:@"Set Parking Screen"];
-    [tracker send:[[GAIDictionaryBuilder createAppView]build]];
     
     
     if ([CLLocationManager locationServicesEnabled]) {
@@ -47,6 +44,14 @@
     
     [self setupViewController];
     
+}
+
+-(void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    id<GAITracker> tracker = [[GAI sharedInstance]defaultTracker];
+    [tracker set:kGAIScreenName value:self.screenName];
+    [tracker send:[[GAIDictionaryBuilder createScreenView]build]];
 }
 
 
