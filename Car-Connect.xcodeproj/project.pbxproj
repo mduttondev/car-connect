@@ -11,9 +11,6 @@
 		C90202F418FC1F390032A053 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C90202F318FC1F390032A053 /* CoreData.framework */; };
 		C90202F618FC1F4E0032A053 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C90202F518FC1F4E0032A053 /* SystemConfiguration.framework */; };
 		C90202F818FC1F5D0032A053 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C90202F718FC1F5D0032A053 /* libz.dylib */; };
-		C90203E518FE2A830032A053 /* parking-meter.png in Resources */ = {isa = PBXBuildFile; fileRef = C90203E418FE2A830032A053 /* parking-meter.png */; };
-		C90203F118FE34BD0032A053 /* parking.png in Resources */ = {isa = PBXBuildFile; fileRef = C90203F018FE34BD0032A053 /* parking.png */; };
-		C90203F518FE35E80032A053 /* location_pin.png in Resources */ = {isa = PBXBuildFile; fileRef = C90203F418FE35E80032A053 /* location_pin.png */; };
 		C947390318F2E7DB00060075 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C947390218F2E7DB00060075 /* Foundation.framework */; };
 		C947390518F2E7DB00060075 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C947390418F2E7DB00060075 /* CoreGraphics.framework */; };
 		C947390718F2E7DB00060075 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C947390618F2E7DB00060075 /* UIKit.framework */; };
@@ -31,6 +28,8 @@
 		C947393F18F2E8E200060075 /* FindCarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C947393E18F2E8E200060075 /* FindCarViewController.m */; };
 		C947394518F2E90900060075 /* ParkMeterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C947394418F2E90900060075 /* ParkMeterViewController.m */; };
 		C989E2B018F581E300D860CD /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C989E2AF18F581E300D860CD /* MapKit.framework */; };
+		C9D50F961D0CAEE5004EACB8 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9D50F941D0CAEE5004EACB8 /* Fabric.framework */; };
+		C9D50F971D0CAEE5004EACB8 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9D50F951D0CAEE5004EACB8 /* Crashlytics.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,9 +53,6 @@
 		C90202F318FC1F390032A053 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		C90202F518FC1F4E0032A053 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		C90202F718FC1F5D0032A053 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
-		C90203E418FE2A830032A053 /* parking-meter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "parking-meter.png"; sourceTree = "<group>"; };
-		C90203F018FE34BD0032A053 /* parking.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = parking.png; sourceTree = "<group>"; };
-		C90203F418FE35E80032A053 /* location_pin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = location_pin.png; sourceTree = "<group>"; };
 		C94738FF18F2E7DB00060075 /* Car-Connect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Car-Connect.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C947390218F2E7DB00060075 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		C947390418F2E7DB00060075 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -82,6 +78,8 @@
 		C947394418F2E90900060075 /* ParkMeterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ParkMeterViewController.m; path = ../ParkMeterViewController.m; sourceTree = "<group>"; };
 		C95DE3B918FEF690003FD5D5 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		C989E2AF18F581E300D860CD /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		C9D50F941D0CAEE5004EACB8 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
+		C9D50F951D0CAEE5004EACB8 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +92,8 @@
 				C90202F418FC1F390032A053 /* CoreData.framework in Frameworks */,
 				C989E2B018F581E300D860CD /* MapKit.framework in Frameworks */,
 				C947390518F2E7DB00060075 /* CoreGraphics.framework in Frameworks */,
+				C9D50F961D0CAEE5004EACB8 /* Fabric.framework in Frameworks */,
+				C9D50F971D0CAEE5004EACB8 /* Crashlytics.framework in Frameworks */,
 				C947390718F2E7DB00060075 /* UIKit.framework in Frameworks */,
 				C90202F218FC1F060032A053 /* libGoogleAnalyticsServices.a in Frameworks */,
 				C947390318F2E7DB00060075 /* Foundation.framework in Frameworks */,
@@ -150,6 +150,8 @@
 			children = (
 				C95DE3B918FEF690003FD5D5 /* AudioToolbox.framework */,
 				C90202F718FC1F5D0032A053 /* libz.dylib */,
+				C9D50F941D0CAEE5004EACB8 /* Fabric.framework */,
+				C9D50F951D0CAEE5004EACB8 /* Crashlytics.framework */,
 				C90202F518FC1F4E0032A053 /* SystemConfiguration.framework */,
 				C90202F318FC1F390032A053 /* CoreData.framework */,
 				C90202F118FC1F060032A053 /* libGoogleAnalyticsServices.a */,
@@ -212,7 +214,6 @@
 			children = (
 				C947393A18F2E8D000060075 /* ParkCarViewController.h */,
 				C947393B18F2E8D000060075 /* ParkCarViewController.m */,
-				C90203F018FE34BD0032A053 /* parking.png */,
 			);
 			name = ParkCar;
 			sourceTree = "<group>";
@@ -222,7 +223,6 @@
 			children = (
 				C947393D18F2E8E200060075 /* FindCarViewController.h */,
 				C947393E18F2E8E200060075 /* FindCarViewController.m */,
-				C90203F418FE35E80032A053 /* location_pin.png */,
 			);
 			name = FindCar;
 			sourceTree = "<group>";
@@ -232,7 +232,6 @@
 			children = (
 				C947394318F2E90900060075 /* ParkMeterViewController.h */,
 				C947394418F2E90900060075 /* ParkMeterViewController.m */,
-				C90203E418FE2A830032A053 /* parking-meter.png */,
 			);
 			name = ParkMeter;
 			sourceTree = "<group>";
@@ -247,6 +246,7 @@
 				C94738FB18F2E7DB00060075 /* Sources */,
 				C94738FC18F2E7DB00060075 /* Frameworks */,
 				C94738FD18F2E7DB00060075 /* Resources */,
+				C9D50F931D0CAE5F004EACB8 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -281,9 +281,12 @@
 		C94738F718F2E7DB00060075 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0510;
+				LastUpgradeCheck = 0730;
 				ORGANIZATIONNAME = "Matthew Dutton";
 				TargetAttributes = {
+					C94738FE18F2E7DB00060075 = {
+						DevelopmentTeam = NN495VBEDV;
+					};
 					C947392218F2E7DB00060075 = {
 						TestTargetID = C94738FE18F2E7DB00060075;
 					};
@@ -313,11 +316,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C90203F518FE35E80032A053 /* location_pin.png in Resources */,
 				C947391E18F2E7DB00060075 /* Images.xcassets in Resources */,
 				C947390D18F2E7DB00060075 /* InfoPlist.strings in Resources */,
-				C90203E518FE2A830032A053 /* parking-meter.png in Resources */,
-				C90203F118FE34BD0032A053 /* parking.png in Resources */,
 				C947391618F2E7DB00060075 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -331,6 +331,22 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		C9D50F931D0CAE5F004EACB8 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "./Fabric.framework/run 59f486796c08f97effc9178d1210ee7b7d2862fb d6bc0507f09198ef303827cffa9cf7acce8f24451bd3e338406e554d284f58e8\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		C94738FB18F2E7DB00060075 /* Sources */ = {
@@ -409,6 +425,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -466,14 +483,21 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Car-Connect/Car-Connect-Prefix.pch";
 				INFOPLIST_FILE = "Car-Connect/Car-Connect-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mkdutton.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
@@ -485,14 +509,21 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Car-Connect/Car-Connect-Prefix.pch";
 				INFOPLIST_FILE = "Car-Connect/Car-Connect-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mkdutton.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
@@ -515,6 +546,7 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "Car-ConnectTests/Car-ConnectTests-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mkdutton.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
@@ -533,6 +565,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Car-Connect/Car-Connect-Prefix.pch";
 				INFOPLIST_FILE = "Car-ConnectTests/Car-ConnectTests-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mkdutton.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;

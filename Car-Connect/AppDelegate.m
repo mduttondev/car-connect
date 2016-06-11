@@ -9,6 +9,9 @@
 #import "AppDelegate.h"
 #import "GAIDictionaryBuilder.h"
 #import "ParkMeterViewController.h"
+#import <Fabric/Fabric.h>
+#import <Crashlytics/Crashlytics.h>
+
 
 @implementation AppDelegate
 {
@@ -39,10 +42,14 @@
     [[GAI sharedInstance].logger setLogLevel:kGAILogLevelVerbose];
     [GAI sharedInstance].dispatchInterval = 20;
     
-    id<GAITracker> tracker = [[GAI sharedInstance] trackerWithTrackingId:@"UA-50002356-1"];
+    id<GAITracker> tracker = [[GAI sharedInstance] trackerWithTrackingId:@"UA-79192441-1"];
     
     UITabBarController* tabBarController = (UITabBarController*)self.window.rootViewController;
     tabBarController.delegate = self;
+    
+    
+    
+    [Fabric with:@[[Crashlytics class]]];
 
     return YES;
 }

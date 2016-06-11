@@ -163,7 +163,7 @@
         id<GAITracker> tracker = [[GAI sharedInstance]defaultTracker];
         [tracker send:[[GAIDictionaryBuilder createEventWithCategory:@"User_Interface_Parking_Page" action:@"Button Press" label:@"Get Directions Pressed" value:nil]build]];
         
-        if ( ![parkingPoint count] == 0) {
+        if ( !([parkingPoint count] == 0)) {
             // get  the coordinates to where you want to end up as the pins location
             MKPointAnnotation* destinationCoordinates = [parkingPoint objectAtIndex:0];
             
