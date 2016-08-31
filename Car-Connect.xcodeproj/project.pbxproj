@@ -11,6 +11,8 @@
 		C90202F418FC1F390032A053 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C90202F318FC1F390032A053 /* CoreData.framework */; };
 		C90202F618FC1F4E0032A053 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C90202F518FC1F4E0032A053 /* SystemConfiguration.framework */; };
 		C90202F818FC1F5D0032A053 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C90202F718FC1F5D0032A053 /* libz.dylib */; };
+		C92596761D777F4E00CAEF8F /* Car_ConnectUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92596751D777F4E00CAEF8F /* Car_ConnectUITests.swift */; };
+		C92596821D77805900CAEF8F /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92596801D77805900CAEF8F /* SnapshotHelper.swift */; };
 		C947390318F2E7DB00060075 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C947390218F2E7DB00060075 /* Foundation.framework */; };
 		C947390518F2E7DB00060075 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C947390418F2E7DB00060075 /* CoreGraphics.framework */; };
 		C947390718F2E7DB00060075 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C947390618F2E7DB00060075 /* UIKit.framework */; };
@@ -35,6 +37,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		C92596781D777F4E00CAEF8F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C94738F718F2E7DB00060075 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C94738FE18F2E7DB00060075;
+			remoteInfo = "Car-Connect";
+		};
 		C947392818F2E7DC00060075 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = C94738F718F2E7DB00060075 /* Project object */;
@@ -51,6 +60,11 @@
 		C90202F318FC1F390032A053 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		C90202F518FC1F4E0032A053 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		C90202F718FC1F5D0032A053 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		C92596731D777F4D00CAEF8F /* Car-ConnectUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Car-ConnectUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C92596751D777F4E00CAEF8F /* Car_ConnectUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Car_ConnectUITests.swift; sourceTree = "<group>"; };
+		C92596771D777F4E00CAEF8F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C925967F1D77805800CAEF8F /* Car-Connect-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Car-Connect-Bridging-Header.h"; sourceTree = "<group>"; };
+		C92596801D77805900CAEF8F /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapshotHelper.swift; sourceTree = "<group>"; };
 		C94738FF18F2E7DB00060075 /* Car-Connect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Car-Connect.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C947390218F2E7DB00060075 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		C947390418F2E7DB00060075 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -85,6 +99,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		C92596701D777F4D00CAEF8F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C94738FC18F2E7DB00060075 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -126,11 +147,21 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		C92596741D777F4E00CAEF8F /* Car-ConnectUITests */ = {
+			isa = PBXGroup;
+			children = (
+				C92596751D777F4E00CAEF8F /* Car_ConnectUITests.swift */,
+				C92596771D777F4E00CAEF8F /* Info.plist */,
+			);
+			path = "Car-ConnectUITests";
+			sourceTree = "<group>";
+		};
 		C94738F618F2E7DB00060075 = {
 			isa = PBXGroup;
 			children = (
 				C947390818F2E7DB00060075 /* Car-Connect */,
 				C947392A18F2E7DC00060075 /* Car-ConnectTests */,
+				C92596741D777F4E00CAEF8F /* Car-ConnectUITests */,
 				C947390118F2E7DB00060075 /* Frameworks */,
 				C947390018F2E7DB00060075 /* Products */,
 				B23A5C3D22EB87349596741B /* Pods */,
@@ -142,6 +173,7 @@
 			children = (
 				C94738FF18F2E7DB00060075 /* Car-Connect.app */,
 				C947392318F2E7DB00060075 /* Car-ConnectTests.xctest */,
+				C92596731D777F4D00CAEF8F /* Car-ConnectUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -185,6 +217,8 @@
 		C947390918F2E7DB00060075 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				C92596801D77805900CAEF8F /* SnapshotHelper.swift */,
+				C925967F1D77805800CAEF8F /* Car-Connect-Bridging-Header.h */,
 				C947390A18F2E7DB00060075 /* Car-Connect-Info.plist */,
 				C947390B18F2E7DB00060075 /* InfoPlist.strings */,
 				C947390E18F2E7DB00060075 /* main.m */,
@@ -241,6 +275,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		C92596721D777F4D00CAEF8F /* Car-ConnectUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C925967A1D777F4E00CAEF8F /* Build configuration list for PBXNativeTarget "Car-ConnectUITests" */;
+			buildPhases = (
+				C925966F1D777F4D00CAEF8F /* Sources */,
+				C92596701D777F4D00CAEF8F /* Frameworks */,
+				C92596711D777F4D00CAEF8F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C92596791D777F4E00CAEF8F /* PBXTargetDependency */,
+			);
+			name = "Car-ConnectUITests";
+			productName = "Car-ConnectUITests";
+			productReference = C92596731D777F4D00CAEF8F /* Car-ConnectUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 		C94738FE18F2E7DB00060075 /* Car-Connect */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = C947393418F2E7DC00060075 /* Build configuration list for PBXNativeTarget "Car-Connect" */;
@@ -289,9 +341,14 @@
 		C94738F718F2E7DB00060075 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0730;
 				LastUpgradeCheck = 0730;
 				ORGANIZATIONNAME = "Matthew Dutton";
 				TargetAttributes = {
+					C92596721D777F4D00CAEF8F = {
+						CreatedOnToolsVersion = 7.3.1;
+						TestTargetID = C94738FE18F2E7DB00060075;
+					};
 					C94738FE18F2E7DB00060075 = {
 						DevelopmentTeam = NN495VBEDV;
 					};
@@ -315,11 +372,19 @@
 			targets = (
 				C94738FE18F2E7DB00060075 /* Car-Connect */,
 				C947392218F2E7DB00060075 /* Car-ConnectTests */,
+				C92596721D777F4D00CAEF8F /* Car-ConnectUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		C92596711D777F4D00CAEF8F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C94738FD18F2E7DB00060075 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -449,6 +514,15 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		C925966F1D777F4D00CAEF8F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C92596761D777F4E00CAEF8F /* Car_ConnectUITests.swift in Sources */,
+				C92596821D77805900CAEF8F /* SnapshotHelper.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C94738FB18F2E7DB00060075 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -472,6 +546,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		C92596791D777F4E00CAEF8F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C94738FE18F2E7DB00060075 /* Car-Connect */;
+			targetProxy = C92596781D777F4E00CAEF8F /* PBXContainerItemProxy */;
+		};
 		C947392918F2E7DC00060075 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = C94738FE18F2E7DB00060075 /* Car-Connect */;
@@ -507,6 +586,50 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		C925967B1D777F4E00CAEF8F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CURRENT_PROJECT_VERSION = 1.2;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "Car-ConnectUITests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mkdutton.Car-ConnectUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TEST_TARGET_NAME = "Car-Connect";
+				VERSIONING_SYSTEM = "apple-generic";
+			};
+			name = Debug;
+		};
+		C925967C1D777F4E00CAEF8F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1.2;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "Car-ConnectUITests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mkdutton.Car-ConnectUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = "Car-Connect";
+				VERSIONING_SYSTEM = "apple-generic";
+			};
+			name = Release;
+		};
 		C947393218F2E7DC00060075 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -584,7 +707,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Matthew Dutton (VW392TQ86L)";
+				CURRENT_PROJECT_VERSION = 1.2;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -594,13 +719,17 @@
 				GCC_PREFIX_HEADER = "Car-Connect/Car-Connect-Prefix.pch";
 				INFOPLIST_FILE = "Car-Connect/Car-Connect-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.mkdutton.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Car-Connect/Car-Connect-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = 1;
+				VERSIONING_SYSTEM = "apple-generic";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -611,7 +740,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Matthew Dutton (NN495VBEDV)";
+				CURRENT_PROJECT_VERSION = 1.2;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -621,13 +752,16 @@
 				GCC_PREFIX_HEADER = "Car-Connect/Car-Connect-Prefix.pch";
 				INFOPLIST_FILE = "Car-Connect/Car-Connect-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.mkdutton.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Car-Connect/Car-Connect-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = 1;
+				VERSIONING_SYSTEM = "apple-generic";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -637,6 +771,7 @@
 			baseConfigurationReference = 6AEC6D2F4B372F2910516122 /* Pods-Car-ConnectTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Car-Connect.app/Car-Connect";
+				CURRENT_PROJECT_VERSION = 1.2;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -652,6 +787,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.mkdutton.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
+				VERSIONING_SYSTEM = "apple-generic";
 				WRAPPER_EXTENSION = xctest;
 			};
 			name = Debug;
@@ -661,6 +797,7 @@
 			baseConfigurationReference = F1AE9566EEBB1DC8F15A1958 /* Pods-Car-ConnectTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Car-Connect.app/Car-Connect";
+				CURRENT_PROJECT_VERSION = 1.2;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -672,6 +809,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.mkdutton.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
+				VERSIONING_SYSTEM = "apple-generic";
 				WRAPPER_EXTENSION = xctest;
 			};
 			name = Release;
@@ -679,6 +817,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		C925967A1D777F4E00CAEF8F /* Build configuration list for PBXNativeTarget "Car-ConnectUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C925967B1D777F4E00CAEF8F /* Debug */,
+				C925967C1D777F4E00CAEF8F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		C94738FA18F2E7DB00060075 /* Build configuration list for PBXProject "Car-Connect" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
