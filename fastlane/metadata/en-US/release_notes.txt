@@ -1,0 +1,3 @@
+- Minor bug fixes
+
+Version 2.0 written in swift coming soon!
