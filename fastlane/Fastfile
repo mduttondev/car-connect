@@ -41,10 +41,10 @@ platform :ios do
   desc "Deploy a new version to the App Store"
   lane :release do
     cocoapods
-    increment_version_number
     match(type: "appstore")
-    snapshot
-    gym # Build your app - more options available
+    sigh
+    # snapshot
+    gym
     deliver(force: true)
     # frameit
   end
