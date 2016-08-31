@@ -1,0 +1,11 @@
+**** This app is intended for iPhone 5 and later. This application will not function correctly on a screen less than 4 inches. ****
+
+**** This application requires Location Services to be enabled for full functionality. Please go to Settings > General > Location Services, and ensure the application is enabled. ****
+
+We have all done it, walked out of a busy mall or left a crowded sporting event and completely forgotten where the car was parked. The answer to this problem from this point forward is: Car-Connect.
+
+Simply park your vehicle where is convenient and tap the “Park Here” Button inside the application. A bright red marker will be placed at your current location and you are free to continue your activities with the peace of mind that you can easily locate your vehicle whenever needed.
+
+When its time to leave, simply navigate to the “Find Car” screen and either walk I the direction of your location marker or you can easily get walking directions by pressing the “Get Directions” button. After you reach your vehicle, simply clear the directions and location pin from the application and its ready to begin again.
+
+Should you park at a parking meter, there is a convenient timer included in the “Parking Meter” screen that lets you set a timer for when the meter will expire as well as a reminder notification that will be displayed on your device at a time of your choosing.
