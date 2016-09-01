@@ -23,6 +23,11 @@ This will also make sure the profile is up to date
 fastlane ios release
 ```
 Deploy a new version to the App Store
+### ios run_gym_with_scheme
+```
+fastlane ios run_gym_with_scheme
+```
+
 
 ----
 

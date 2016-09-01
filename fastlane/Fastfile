@@ -44,12 +44,15 @@ platform :ios do
     match(type: "appstore")
     sigh
     # snapshot
-    gym --scheme “Car-Connect”
+    run_gym_with_scheme
     deliver(force: true)
     # frameit
   end
 
-  # You can define as many lanes as you want
+  lane :run_gym_with_scheme do
+    gym(scheme:"Car-Connect")
+  end
+
 
   after_all do |lane|
     # This block is called, only if the executed lane was successful
