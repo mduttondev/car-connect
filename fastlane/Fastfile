@@ -44,7 +44,7 @@ platform :ios do
     match(type: "appstore")
     sigh
     # snapshot
-    gym
+    gym --scheme “Car-Connect”
     deliver(force: true)
     # frameit
   end
