@@ -8,7 +8,7 @@
 
 #import "ParkCarViewController.h"
 #import <Google/Analytics.h>
-
+#import "ParkingPointManager.h"
 
 
 @interface ParkCarViewController ()
@@ -18,13 +18,14 @@
 @end
 
 @implementation ParkCarViewController
-@synthesize parkView, mapTypeSelector, parkHereButton, parkedCar, activityWheel;
+@synthesize parkView, mapTypeSelector, parkHereButton, parkedCar, activityWheel, parkingPoint;
 
 
 #pragma mark Built-in Code
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
+    
+    parkingPoint = ((ParkingPointManager*)[ParkingPointManager sharedManager]).parkingPoint;
     
     self.locationManager = [CLLocationManager new];
     

@@ -10,13 +10,12 @@
 #import <MapKit/MapKit.h>
 #import "GAITrackedViewController.h"
 
-NSMutableArray* parkingPoint;
-
-@interface ParkCarViewController : GAITrackedViewController <MKMapViewDelegate, UIAlertViewDelegate>
-{
+@interface ParkCarViewController : GAITrackedViewController <MKMapViewDelegate, UIAlertViewDelegate> {
     int numberOfPins;
     BOOL isPinDropped;
 }
+
+@property (nonatomic, strong) NSMutableArray* parkingPoint;
 
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityWheel;
 

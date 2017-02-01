@@ -10,13 +10,17 @@
 #import <MapKit/MapKit.h>
 #import "ParkCarViewController.h"
 #import "GAITrackedViewController.h"
+#import "ParkingPointManager.h"
 
-@interface FindCarViewController : GAITrackedViewController <MKMapViewDelegate, UIAlertViewDelegate>
-{
+@interface FindCarViewController : GAITrackedViewController <MKMapViewDelegate, UIAlertViewDelegate> {
+    
     ParkCarViewController* parkingVC;
     MKPointAnnotation* whereCarIs;
     BOOL pinPresent;
 }
+
+@property (nonatomic, strong) NSMutableArray* parkingPoint;
+
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *animationWheel;
 @property (weak, nonatomic) IBOutlet MKMapView *walkingMap;
 @property IBOutlet UIButton* getDirectionsBtn;

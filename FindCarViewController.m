@@ -14,12 +14,13 @@
 @end
 
 @implementation FindCarViewController
-@synthesize walkingMap, getDirectionsBtn, exitDirectionsBtn, mapSelector, animationWheel;
+@synthesize walkingMap, getDirectionsBtn, exitDirectionsBtn, mapSelector, animationWheel, parkingPoint;
 
 #pragma mark Built-in Code
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
+    
+    parkingPoint = ((ParkingPointManager*)[ParkingPointManager sharedManager]).parkingPoint;
     
     // set the screen name for the analytics
     self.screenName = @"Find Car Screen";
@@ -145,7 +146,7 @@
         [walkingMap removeOverlays:walkingMap.overlays];
         
         // add the saved car location pin back in
-        [walkingMap addAnnotations:parkingPoint];
+        [walkingMap addAnnotations: parkingPoint];
         
         // re set the title to clear pin
         [exitDirectionsBtn setTitle:@"Clear Pin" forState:UIControlStateNormal];

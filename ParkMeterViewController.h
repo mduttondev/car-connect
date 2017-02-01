@@ -8,32 +8,27 @@
 
 #import <UIKit/UIKit.h>
 #import "GAITrackedViewController.h"
+#import "ParkingPointManager.h"
 
-@interface ParkMeterViewController : GAITrackedViewController <UIAlertViewDelegate>
-
-{
-    BOOL meterPickerIsDisplayed;
-    BOOL reminderPickerIsDisplayed;
+@interface ParkMeterViewController : GAITrackedViewController <UIAlertViewDelegate> {
+    
+    BOOL timePickerIsOpen;
     int totalSeconds;
     int meterTotalSeconds;
     
-    int downLblY;
-    int upLblY;
-    int downPickerY;
-    int upPickerY;
     
 }
 
 
+@property (nonatomic, strong) NSMutableArray* parkingPoint;
 
-@property (weak, nonatomic) IBOutlet UIDatePicker *reminderTimePicker;
-@property (weak, nonatomic) IBOutlet UIDatePicker *meterExpiresPicker;
+@property (weak, nonatomic) IBOutlet UIDatePicker *timePicker;
+
 @property (weak, nonatomic) IBOutlet UIButton *meterExpiresButton;
 @property (weak, nonatomic) IBOutlet UIButton *reminderTimeButton;
 @property (weak, nonatomic) IBOutlet UIButton *saveButton;
-@property (weak, nonatomic) IBOutlet UILabel *closeReminderLabel;
-@property (weak, nonatomic) IBOutlet UILabel *closeMeterLabel;
 
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *pickerBottomConstraint;
 
 @property UIApplication* app;
 @property UILocalNotification* notifyAlarm;
@@ -42,10 +37,6 @@
 
 - (IBAction)meterExpiresBtnPressed:(UIButton *)sender;
 - (IBAction)reminderTimePressed:(UIButton *)sender;
-
-- (IBAction)timePicker:(UIDatePicker *)sender;
-
-- (IBAction)reminderTimePicker:(UIDatePicker *)sender;
-
+- (IBAction)pickerValueChanged:(UIDatePicker *)sender;
 
 @end
