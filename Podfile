@@ -9,9 +9,4 @@ target 'Car-Connect' do
 
 pod 'Google/Analytics'
 
-  target 'Car-ConnectTests' do
-    inherit! :search_paths
-    # Pods for testing
-  end
-
 end
