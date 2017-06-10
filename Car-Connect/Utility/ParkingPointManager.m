@@ -25,7 +25,7 @@
     return _sharedManager;
 }
 
-- (id)init {
+- (id) init {
     if (self = [super init]) {
         self.parkingPoint = [NSMutableArray new];
     }

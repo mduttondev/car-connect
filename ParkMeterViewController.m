@@ -8,6 +8,7 @@
 
 #import "ParkMeterViewController.h"
 #import <Google/Analytics.h>
+#import "CCAlertController.h"
 
 @interface ParkMeterViewController ()
 
@@ -148,13 +149,17 @@
         [_app scheduleLocalNotification:_notifyAlarm];
         NSLog(@"Reminder Set");
         
-        UIAlertView* alertSet = [[UIAlertView alloc] initWithTitle: @"Saved:" message:@"Notification Center reminder has been added" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles: nil];
-        [alertSet show];
+        [CCAlertController showOkAlertWithTitle: @"Saved:"
+                                     andMessage:@"Notification Center reminder has been added"
+                               onViewController:self
+                                  withTapAction:nil];
         
     } else {
         
-        UIAlertView* noReminderSet = [[UIAlertView alloc] initWithTitle: @"Error:" message:@"You Must Set A Reminder Time Before Pressing Save" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles: nil];
-        [noReminderSet show];
+        [CCAlertController showOkAlertWithTitle: @"Error:"
+                                     andMessage:@"You Must Set A Reminder Time Before Pressing Save"
+                               onViewController:self
+                                  withTapAction:nil];
         
     }
     

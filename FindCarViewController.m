@@ -8,6 +8,7 @@
 
 #import "FindCarViewController.h"
 #import <Google/Analytics.h>
+#import "CCAlertController.h"
 
 @interface FindCarViewController ()
 
@@ -20,7 +21,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    parkingPoint = ((ParkingPointManager*)[ParkingPointManager sharedManager]).parkingPoint;
+    parkingPoint = [ParkingPointManager sharedManager].parkingPoint;
     
     // set the screen name for the analytics
     self.screenName = @"Find Car Screen";
@@ -38,7 +39,7 @@
     MKCoordinateSpan span =  MKCoordinateSpanMake(.005f, .005f);
     MKCoordinateRegion region = MKCoordinateRegionMake(userLocation.location.coordinate, span);
     [walkingMap setRegion:region animated:NO];
-
+    
     // button color and border set
     getDirectionsBtn.layer.cornerRadius = 8;
     getDirectionsBtn.layer.borderWidth = 1;
@@ -93,16 +94,8 @@
     }
     
 }
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-
 
 #pragma mark Start/Stop Animation
-
 -(void)startAnimation {
     // animate the activity indicator for 4 seconds when the view comes on so that user doesnt interact immediately with it
     [animationWheel startAnimating];
@@ -134,14 +127,14 @@
         walkingMap.mapType = MKMapTypeHybrid;
         
     }
-
+    
 }
 
 - (IBAction)exitNavigationPressed:(UIButton *)sender {
     
     // when the exit button is pressed if its title is clear direction which would have been set if the get directions button was pressed
     if ( [exitDirectionsBtn.titleLabel.text isEqualToString:@"Clear Directions"]) {
-       
+        
         //clear the over lays from the map
         [walkingMap removeOverlays:walkingMap.overlays];
         
@@ -155,14 +148,19 @@
     } else {
         // if the title isnt clear directions and the pin is present
         if (pinPresent == YES) {
-
-        // prompt to ensure you want the pin cleared
-        UIAlertView* clearPinConfirm = [[UIAlertView alloc]initWithTitle:@"Are You Sure?" message:@"Are you sure that you would like to clear your saved loacation?" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Ok", nil];
-        [clearPinConfirm show];
-        // see the alertview clickedButtonAtIndex for the click handling. on the alert
+            
+            [CCAlertController showOkCancelAlertWithTitle: @"Are You Sure?"
+                                               andMessage: @"Are you sure that you would like to clear your saved loacation?"
+                                         onViewController: self
+                                              okTapAction:^(UIAlertAction * okTapAction) {
+                                                  [self clearMapPins];
+                                              }
+                                          cancelTapAction:nil];
+            
+            
         }
     }
-
+    
 }
 - (IBAction)getDirectionsPressed:(UIButton *)sender {
     
@@ -203,7 +201,7 @@
                 if (!error) {
                     for (MKRoute *route in [response routes]) {
                         [walkingMap addOverlay:[route polyline] level:MKOverlayLevelAboveRoads]; // Draws the route above roads, but below labels.
-                       
+                        
                     }
                 }
             }];
@@ -212,13 +210,15 @@
             [exitDirectionsBtn setTitle:@"Clear Directions" forState:UIControlStateNormal];
             
             exitDirectionsBtn.backgroundColor = [UIColor colorWithRed:1 green:0 blue:0 alpha:0.2f];
-    
+            
         }
-    
-    }else {
+        
+    } else {
         // if there are no pins then alert user then need pins
-        UIAlertView* noPinsPresent = [[UIAlertView alloc]initWithTitle:@"Oops:" message:@"No pins have been placed. \nPlease place a pin to utilize the \n\"Get Directions\" feature" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles: nil];
-        [noPinsPresent show];
+        [CCAlertController showOkAlertWithTitle: @"Oops:"
+                                     andMessage: @"No pins have been placed. \nPlease place a pin to utilize the \n\"Get Directions\" feature"
+                               onViewController: self
+                                  withTapAction: nil];
         
     }
     
@@ -226,43 +226,37 @@
 
 
 #pragma mark AlertView- Click Handler
--(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+- (void)clearMapPins {
     
     // if "OK" was clicked clear the pins
-    if (buttonIndex == 1) {
+    id<GAITracker> tracker = [[GAI sharedInstance]defaultTracker];
+    [tracker send:[[GAIDictionaryBuilder createEventWithCategory:@"User_Interface_Parking_Page" action:@"Button Press" label:@"Directions Cancelled" value:nil]build]];
     
-        id<GAITracker> tracker = [[GAI sharedInstance]defaultTracker];
-        [tracker send:[[GAIDictionaryBuilder createEventWithCategory:@"User_Interface_Parking_Page" action:@"Button Press" label:@"Directions Cancelled" value:nil]build]];
-        
-        // clear the array of the pin information
-        [parkingPoint removeAllObjects];
-        
-        // get userlocation and put into an array
-        id userLocation = [walkingMap userLocation];
-        
-        // put everything in the map into an array
-        NSMutableArray *pins = [[NSMutableArray alloc] initWithArray:[walkingMap annotations]];
-        
-        // remove the user location object from that array
-        if ( userLocation != nil ) {
-            [pins removeObject:userLocation]; // avoid removing user location off the map
-        }
-        
-        // remove everything else from the map except userlocation
-        [walkingMap removeAnnotations:pins];
-        pins = nil;
-        
-        // reset var for is pinPresent
-        pinPresent = NO;
+    // clear the array of the pin information
+    [parkingPoint removeAllObjects];
+    
+    // get userlocation and put into an array
+    id userLocation = [walkingMap userLocation];
+    
+    // put everything in the map into an array
+    NSMutableArray *pins = [[NSMutableArray alloc] initWithArray:[walkingMap annotations]];
+    
+    // remove the user location object from that array
+    if ( userLocation != nil ) {
+        [pins removeObject:userLocation]; // avoid removing user location off the map
     }
+    
+    // remove everything else from the map except userlocation
+    [walkingMap removeAnnotations:pins];
+    pins = nil;
+    
+    // reset var for is pinPresent
+    pinPresent = NO;
+    
 }
 
-
-
-
-
 #pragma mark Map-Methods
--(void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation {
+- (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation {
     
     // when the user location updates if they said ok the the user location functionality then show the updated location
     if (mapView.showsUserLocation == YES) {
@@ -279,8 +273,7 @@
     }
 }
 
-- (MKOverlayRenderer *)mapView:(MKMapView *)mapView rendererForOverlay:(id<MKOverlay>)overlay
-{
+- (MKOverlayRenderer *)mapView:(MKMapView *)mapView rendererForOverlay:(id<MKOverlay>)overlay {
     // renders a polyline for the map directions as a blue line to follow.
     if ([overlay isKindOfClass:[MKPolyline class]]) {
         MKPolylineRenderer *renderer = [[MKPolylineRenderer alloc] initWithOverlay:overlay];

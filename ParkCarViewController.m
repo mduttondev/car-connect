@@ -9,23 +9,26 @@
 #import "ParkCarViewController.h"
 #import <Google/Analytics.h>
 #import "ParkingPointManager.h"
+#import "CCAlertController.h"
 
 
 @interface ParkCarViewController ()
+
+@property BOOL showngoogleOptINOUT;
 
 @property (nonatomic, strong) CLLocationManager * locationManager;
 
 @end
 
 @implementation ParkCarViewController
-@synthesize parkView, mapTypeSelector, parkHereButton, parkedCar, activityWheel, parkingPoint;
+@synthesize parkView, mapTypeSelector, parkHereButton, parkedCar, activityWheel, parkingPoint, showngoogleOptINOUT;
 
 
-#pragma mark Built-in Code
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    parkingPoint = ((ParkingPointManager*)[ParkingPointManager sharedManager]).parkingPoint;
+    parkingPoint = [ParkingPointManager sharedManager].parkingPoint;
     
     self.locationManager = [CLLocationManager new];
     
@@ -37,13 +40,17 @@
         
         if ([CLLocationManager authorizationStatus] == kCLAuthorizationStatusNotDetermined) {
             [self.locationManager requestWhenInUseAuthorization];
+        } else if ([CLLocationManager authorizationStatus] == kCLAuthorizationStatusDenied) {
+            //TODO: Prompt to let user know that Location services is off and direct them to settings with deeplink
+        } else {
+            [self.locationManager startUpdatingLocation];
         }
-        
-        [self.locationManager startUpdatingLocation];
         
     }
     
     [self setupViewController];
+    
+    [self presentAnalyticsOptIn];
     
 }
 
@@ -145,7 +152,7 @@
     if (pointAnnotation == nil) {
         pointAnnotation = [[MKPinAnnotationView alloc]initWithAnnotation:annotation reuseIdentifier:@"pinView"];
     }
-    pointAnnotation.pinColor = MKPinAnnotationColorRed;
+    pointAnnotation.pinTintColor = [UIColor redColor];
     pointAnnotation.canShowCallout = YES;
     pointAnnotation.animatesDrop = YES;
     
@@ -174,13 +181,13 @@
             // setting the location of the pic to user location and setting the title text
             parkedCar = [[MKPointAnnotation alloc]init];
             parkedCar.coordinate = parkView.userLocation.coordinate;
-            parkedCar.title = @"You Parked Here";
+            parkedCar.title = @"Your Vehicle";
             
             // add that pin the the global array to easily pass it around
-            [parkingPoint addObject:parkedCar];
+            [parkingPoint addObject: parkedCar];
             
             // add that parking point to the map
-            [parkView addAnnotations:parkingPoint];
+            [parkView addAnnotations: parkingPoint];
             
             // change var to show pin is dropped
             isPinDropped = YES;
@@ -192,20 +199,22 @@
         [parkHereButton setTitle:@"Clear Pin" forState:UIControlStateNormal];
     
     // if pindropped is yes then a pin is on the map and we want to delete it
-    }else {
+    } else {
         // prompt to ensure you want the pin cleared
-        UIAlertView* clearPinConfirm = [[UIAlertView alloc]initWithTitle:@"Are You Sure?" message:@"Are you sure that you would like to clear your saved loacation?" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Ok", nil];
-        [clearPinConfirm show];
-        // see the alertview clickedButtonAtIndex for the click handling. on the alert
+        [CCAlertController showOkCancelAlertWithTitle: @"Are You Sure?"
+                                           andMessage: @"Are you sure that you would like to clear your saved loacation?"
+                                     onViewController: self
+                                          okTapAction: ^(UIAlertAction *okTapAction) {
+                                              [self clearPins];
+                                          }
+                                      cancelTapAction: nil];
         
     }
 }
 
 #pragma mark AlertView ClickHandler
--(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+- (void)clearPins {
     
-    if (buttonIndex == 1) {// index 1 == OK
-
     // record that being pressed in analytics
     id<GAITracker> tracker = [[GAI sharedInstance]defaultTracker];
     [tracker send:[[GAIDictionaryBuilder createEventWithCategory:@"User_Interface_Parking_Page" action:@"Button Press" label:@"Pin Cleared" value:nil]build]];
@@ -237,7 +246,6 @@
     [parkHereButton setTitleColor:[UIColor colorWithRed:0.0 green:122.0/255.0 blue:1.0 alpha:1.0] forState:UIControlStateNormal];
     [parkHereButton setTitle:@"Park Here" forState:UIControlStateNormal];
     
-    }
 }
 
 #pragma mark Map-CallBacks
@@ -283,6 +291,35 @@
 
 }
 
+#pragma mark - Google Analytics Opt in -
+- (void)presentAnalyticsOptIn {
+    
+    showngoogleOptINOUT = [[NSUserDefaults standardUserDefaults]boolForKey:@"shownGoogleOpt"];
+    NSLog(@"Has google opt Shown: %d",showngoogleOptINOUT);
+    NSLog(@"Google Optout status: %d", [[GAI sharedInstance] optOut]);
+    
+    if (showngoogleOptINOUT == NO) {
+        
+        UIAlertController* alert = [UIAlertController alertControllerWithTitle: @"Google Analytics"
+                                                                       message:@"With your permission, usage information will be collected to improve the application"
+                                                                preferredStyle: UIAlertControllerStyleAlert];
+        UIAlertAction* optInAction = [UIAlertAction actionWithTitle:@"Opt In" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            [[GAI sharedInstance] setOptOut: NO];
+        }];
+        UIAlertAction* optOutAction = [UIAlertAction actionWithTitle:@"Opt Out" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            [[GAI sharedInstance] setOptOut: YES];
+        }];
+        
+        [alert addAction:optOutAction];
+        [alert addAction:optInAction];
+        [self presentViewController: alert
+                           animated: true
+                         completion: nil];
+        
+        [[NSUserDefaults standardUserDefaults]setBool:YES forKey:@"shownGoogleOpt"];
+        [[NSUserDefaults standardUserDefaults]synchronize];
+    }
+}
 
 
 @end

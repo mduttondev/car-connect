@@ -12,6 +12,6 @@
 
 @property (nonatomic, strong) NSMutableArray* parkingPoint;
 
-+ (id)sharedManager;
++ (ParkingPointManager*) sharedManager;
 
 @end

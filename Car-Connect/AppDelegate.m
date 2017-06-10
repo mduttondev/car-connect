@@ -14,29 +14,12 @@
 
 
 @implementation AppDelegate {
-
-    BOOL showngoogleOptINOUT;
     
 }
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     UILocalNotification *localNotification = [launchOptions objectForKey:UIApplicationLaunchOptionsLocalNotificationKey];
-    
-    // has the google opt alert been shown? get it from the defaults
-    showngoogleOptINOUT = [[NSUserDefaults standardUserDefaults]boolForKey:@"shownGoogleOpt"];
-    NSLog(@"Has google opt Shown: %d",showngoogleOptINOUT);
-    NSLog(@"Google Optout status: %d", [[GAI sharedInstance] optOut]);
-    
-    
-    if (showngoogleOptINOUT == NO) {
-        UIAlertView* googleOPT = [[UIAlertView alloc]initWithTitle:@"Google Analytics" message:@"With your permission usage information will be collected to improve the application" delegate:self cancelButtonTitle:@"Opt Out" otherButtonTitles:@"Opt In", nil];
-        [googleOPT show];
-        
-        [[NSUserDefaults standardUserDefaults]setBool:YES forKey:@"shownGoogleOpt"];
-        [[NSUserDefaults standardUserDefaults]synchronize];
-    }
-    
     
     // Configure tracker from GoogleService-Info.plist.
     NSError *configureError;
@@ -60,19 +43,6 @@
     [Fabric with:@[[Crashlytics class]]];
 
     return YES;
-}
-
-// intercept the alert view button for the google opt status
--(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
-    
-    if (buttonIndex == 0) {
-        // if Optout was pressed then opt out
-        [[GAI sharedInstance] setOptOut:YES];
-    
-    } else {
-        // if opt in was pressed then opt in
-        [[GAI sharedInstance] setOptOut:NO];
-    }
 }
 
 
