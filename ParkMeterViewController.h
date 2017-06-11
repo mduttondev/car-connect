@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 #import "GAITrackedViewController.h"
-#import "ParkingPointManager.h"
 
 @interface ParkMeterViewController : GAITrackedViewController <UIAlertViewDelegate> {
     
@@ -18,9 +17,6 @@
     
     
 }
-
-
-@property (nonatomic, strong) NSMutableArray* parkingPoint;
 
 @property (weak, nonatomic) IBOutlet UIDatePicker *timePicker;
 

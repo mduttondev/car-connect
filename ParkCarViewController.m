@@ -8,7 +8,6 @@
 
 #import "ParkCarViewController.h"
 #import <Google/Analytics.h>
-#import "ParkingPointManager.h"
 #import "CCAlertController.h"
 
 
@@ -23,18 +22,15 @@
 @implementation ParkCarViewController
 @synthesize parkView, mapTypeSelector, parkHereButton, parkedCar, activityWheel, parkingPoint, showngoogleOptINOUT;
 
-
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    parkingPoint = [ParkingPointManager sharedManager].parkingPoint;
+    self.parkingPoint = ((AppDelegate*)[[UIApplication sharedApplication] delegate]).parkingPoint;
     
     self.locationManager = [CLLocationManager new];
     
     // analytics information
     self.screenName = @"Set Parking Screen";
-    
     
     if ([CLLocationManager locationServicesEnabled]) {
         
@@ -62,6 +58,9 @@
     [tracker send:[[GAIDictionaryBuilder createScreenView]build]];
 }
 
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
 
 -(void)viewDidAppear:(BOOL)animated {
     // start the activity indicator animation
@@ -69,7 +68,7 @@
     
     // if there are pins in the parking point arr then add them to the map
     if ( [parkingPoint count] > 0 ) {
-        [parkView addAnnotations:parkingPoint];
+        [parkView addAnnotations: parkingPoint];
         
     // if there are no pins in that array
     } else {
@@ -77,7 +76,6 @@
         // reset the num pins and ensure all obj are remove from the arrat
         numberOfPins = 0;
         [parkingPoint removeAllObjects];
-        
         
         // set user location
         id userLocation = [parkView userLocation];
@@ -104,9 +102,6 @@
 
 - (void) setupViewController {
     
-    // array for use with the annotations
-    parkingPoint = [[NSMutableArray alloc]init];
-    
     // setting maptype and userlocation on map
     parkView.showsUserLocation = YES;
     parkView.mapType = MKMapTypeHybrid;
@@ -125,6 +120,11 @@
     parkHereButton.layer.cornerRadius = 8;
     parkHereButton.layer.borderWidth = 1;
     parkHereButton.layer.borderColor = [UIColor colorWithRed:0.0 green:122.0/255.0 blue:1.0 alpha:1.0].CGColor;
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(clearPins)
+                                                 name:@"ClearPinsNotification"
+                                               object:nil];
     
 }
 
@@ -146,7 +146,7 @@
 -(MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation {
     
     // setting up the deque for the pin, setting the pins color and then properties to allow the
-    // text callout we will set to be shown when the user tape it
+    // text callout we will set to be shown when the user taps it
     MKPinAnnotationView* pointAnnotation = (MKPinAnnotationView*)[parkView dequeueReusableAnnotationViewWithIdentifier:@"pinView"];
     
     if (pointAnnotation == nil) {
@@ -205,7 +205,7 @@
                                            andMessage: @"Are you sure that you would like to clear your saved loacation?"
                                      onViewController: self
                                           okTapAction: ^(UIAlertAction *okTapAction) {
-                                              [self clearPins];
+                                              [[NSNotificationCenter defaultCenter] postNotificationName: @"ClearPinsNotification" object:nil];
                                           }
                                       cancelTapAction: nil];
         

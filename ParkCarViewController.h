@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
 #import "GAITrackedViewController.h"
+#import "AppDelegate.h"
 
 @interface ParkCarViewController : GAITrackedViewController <MKMapViewDelegate, UIAlertViewDelegate> {
     int numberOfPins;

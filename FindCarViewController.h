@@ -10,7 +10,7 @@
 #import <MapKit/MapKit.h>
 #import "ParkCarViewController.h"
 #import "GAITrackedViewController.h"
-#import "ParkingPointManager.h"
+#import "AppDelegate.h"
 
 @interface FindCarViewController : GAITrackedViewController <MKMapViewDelegate, UIAlertViewDelegate> {
     

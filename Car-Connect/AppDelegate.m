@@ -17,8 +17,12 @@
     
 }
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-{
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
+    if (_parkingPoint == nil) {
+        _parkingPoint = [NSMutableArray new];
+    }
+    
     UILocalNotification *localNotification = [launchOptions objectForKey:UIApplicationLaunchOptionsLocalNotificationKey];
     
     // Configure tracker from GoogleService-Info.plist.
@@ -34,11 +38,8 @@
     gai.logger.logLevel = kGAILogLevelVerbose;  // remove before app release
 #endif
     
-    
     UITabBarController* tabBarController = (UITabBarController*)self.window.rootViewController;
     tabBarController.delegate = self;
-    
-    
     
     [Fabric with:@[[Crashlytics class]]];
 

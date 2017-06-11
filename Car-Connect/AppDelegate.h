@@ -9,11 +9,12 @@
 #import <UIKit/UIKit.h>
 #import <AudioToolbox/AudioToolbox.h>
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate, UITabBarControllerDelegate, UIAlertViewDelegate>
-{
+@interface AppDelegate : UIResponder <UIApplicationDelegate, UITabBarControllerDelegate, UIAlertViewDelegate> {
+    
     NSString* selectedTabBar;
 }
 
+@property (nonatomic, strong) NSMutableArray* parkingPoint;
 
 @property (strong, nonatomic) UIWindow *window;
 

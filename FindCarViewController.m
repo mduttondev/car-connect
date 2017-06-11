@@ -20,14 +20,11 @@
 #pragma mark Built-in Code
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    parkingPoint = [ParkingPointManager sharedManager].parkingPoint;
+        
+    self.parkingPoint = ((AppDelegate*)[[UIApplication sharedApplication] delegate]).parkingPoint;
     
     // set the screen name for the analytics
     self.screenName = @"Find Car Screen";
-    
-    // instance of the first view controller so that the pin information can be passed
-    parkingVC = [[ParkCarViewController alloc]init];
     
     // set up the map that is on this VC to show userlocation and starting map type
     walkingMap.showsUserLocation = YES;
@@ -50,6 +47,11 @@
     exitDirectionsBtn.backgroundColor = [UIColor colorWithRed:1 green:1 blue:1 alpha:0.2f];
     exitDirectionsBtn.layer.borderColor = [UIColor colorWithRed:255 green:0 blue:0 alpha:1.0].CGColor;
     
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(clearMapPins)
+                                                 name:@"ClearPinsNotification"
+                                               object:nil];
+    
 }
 
 
@@ -62,10 +64,10 @@
 }
 
 
--(void)viewDidAppear:(BOOL)animated{
+- (void)viewDidAppear:(BOOL)animated {
     // animate activity indicator for 4 seconds as shown in the method
     [self startAnimation];
-    // if the array with the annotation is not empty then we are oging to show that pin with the information held in the array
+    // if the array with the annotation is not empty then we are going to show that pin with the information held in the array
     if ( [parkingPoint count] > 0 ) {
         [walkingMap addAnnotations:parkingPoint];
         
@@ -93,6 +95,10 @@
         exitDirectionsBtn.backgroundColor = [UIColor colorWithRed:1 green:1 blue:1 alpha:0.2f];
     }
     
+}
+
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 #pragma mark Start/Stop Animation
@@ -153,7 +159,7 @@
                                                andMessage: @"Are you sure that you would like to clear your saved loacation?"
                                          onViewController: self
                                               okTapAction:^(UIAlertAction * okTapAction) {
-                                                  [self clearMapPins];
+                                                  [[NSNotificationCenter defaultCenter] postNotificationName: @"ClearPinsNotification" object:nil];
                                               }
                                           cancelTapAction:nil];
             
@@ -282,6 +288,28 @@
         return renderer;
     }
     return nil;
+}
+
+#pragma mark Annotation
+-(MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation {
+    
+    // setting up the deque for the pin, setting the pins color and then properties to allow the
+    // text callout we will set to be shown when the user taps it
+    MKPinAnnotationView* pointAnnotation = (MKPinAnnotationView*)[walkingMap dequeueReusableAnnotationViewWithIdentifier:@"pinView"];
+    
+    if (pointAnnotation == nil) {
+        pointAnnotation = [[MKPinAnnotationView alloc]initWithAnnotation:annotation reuseIdentifier:@"pinView"];
+    }
+    pointAnnotation.pinTintColor = [UIColor redColor];
+    pointAnnotation.canShowCallout = YES;
+    pointAnnotation.animatesDrop = YES;
+    
+    if (annotation == [walkingMap userLocation]) {
+        return nil;
+    }
+    
+    return pointAnnotation;
+    
 }
 
 

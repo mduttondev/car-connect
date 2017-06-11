@@ -17,18 +17,27 @@
 @property BOOL meterButtonPressed;
 @property BOOL reminderButtonPressed;
 
+@property int pickerHeight;
+
 @end
 
 @implementation ParkMeterViewController
-@synthesize timePicker, reminderTimeButton, meterExpiresButton, saveButton, parkingPoint;
+@synthesize timePicker, reminderTimeButton, meterExpiresButton, saveButton, pickerHeight;
 
 #pragma mark Built-in Code
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    parkingPoint = ((ParkingPointManager*)[ParkingPointManager sharedManager]).parkingPoint;
+    UIToolbar *toolBar= [[UIToolbar alloc] initWithFrame:CGRectMake(0,-44,320,44)];
+    [toolBar setBarStyle: UIBarStyleDefault];
+    UIBarButtonItem *flexibleItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+    UIBarButtonItem *barButtonDone = [[UIBarButtonItem alloc] initWithTitle:@"Done" style: UIBarButtonItemStylePlain target:self action:@selector(closePicker)];
+    toolBar.items = @[flexibleItem, barButtonDone];
+    barButtonDone.tintColor = [UIColor blueColor];
+    [timePicker addSubview:toolBar];
     
-     _pickerBottomConstraint.constant = -CGRectGetHeight(timePicker.frame);
+    pickerHeight = -CGRectGetHeight(timePicker.frame) + -CGRectGetHeight(toolBar.frame);
+    _pickerBottomConstraint.constant = pickerHeight;
     timePickerIsOpen = NO;
     
     [timePicker setDate:[NSDate dateWithTimeIntervalSinceNow:0] animated:YES];
@@ -36,11 +45,6 @@
     [self.view layoutIfNeeded];
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0.1 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
         [self.timePicker setCountDownDuration: 60];
-        
-        
-        
-        
-        //or [self.myDatePicker setDate:xxxx animated:NO];
     });
 
     self.screenName = @"Parking Meter Screen";
@@ -58,7 +62,6 @@
     saveButton.layer.cornerRadius = 8;
     saveButton.layer.borderWidth = 1;
     saveButton.layer.borderColor = [UIColor colorWithRed:0.0 green:122.0/255.0 blue:1.0 alpha:1.0].CGColor;
-    
 }
 
 
@@ -79,12 +82,17 @@
 
     if ( meterTimeRemaining > 0) {
         // send the time interval and the desired target button and picker to the method
-        [self setButtonTitle:meterExpiresButton withTime: meterTimeRemaining];
+        [self setButtonTitle: meterExpiresButton withTime: meterTimeRemaining];
     }
 
     if ( reminderTimeRemaining > 0 ) {
-        [self setButtonTitle:reminderTimeButton withTime: reminderTimeRemaining];
+        [self setButtonTitle: reminderTimeButton withTime: reminderTimeRemaining];
     }
+}
+
+-(void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    [self closePicker];
 }
 
 
@@ -150,7 +158,7 @@
         NSLog(@"Reminder Set");
         
         [CCAlertController showOkAlertWithTitle: @"Saved:"
-                                     andMessage:@"Notification Center reminder has been added"
+                                     andMessage:@"Reminder has been added."
                                onViewController:self
                                   withTapAction:nil];
         
@@ -215,10 +223,17 @@
     }
 }
 
+-(void)changeDateFromLabel:(id)sender {
+    [timePicker resignFirstResponder];
+}
+
+- (void) closePicker {
+    [self pickerShouldBeOpen:NO];
+}
+
 #pragma mark View Animations
 -(void)pickerShouldBeOpen:(BOOL) displayOpen {
     
-    int pickerHeight = CGRectGetHeight(timePicker.frame);
     double animationDuration = displayOpen ? 0.35 : 0.1;
     
     if (displayOpen){
@@ -226,7 +241,7 @@
         timePickerIsOpen = YES;
         
     } else {
-        _pickerBottomConstraint.constant = -pickerHeight;
+        _pickerBottomConstraint.constant = pickerHeight;
         timePickerIsOpen = NO;
         [self resetButtonState];
     }

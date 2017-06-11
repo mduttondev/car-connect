@@ -25,7 +25,6 @@
 		C989E2B018F581E300D860CD /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C989E2AF18F581E300D860CD /* MapKit.framework */; };
 		C9AB75791D0CC085009CACF0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C9AB75781D0CC085009CACF0 /* GoogleService-Info.plist */; };
 		C9AB757B1D0CCC21009CACF0 /* appIcon1024x1024.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = C9AB757A1D0CCC21009CACF0 /* appIcon1024x1024.jpeg */; };
-		C9AC9F001E4173C2001329AA /* ParkingPointManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C9AC9EFF1E4173C2001329AA /* ParkingPointManager.m */; };
 		C9D283511EEB6FC600D68BD9 /* CCAlertController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9D283501EEB6FC600D68BD9 /* CCAlertController.m */; };
 		C9D50F961D0CAEE5004EACB8 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9D50F941D0CAEE5004EACB8 /* Fabric.framework */; };
 		C9D50F971D0CAEE5004EACB8 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9D50F951D0CAEE5004EACB8 /* Crashlytics.framework */; };
@@ -62,8 +61,6 @@
 		C989E2AF18F581E300D860CD /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		C9AB75781D0CC085009CACF0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C9AB757A1D0CCC21009CACF0 /* appIcon1024x1024.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = appIcon1024x1024.jpeg; sourceTree = "<group>"; };
-		C9AC9EFE1E4173C2001329AA /* ParkingPointManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParkingPointManager.h; sourceTree = "<group>"; };
-		C9AC9EFF1E4173C2001329AA /* ParkingPointManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParkingPointManager.m; sourceTree = "<group>"; };
 		C9D2834F1EEB6FC600D68BD9 /* CCAlertController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCAlertController.h; sourceTree = "<group>"; };
 		C9D283501EEB6FC600D68BD9 /* CCAlertController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCAlertController.m; sourceTree = "<group>"; };
 		C9D50F941D0CAEE5004EACB8 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
@@ -201,8 +198,6 @@
 		C9D2834E1EEB6F9A00D68BD9 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
-				C9AC9EFE1E4173C2001329AA /* ParkingPointManager.h */,
-				C9AC9EFF1E4173C2001329AA /* ParkingPointManager.m */,
 				C9D2834F1EEB6FC600D68BD9 /* CCAlertController.h */,
 				C9D283501EEB6FC600D68BD9 /* CCAlertController.m */,
 			);
@@ -352,7 +347,6 @@
 				C947393C18F2E8D000060075 /* ParkCarViewController.m in Sources */,
 				C947391318F2E7DB00060075 /* AppDelegate.m in Sources */,
 				C947390F18F2E7DB00060075 /* main.m in Sources */,
-				C9AC9F001E4173C2001329AA /* ParkingPointManager.m in Sources */,
 				C9D283511EEB6FC600D68BD9 /* CCAlertController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
