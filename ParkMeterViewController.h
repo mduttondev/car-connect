@@ -15,7 +15,6 @@
     int totalSeconds;
     int meterTotalSeconds;
     
-    
 }
 
 @property (weak, nonatomic) IBOutlet UIDatePicker *timePicker;
