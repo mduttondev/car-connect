@@ -14,6 +14,7 @@
 
 @property NSTimeInterval reminderTime;
 @property NSTimeInterval meterExpirationTime;
+
 @property BOOL meterButtonPressed;
 @property BOOL reminderButtonPressed;
 
@@ -76,11 +77,13 @@
     NSTimeInterval timeSince1970 = [timeStampForNow timeIntervalSince1970];
     
     // Getting NSTimeInterval for the timesaved - time now. tells you how many seconds until the reminder will go off
-    NSTimeInterval reminderTimeRemaining = ([[NSUserDefaults standardUserDefaults]doubleForKey:@"reminder"] - timeSince1970);
+    NSTimeInterval reminderTimeRemaining = ([[NSUserDefaults standardUserDefaults] doubleForKey:@"reminder"] - timeSince1970);
+    self.reminderTime = reminderTimeRemaining;
     
-    NSTimeInterval meterTimeRemaining = ([[NSUserDefaults standardUserDefaults]doubleForKey:@"meter"] - timeSince1970);
-
-    if ( meterTimeRemaining > 0) {
+    NSTimeInterval meterTimeRemaining = ([[NSUserDefaults standardUserDefaults] doubleForKey:@"meter"] - timeSince1970);
+    self.meterExpirationTime = meterTimeRemaining;
+    
+    if ( meterTimeRemaining > 0 ) {
         // send the time interval and the desired target button and picker to the method
         [self setButtonTitle: meterExpiresButton withTime: meterTimeRemaining];
     }
@@ -95,23 +98,31 @@
     [self closePicker];
 }
 
-
 #pragma mark setLabel when viewDidApper
 -(void)setButtonTitle:(UIButton*)button withTime:(NSTimeInterval)interval {
- 
-    // takes the interval (how long till reminder goes off) and see if there are hours involved
-    int hour = interval / 3600;
     
-    // to get the mins hours from the left of the decimal and then multiply by 60 to get minutes when viewed as a ratio
-    int minutes = (((float)interval / 3600.0f) - hour) * 60;
+    NSDate* timeNow = [NSDate date];
+    NSDate* displayDate = [timeNow dateByAddingTimeInterval:interval];
     
-    if( hour > 0 ) {
-
-        // set the title of the button to be the remaining time
-        [button setTitle:[NSString stringWithFormat:@"%d Hours and %i Minutes",hour,minutes] forState: UIControlStateNormal];
+    NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+    
+    NSUInteger unitFlags = NSCalendarUnitHour | NSCalendarUnitMinute;
+    
+    NSDateComponents *components = [gregorian components:unitFlags fromDate:timeNow  toDate:displayDate options:0];
+    
+    
+    
+    if ( !(components.hour > 0 || components.minute) ) {
+        return;
+    }
+    
+    if ( components.hour > 0 ) {
+        int hours = (int)components.hour;
+        int minutes = (int)components.minute;
+        [button setTitle:[NSString stringWithFormat:@"%d Hours and %i Minutes", hours, minutes] forState: UIControlStateNormal];
         
-    }else {
-        
+    } else {
+        int minutes = (int)components.minute;
         [button setTitle:[NSString stringWithFormat:@"%i Minutes",minutes] forState: UIControlStateNormal];
     }
     
@@ -123,26 +134,23 @@
     
     [self resetButtonState];
     
-    // if the reminder time has not been changed and the button still shows the default title
-    // skip everything in the initial if statement and run the alert in the else
     if (![reminderTimeButton.titleLabel.text isEqualToString:@"Press to Set"]) {
-
-        // getting the time right when the saved button is pressed  and then converting it to timeSince1970
+        
         NSDate* rightNow = [NSDate date];
         NSTimeInterval secondsSince1970 = [rightNow timeIntervalSince1970];
         
-        // if the title of the label is not "press to set", then the user set a time there and I want to save it into the user defaults and then sync the defaults
-        // the seconds since 1970 is added to the countdownTimer so that it can be used for both a time stamp and duration later.
-        // the time thats actually is the time when the timer should go off, so in essence its a future time from the set point
         if( ![meterExpiresButton.titleLabel.text isEqualToString:@"Press to Set"]){
-            [[NSUserDefaults standardUserDefaults]setDouble:(secondsSince1970 + _meterExpirationTime) forKey:@"meter"];
+            [[NSUserDefaults standardUserDefaults]
+             setDouble:(_meterExpirationTime + secondsSince1970)
+             forKey:@"meter"];
         }
         if( ![reminderTimeButton.titleLabel.text isEqualToString:@"Press to Set"]){
-            [[NSUserDefaults standardUserDefaults]setDouble:(secondsSince1970 + _reminderTime) forKey:@"reminder"];
+            [[NSUserDefaults standardUserDefaults]
+             setDouble: (_reminderTime + secondsSince1970)
+             forKey:@"reminder"];
         }
         [[NSUserDefaults standardUserDefaults] synchronize];
-
-
+        
         // setting up the notification for your saved reminder time.
         _app = [UIApplication sharedApplication];
         _notifyAlarm = [[UILocalNotification alloc] init];
@@ -192,8 +200,20 @@
 }
 
 
--(void) setCountDownRemainder:(NSTimeInterval)remainder {
-    [timePicker setCountDownDuration: remainder ?: 61];
+- (void)setCountDownRemainder:(NSTimeInterval)remainder {
+    
+    int ti = (int)remainder;
+    int minutes = (ti / 60) % 60;
+    int hours = (ti / 3600);
+    
+    NSDateComponents* dateComp = [NSDateComponents new];
+    dateComp.hour = hours;
+    dateComp.minute = minutes;
+    dateComp.timeZone = [NSTimeZone systemTimeZone];
+    NSCalendar* calendar = [NSCalendar calendarWithIdentifier:NSCalendarIdentifierGregorian];
+    NSDate* date = [calendar dateFromComponents:dateComp];
+    
+    [timePicker setDate:date animated:YES];
     
     if (timePickerIsOpen == NO) {
         
@@ -217,15 +237,14 @@
     NSLog(@"%i", (int)sender.countDownDuration);
 
     if (_meterButtonPressed) {
-        [self setButtonTitle: meterExpiresButton withTime:sender.countDownDuration];
+        _meterExpirationTime = sender.countDownDuration;
+        [self setButtonTitle: meterExpiresButton withTime: _meterExpirationTime];
     } else if (_reminderButtonPressed) {
-        [self setButtonTitle: reminderTimeButton withTime:sender.countDownDuration];
+        _reminderTime = sender.countDownDuration;
+        [self setButtonTitle: reminderTimeButton withTime: _reminderTime];
     }
 }
 
--(void)changeDateFromLabel:(id)sender {
-    [timePicker resignFirstResponder];
-}
 
 - (void) closePicker {
     [self pickerShouldBeOpen:NO];
@@ -239,7 +258,6 @@
     if (displayOpen){
         _pickerBottomConstraint.constant = 0;
         timePickerIsOpen = YES;
-        
     } else {
         _pickerBottomConstraint.constant = pickerHeight;
         timePickerIsOpen = NO;
@@ -254,7 +272,6 @@
                          [self.view layoutIfNeeded];
                      }
                      completion:nil];
-
     
 }
 
