@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AD_UNIT_ID_FOR_BANNER_TEST</key>
+	<string>ca-app-pub-3940256099942544/2934735716</string>
+	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
+	<string>ca-app-pub-3940256099942544/4411468910</string>
+	<key>TRACKING_ID</key>
+	<string>UA-79192441-1</string>
+	<key>CLIENT_ID</key>
+	<string>441116625105-uhaaptonde0g90r7t6ltndirlul01ko8.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.441116625105-uhaaptonde0g90r7t6ltndirlul01ko8</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBLyS7FeqEjBAhhidg32A0QuCbjJ50hS6Y</string>
+	<key>GCM_SENDER_ID</key>
+	<string>441116625105</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.mkdutton.Car-Connect</string>
+	<key>PROJECT_ID</key>
+	<string>car-connect-5117c</string>
+	<key>IS_ADS_ENABLED</key>
+	<true></true>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<true></true>
+	<key>IS_APPINVITE_ENABLED</key>
+	<false></false>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:441116625105:ios:8918d6501d711151</string>
+	<key>DATABASE_URL</key>
+	<string>https://car-connect-5117c.firebaseio.com</string>
+</dict>
+</plist>
