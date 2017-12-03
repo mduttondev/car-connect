@@ -1,80 +1,242 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" systemVersion="17A278a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--First-->
+        <!--Parking Location-->
         <scene sceneID="hNz-n2-bh7">
             <objects>
-                <viewController id="9pv-A4-QxB" customClass="FirstViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="9pv-A4-QxB" customClass="ParkingViewController" customModule="Car_Connect" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tsR-hK-woN">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="First View" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="KQZ-1w-vlD">
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="36"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loaded by FirstViewController" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A5M-7J-77L">
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Ktz-wG-KRk">
+                                <rect key="frame" x="0.0" y="20" width="375" height="598"/>
+                            </mapView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZRd-nx-6zT" userLabel="Location Container" customClass="IconContainingView" customModule="Car_Connect" customModuleProvider="target">
+                                <rect key="frame" x="10" y="528" width="50" height="50"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iiw-lc-tAj">
+                                        <rect key="frame" x="5" y="5" width="40" height="40"/>
+                                        <state key="normal" image="currentLocation"/>
+                                        <connections>
+                                            <action selector="showCurrentLocationButtonPressed:" destination="9pv-A4-QxB" eventType="touchUpInside" id="Pve-2r-4v0"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.91764705879999997" green="0.91764705879999997" blue="0.91764705879999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="iiw-lc-tAj" firstAttribute="top" secondItem="ZRd-nx-6zT" secondAttribute="top" constant="5" id="UyY-Od-I1B"/>
+                                    <constraint firstAttribute="trailing" secondItem="iiw-lc-tAj" secondAttribute="trailing" constant="5" id="cTQ-Na-3lO"/>
+                                    <constraint firstAttribute="width" secondItem="ZRd-nx-6zT" secondAttribute="height" multiplier="1:1" id="eY3-6d-XYq"/>
+                                    <constraint firstItem="iiw-lc-tAj" firstAttribute="leading" secondItem="ZRd-nx-6zT" secondAttribute="leading" constant="5" id="vLn-U7-E1E"/>
+                                    <constraint firstAttribute="bottom" secondItem="iiw-lc-tAj" secondAttribute="bottom" constant="5" id="xaN-O4-CRD"/>
+                                    <constraint firstAttribute="width" constant="50" id="yxa-Zi-NyA"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vbw-dZ-kxw" userLabel="Save Spot Container" customClass="IconContainingView" customModule="Car_Connect" customModuleProvider="target">
+                                <rect key="frame" x="315" y="528" width="50" height="50"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eKc-Ie-p0c">
+                                        <rect key="frame" x="5" y="5" width="40" height="40"/>
+                                        <state key="normal" image="saveIcon"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="self.imageView.contentMode">
+                                                <integer key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="saveSpotButtonPressed:" destination="9pv-A4-QxB" eventType="touchUpInside" id="eHL-6o-Qse"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.91764705879999997" green="0.91764705879999997" blue="0.91764705879999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="eKc-Ie-p0c" firstAttribute="leading" secondItem="vbw-dZ-kxw" secondAttribute="leading" constant="5" id="1PB-3f-JGw"/>
+                                    <constraint firstAttribute="bottom" secondItem="eKc-Ie-p0c" secondAttribute="bottom" constant="5" id="Cwq-gD-ler"/>
+                                    <constraint firstAttribute="width" constant="50" id="Tls-sy-02P"/>
+                                    <constraint firstItem="eKc-Ie-p0c" firstAttribute="top" secondItem="vbw-dZ-kxw" secondAttribute="top" constant="5" id="syQ-iI-nDJ"/>
+                                    <constraint firstAttribute="trailing" secondItem="eKc-Ie-p0c" secondAttribute="trailing" constant="5" id="zTx-xl-bwQ"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="centerX" secondItem="KQZ-1w-vlD" secondAttribute="centerX" id="6BV-lF-sBN"/>
-                            <constraint firstItem="A5M-7J-77L" firstAttribute="top" secondItem="KQZ-1w-vlD" secondAttribute="bottom" constant="8" symbolic="YES" id="cfb-er-3JN"/>
-                            <constraint firstItem="A5M-7J-77L" firstAttribute="centerX" secondItem="KQZ-1w-vlD" secondAttribute="centerX" id="e1l-AV-tCB"/>
-                            <constraint firstAttribute="centerY" secondItem="KQZ-1w-vlD" secondAttribute="centerY" id="exm-UA-ej4"/>
+                            <constraint firstItem="vbw-dZ-kxw" firstAttribute="width" secondItem="vbw-dZ-kxw" secondAttribute="height" multiplier="1:1" id="6Zo-1L-VfA"/>
+                            <constraint firstItem="Ktz-wG-KRk" firstAttribute="trailing" secondItem="PQr-Ze-W5v" secondAttribute="trailing" id="JcK-TC-RPU"/>
+                            <constraint firstItem="PQr-Ze-W5v" firstAttribute="trailing" secondItem="vbw-dZ-kxw" secondAttribute="trailing" constant="10" id="PYa-1O-fSk"/>
+                            <constraint firstItem="PQr-Ze-W5v" firstAttribute="bottom" secondItem="vbw-dZ-kxw" secondAttribute="bottom" constant="40" id="Q4B-g2-a3s"/>
+                            <constraint firstItem="Ktz-wG-KRk" firstAttribute="leading" secondItem="PQr-Ze-W5v" secondAttribute="leading" id="TiK-CR-oAr"/>
+                            <constraint firstItem="Ktz-wG-KRk" firstAttribute="top" secondItem="PQr-Ze-W5v" secondAttribute="top" id="iwe-oW-Vis"/>
+                            <constraint firstItem="PQr-Ze-W5v" firstAttribute="bottom" secondItem="ZRd-nx-6zT" secondAttribute="bottom" constant="40" id="pfk-pX-dOL"/>
+                            <constraint firstItem="ZRd-nx-6zT" firstAttribute="leading" secondItem="PQr-Ze-W5v" secondAttribute="leading" constant="10" id="qeZ-XY-Tvd"/>
+                            <constraint firstItem="Ktz-wG-KRk" firstAttribute="bottom" secondItem="PQr-Ze-W5v" secondAttribute="bottom" id="vrf-Gt-fSx"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="PQr-Ze-W5v"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="First" image="first" id="acW-dT-cKf"/>
+                    <tabBarItem key="tabBarItem" title="Parking Location" image="parkingTabIcon" id="acW-dT-cKf">
+                        <inset key="largeContentSizeImageInsets" minX="0.0" minY="5" maxX="0.0" maxY="0.0"/>
+                    </tabBarItem>
+                    <connections>
+                        <outlet property="mapView" destination="Ktz-wG-KRk" id="iRn-0W-mjN"/>
+                        <outlet property="saveSpotButton" destination="eKc-Ie-p0c" id="Hzx-Qg-KZb"/>
+                        <outlet property="showCurrentLocationButton" destination="iiw-lc-tAj" id="0Uc-dv-gml"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="750" y="-320"/>
         </scene>
-        <!--Second-->
+        <!--Find Vehicle-->
         <scene sceneID="wg7-f3-ORb">
             <objects>
-                <viewController id="8rJ-Kc-sve" customClass="SecondViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="8rJ-Kc-sve" customClass="FindViewController" customModule="Car_Connect" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="QS5-Rx-YEW">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Second View" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="zEq-FU-wV5">
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="36"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loaded by SecondViewController" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NDk-cv-Gan">
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="h48-2G-uTT">
+                                <rect key="frame" x="0.0" y="20" width="375" height="598"/>
+                            </mapView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GfC-7a-3JL" userLabel="Location Container" customClass="IconContainingView" customModule="Car_Connect" customModuleProvider="target">
+                                <rect key="frame" x="10" y="528" width="50" height="50"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7b8-co-ar2">
+                                        <rect key="frame" x="5" y="5" width="40" height="40"/>
+                                        <state key="normal" image="currentLocation"/>
+                                        <connections>
+                                            <action selector="showCurrentLocationButtonPressed:" destination="8rJ-Kc-sve" eventType="touchUpInside" id="FlF-1B-7kT"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.91764705882352937" green="0.91764705882352937" blue="0.91764705882352937" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="7b8-co-ar2" firstAttribute="leading" secondItem="GfC-7a-3JL" secondAttribute="leading" constant="5" id="BD5-cO-ncc"/>
+                                    <constraint firstAttribute="width" constant="50" id="Jax-e1-eOD"/>
+                                    <constraint firstAttribute="width" secondItem="GfC-7a-3JL" secondAttribute="height" multiplier="1:1" id="RKu-Af-0dn"/>
+                                    <constraint firstAttribute="bottom" secondItem="7b8-co-ar2" secondAttribute="bottom" constant="5" id="ST7-n8-jja"/>
+                                    <constraint firstItem="7b8-co-ar2" firstAttribute="top" secondItem="GfC-7a-3JL" secondAttribute="top" constant="5" id="cvG-9k-CM6"/>
+                                    <constraint firstAttribute="trailing" secondItem="7b8-co-ar2" secondAttribute="trailing" constant="5" id="qjW-gu-fzL"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bZS-Tg-Yhl" userLabel="Directions Container" customClass="IconContainingView" customModule="Car_Connect" customModuleProvider="target">
+                                <rect key="frame" x="315" y="528" width="50" height="50"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3tj-gL-Ye8">
+                                        <rect key="frame" x="5" y="5" width="40" height="40"/>
+                                        <state key="normal" image="directionsIcon"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="self.imageView.contentMode">
+                                                <integer key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="showDirectionsButtonPressed:" destination="8rJ-Kc-sve" eventType="touchUpInside" id="CQa-OT-uUD"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.91764705879999997" green="0.91764705879999997" blue="0.91764705879999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="3tj-gL-Ye8" firstAttribute="top" secondItem="bZS-Tg-Yhl" secondAttribute="top" constant="5" id="Uho-38-1Y0"/>
+                                    <constraint firstAttribute="width" constant="50" id="V5c-os-88U"/>
+                                    <constraint firstAttribute="bottom" secondItem="3tj-gL-Ye8" secondAttribute="bottom" constant="5" id="jqm-ia-ZR1"/>
+                                    <constraint firstAttribute="trailing" secondItem="3tj-gL-Ye8" secondAttribute="trailing" constant="5" id="oQ0-8Q-nfv"/>
+                                    <constraint firstItem="3tj-gL-Ye8" firstAttribute="leading" secondItem="bZS-Tg-Yhl" secondAttribute="leading" constant="5" id="xGu-4l-uTE"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="NDk-cv-Gan" firstAttribute="top" secondItem="zEq-FU-wV5" secondAttribute="bottom" constant="8" symbolic="YES" id="Day-4N-Vmt"/>
-                            <constraint firstItem="NDk-cv-Gan" firstAttribute="centerX" secondItem="zEq-FU-wV5" secondAttribute="centerX" id="JgO-Fn-dHn"/>
-                            <constraint firstAttribute="centerX" secondItem="zEq-FU-wV5" secondAttribute="centerX" id="qqM-NS-xev"/>
-                            <constraint firstAttribute="centerY" secondItem="zEq-FU-wV5" secondAttribute="centerY" id="qzY-Ky-pLD"/>
+                            <constraint firstItem="h48-2G-uTT" firstAttribute="bottom" secondItem="O1u-W8-tvY" secondAttribute="bottom" id="AN4-fS-lHH"/>
+                            <constraint firstItem="O1u-W8-tvY" firstAttribute="bottom" secondItem="GfC-7a-3JL" secondAttribute="bottom" constant="40" id="Bcb-9v-Pid"/>
+                            <constraint firstItem="bZS-Tg-Yhl" firstAttribute="width" secondItem="bZS-Tg-Yhl" secondAttribute="height" multiplier="1:1" id="BiD-T3-GE0"/>
+                            <constraint firstItem="h48-2G-uTT" firstAttribute="trailing" secondItem="O1u-W8-tvY" secondAttribute="trailing" id="C5K-UE-Wdd"/>
+                            <constraint firstItem="GfC-7a-3JL" firstAttribute="leading" secondItem="O1u-W8-tvY" secondAttribute="leading" constant="10" id="Lzc-fz-hEh"/>
+                            <constraint firstItem="O1u-W8-tvY" firstAttribute="bottom" secondItem="bZS-Tg-Yhl" secondAttribute="bottom" constant="40" id="Uu7-Xk-FNd"/>
+                            <constraint firstItem="h48-2G-uTT" firstAttribute="top" secondItem="O1u-W8-tvY" secondAttribute="top" id="V9T-je-OlI"/>
+                            <constraint firstItem="h48-2G-uTT" firstAttribute="leading" secondItem="O1u-W8-tvY" secondAttribute="leading" id="lXA-3g-5qK"/>
+                            <constraint firstItem="O1u-W8-tvY" firstAttribute="trailing" secondItem="bZS-Tg-Yhl" secondAttribute="trailing" constant="10" id="ryg-IR-DFb"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="O1u-W8-tvY"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Second" image="second" id="cPa-gy-q4n"/>
+                    <tabBarItem key="tabBarItem" title="Find Vehicle" image="findCarTabIcon" id="cPa-gy-q4n"/>
+                    <connections>
+                        <outlet property="showCurrentLocationButton" destination="7b8-co-ar2" id="DLr-UG-bxd"/>
+                        <outlet property="showDirectionsButton" destination="3tj-gL-Ye8" id="yNm-8F-uCj"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="750" y="360"/>
+            <point key="canvasLocation" x="749.60000000000002" y="359.37031484257875"/>
+        </scene>
+        <!--Meter Timer-->
+        <scene sceneID="pqx-Qv-pPV">
+            <objects>
+                <viewController id="BsU-5W-B5Z" customClass="ParkingMeterViewController" customModule="Car_Connect" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="qZO-EF-yo2">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="7SH-jZ-fLT"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Meter Timer" image="meterTabIcon" id="p7h-CI-qKe"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8Ln-xi-cDJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="750" y="1048"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
@@ -88,6 +250,7 @@
                     <connections>
                         <segue destination="9pv-A4-QxB" kind="relationship" relationship="viewControllers" id="u7Y-xg-7CH"/>
                         <segue destination="8rJ-Kc-sve" kind="relationship" relationship="viewControllers" id="lzU-1b-eKA"/>
+                        <segue destination="BsU-5W-B5Z" kind="relationship" relationship="viewControllers" id="VnJ-Gp-4E5"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
@@ -96,7 +259,11 @@
         </scene>
     </scenes>
     <resources>
-        <image name="first" width="30" height="30"/>
-        <image name="second" width="30" height="30"/>
+        <image name="currentLocation" width="48" height="48"/>
+        <image name="directionsIcon" width="611" height="595"/>
+        <image name="findCarTabIcon" width="30" height="30"/>
+        <image name="meterTabIcon" width="18" height="30"/>
+        <image name="parkingTabIcon" width="30" height="30"/>
+        <image name="saveIcon" width="524" height="464"/>
     </resources>
 </document>

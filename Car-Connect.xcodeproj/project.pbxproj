@@ -9,9 +9,11 @@
 /* Begin PBXBuildFile section */
 		902D033BC140C2806C3B9A4C /* Pods_Car_Connect.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1E02FABBCB2957647B0C955 /* Pods_Car_Connect.framework */; };
 		9A6E275ACC2771639DB955D4 /* Pods_Car_ConnectTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E07820C283C2C4A5D46B1F78 /* Pods_Car_ConnectTests.framework */; };
+		C91488861FD46CB8000D7EE0 /* ParkingMeterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91488851FD46CB8000D7EE0 /* ParkingMeterViewController.swift */; };
+		C91488881FD47CE2000D7EE0 /* IconContainingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91488871FD47CE2000D7EE0 /* IconContainingView.swift */; };
 		C955CE171FBE79DE002D82B3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C955CE161FBE79DE002D82B3 /* AppDelegate.swift */; };
-		C955CE191FBE79DE002D82B3 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C955CE181FBE79DE002D82B3 /* FirstViewController.swift */; };
-		C955CE1B1FBE79DE002D82B3 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C955CE1A1FBE79DE002D82B3 /* SecondViewController.swift */; };
+		C955CE191FBE79DE002D82B3 /* ParkingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C955CE181FBE79DE002D82B3 /* ParkingViewController.swift */; };
+		C955CE1B1FBE79DE002D82B3 /* FindViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C955CE1A1FBE79DE002D82B3 /* FindViewController.swift */; };
 		C955CE1E1FBE79DE002D82B3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C955CE1C1FBE79DE002D82B3 /* Main.storyboard */; };
 		C955CE201FBE79DE002D82B3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C955CE1F1FBE79DE002D82B3 /* Assets.xcassets */; };
 		C955CE231FBE79DE002D82B3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C955CE211FBE79DE002D82B3 /* LaunchScreen.storyboard */; };
@@ -55,10 +57,12 @@
 		8427A9C63DDD5BCFC23F9355 /* Pods_Car_ConnectUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Car_ConnectUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		97EBF5634B809F60D44AC541 /* Pods-Car-Connect.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Car-Connect.release.xcconfig"; path = "Pods/Target Support Files/Pods-Car-Connect/Pods-Car-Connect.release.xcconfig"; sourceTree = "<group>"; };
 		C652E85AC3E29968F65B81F5 /* Pods-Car-ConnectUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Car-ConnectUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Car-ConnectUITests/Pods-Car-ConnectUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		C91488851FD46CB8000D7EE0 /* ParkingMeterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkingMeterViewController.swift; sourceTree = "<group>"; };
+		C91488871FD47CE2000D7EE0 /* IconContainingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconContainingView.swift; sourceTree = "<group>"; };
 		C955CE131FBE79DE002D82B3 /* Car-Connect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Car-Connect.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C955CE161FBE79DE002D82B3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		C955CE181FBE79DE002D82B3 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
-		C955CE1A1FBE79DE002D82B3 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		C955CE181FBE79DE002D82B3 /* ParkingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkingViewController.swift; sourceTree = "<group>"; };
+		C955CE1A1FBE79DE002D82B3 /* FindViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindViewController.swift; sourceTree = "<group>"; };
 		C955CE1D1FBE79DE002D82B3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C955CE1F1FBE79DE002D82B3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C955CE221FBE79DE002D82B3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -164,9 +168,11 @@
 				C9A301A91FBE8F540064DD9F /* Artwork */,
 				C9A301A71FBE87290064DD9F /* Supporting Files */,
 				C9A301A81FBE87430064DD9F /* UI */,
-				C955CE181FBE79DE002D82B3 /* FirstViewController.swift */,
-				C955CE1A1FBE79DE002D82B3 /* SecondViewController.swift */,
+				C955CE181FBE79DE002D82B3 /* ParkingViewController.swift */,
+				C955CE1A1FBE79DE002D82B3 /* FindViewController.swift */,
+				C91488851FD46CB8000D7EE0 /* ParkingMeterViewController.swift */,
 				C9A301B81FBE93190064DD9F /* CarConnect+Extensions.swift */,
+				C91488871FD47CE2000D7EE0 /* IconContainingView.swift */,
 			);
 			path = "Car-Connect";
 			sourceTree = "<group>";
@@ -541,10 +547,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C955CE1B1FBE79DE002D82B3 /* SecondViewController.swift in Sources */,
+				C955CE1B1FBE79DE002D82B3 /* FindViewController.swift in Sources */,
 				C9A301B91FBE93190064DD9F /* CarConnect+Extensions.swift in Sources */,
+				C91488861FD46CB8000D7EE0 /* ParkingMeterViewController.swift in Sources */,
+				C91488881FD47CE2000D7EE0 /* IconContainingView.swift in Sources */,
 				C955CE171FBE79DE002D82B3 /* AppDelegate.swift in Sources */,
-				C955CE191FBE79DE002D82B3 /* FirstViewController.swift in Sources */,
+				C955CE191FBE79DE002D82B3 /* ParkingViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
