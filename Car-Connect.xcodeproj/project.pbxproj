@@ -29,6 +29,8 @@
 		C9A301B61FBE901B0064DD9F /* iTunesArtwork@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C9A301B31FBE901B0064DD9F /* iTunesArtwork@2x.png */; };
 		C9A301B71FBE901B0064DD9F /* iTunesArtwork@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = C9A301B41FBE901B0064DD9F /* iTunesArtwork@3x.png */; };
 		C9A301B91FBE93190064DD9F /* CarConnect+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A301B81FBE93190064DD9F /* CarConnect+Extensions.swift */; };
+		C9ED3D621FE6DDA90096BDF2 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9ED3D611FE6DDA90096BDF2 /* CoreLocation.framework */; };
+		C9ED3D641FE6DED20096BDF2 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9ED3D631FE6DED20096BDF2 /* LocationManager.swift */; };
 		D8C3EB338BE9C9B51E45E498 /* Pods_Car_ConnectUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8427A9C63DDD5BCFC23F9355 /* Pods_Car_ConnectUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -83,6 +85,9 @@
 		C9A301B31FBE901B0064DD9F /* iTunesArtwork@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iTunesArtwork@2x.png"; sourceTree = "<group>"; };
 		C9A301B41FBE901B0064DD9F /* iTunesArtwork@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iTunesArtwork@3x.png"; sourceTree = "<group>"; };
 		C9A301B81FBE93190064DD9F /* CarConnect+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CarConnect+Extensions.swift"; sourceTree = "<group>"; };
+		C9ED3D611FE6DDA90096BDF2 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		C9ED3D631FE6DED20096BDF2 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		C9ED3D671FE6EFF50096BDF2 /* SwiftLint.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = SwiftLint.sh; sourceTree = "<group>"; };
 		E07820C283C2C4A5D46B1F78 /* Pods_Car_ConnectTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Car_ConnectTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1E02FABBCB2957647B0C955 /* Pods_Car_Connect.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Car_Connect.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -92,6 +97,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C9ED3D621FE6DDA90096BDF2 /* CoreLocation.framework in Frameworks */,
 				C9A301A61FBE86590064DD9F /* AdSupport.framework in Frameworks */,
 				902D033BC140C2806C3B9A4C /* Pods_Car_Connect.framework in Frameworks */,
 			);
@@ -119,6 +125,7 @@
 		0BF7A14C0ADF0AE1683ED2F5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C9ED3D611FE6DDA90096BDF2 /* CoreLocation.framework */,
 				C9A301A51FBE86590064DD9F /* AdSupport.framework */,
 				F1E02FABBCB2957647B0C955 /* Pods_Car_Connect.framework */,
 				E07820C283C2C4A5D46B1F78 /* Pods_Car_ConnectTests.framework */,
@@ -143,6 +150,7 @@
 		C955CE0A1FBE79DE002D82B3 = {
 			isa = PBXGroup;
 			children = (
+				C9ED3D691FE6F0160096BDF2 /* Scripts */,
 				C955CE151FBE79DE002D82B3 /* Car-Connect */,
 				C955CE2C1FBE79DE002D82B3 /* Car-ConnectTests */,
 				C955CE371FBE79DE002D82B3 /* Car-ConnectUITests */,
@@ -168,11 +176,11 @@
 				C9A301A91FBE8F540064DD9F /* Artwork */,
 				C9A301A71FBE87290064DD9F /* Supporting Files */,
 				C9A301A81FBE87430064DD9F /* UI */,
+				C9ED3D661FE6E88E0096BDF2 /* Convenience Classes */,
 				C955CE181FBE79DE002D82B3 /* ParkingViewController.swift */,
 				C955CE1A1FBE79DE002D82B3 /* FindViewController.swift */,
 				C91488851FD46CB8000D7EE0 /* ParkingMeterViewController.swift */,
-				C9A301B81FBE93190064DD9F /* CarConnect+Extensions.swift */,
-				C91488871FD47CE2000D7EE0 /* IconContainingView.swift */,
+				C9ED3D631FE6DED20096BDF2 /* LocationManager.swift */,
 			);
 			path = "Car-Connect";
 			sourceTree = "<group>";
@@ -229,6 +237,23 @@
 			path = Artwork;
 			sourceTree = "<group>";
 		};
+		C9ED3D661FE6E88E0096BDF2 /* Convenience Classes */ = {
+			isa = PBXGroup;
+			children = (
+				C9A301B81FBE93190064DD9F /* CarConnect+Extensions.swift */,
+				C91488871FD47CE2000D7EE0 /* IconContainingView.swift */,
+			);
+			path = "Convenience Classes";
+			sourceTree = "<group>";
+		};
+		C9ED3D691FE6F0160096BDF2 /* Scripts */ = {
+			isa = PBXGroup;
+			children = (
+				C9ED3D671FE6EFF50096BDF2 /* SwiftLint.sh */,
+			);
+			path = Scripts;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -243,6 +268,7 @@
 				E96816A694DCB499AEB0CDA5 /* [CP] Embed Pods Frameworks */,
 				A3B5460CC11E465B2F3C9080 /* [CP] Copy Pods Resources */,
 				C91DAEDB1FBE7B940012E47A /* ShellScript */,
+				C9ED3D651FE6E83D0096BDF2 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -502,6 +528,19 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Fabric/run\" 59f486796c08f97effc9178d1210ee7b7d2862fb d6bc0507f09198ef303827cffa9cf7acce8f24451bd3e338406e554d284f58e8";
 		};
+		C9ED3D651FE6E83D0096BDF2 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Scripts/SwiftLint.sh\"";
+		};
 		CDD128F5DA2A8F361D9B6C4A /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -550,6 +589,7 @@
 				C955CE1B1FBE79DE002D82B3 /* FindViewController.swift in Sources */,
 				C9A301B91FBE93190064DD9F /* CarConnect+Extensions.swift in Sources */,
 				C91488861FD46CB8000D7EE0 /* ParkingMeterViewController.swift in Sources */,
+				C9ED3D641FE6DED20096BDF2 /* LocationManager.swift in Sources */,
 				C91488881FD47CE2000D7EE0 /* IconContainingView.swift in Sources */,
 				C955CE171FBE79DE002D82B3 /* AppDelegate.swift in Sources */,
 				C955CE191FBE79DE002D82B3 /* ParkingViewController.swift in Sources */,
