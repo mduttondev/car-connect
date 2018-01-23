@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="IconContainingView" customModule="Car_Connect" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="currentLocation" translatesAutoresizingMaskIntoConstraints="NO" id="aTg-hI-NIv">
+                    <rect key="frame" x="5" y="5" width="30" height="30"/>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XOe-zK-8RE">
+                    <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
+                </button>
+                <view alpha="0.84999999999999998" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7qj-ze-fH2">
+                    <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
+                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="aTg-hI-NIv" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="5" id="7d9-i2-1Rn"/>
+                <constraint firstItem="XOe-zK-8RE" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" id="8Ho-Qm-dMU"/>
+                <constraint firstItem="7qj-ze-fH2" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="Ahl-3j-T8l"/>
+                <constraint firstItem="XOe-zK-8RE" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" id="CVF-Qf-IS6"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="7qj-ze-fH2" secondAttribute="trailing" id="HPm-e8-ccB"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="aTg-hI-NIv" secondAttribute="bottom" constant="5" id="LLn-yH-Dpn"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="aTg-hI-NIv" secondAttribute="trailing" constant="5" id="Myo-ho-JIl"/>
+                <constraint firstItem="aTg-hI-NIv" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="5" id="OFu-mA-vqd"/>
+                <constraint firstItem="XOe-zK-8RE" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="XRX-fd-2CX"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="7qj-ze-fH2" secondAttribute="bottom" id="bDb-fY-6ut"/>
+                <constraint firstItem="XOe-zK-8RE" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" id="ldf-Kh-G87"/>
+                <constraint firstItem="7qj-ze-fH2" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="vuC-c7-SNA"/>
+            </constraints>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                    <real key="value" value="5"/>
+                </userDefinedRuntimeAttribute>
+                <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                    <real key="value" value="1"/>
+                </userDefinedRuntimeAttribute>
+                <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                    <color key="value" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </userDefinedRuntimeAttribute>
+            </userDefinedRuntimeAttributes>
+            <connections>
+                <outlet property="actionButton" destination="XOe-zK-8RE" id="EOm-rx-FPS"/>
+                <outlet property="disablingView" destination="7qj-ze-fH2" id="VhO-Nm-qmd"/>
+                <outlet property="imageView" destination="aTg-hI-NIv" id="jbK-Fm-lsl"/>
+            </connections>
+        </view>
+    </objects>
+    <resources>
+        <image name="currentLocation" width="48" height="48"/>
+    </resources>
+</document>

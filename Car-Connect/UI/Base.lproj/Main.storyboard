@@ -24,22 +24,9 @@
                             </mapView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZRd-nx-6zT" userLabel="Location Container" customClass="IconContainingView" customModule="Car_Connect" customModuleProvider="target">
                                 <rect key="frame" x="10" y="528" width="50" height="50"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iiw-lc-tAj">
-                                        <rect key="frame" x="5" y="5" width="40" height="40"/>
-                                        <state key="normal" image="currentLocation"/>
-                                        <connections>
-                                            <action selector="showCurrentLocationButtonPressed:" destination="9pv-A4-QxB" eventType="touchUpInside" id="Pve-2r-4v0"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
                                 <color key="backgroundColor" red="0.91764705879999997" green="0.91764705879999997" blue="0.91764705879999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstItem="iiw-lc-tAj" firstAttribute="top" secondItem="ZRd-nx-6zT" secondAttribute="top" constant="5" id="UyY-Od-I1B"/>
-                                    <constraint firstAttribute="trailing" secondItem="iiw-lc-tAj" secondAttribute="trailing" constant="5" id="cTQ-Na-3lO"/>
                                     <constraint firstAttribute="width" secondItem="ZRd-nx-6zT" secondAttribute="height" multiplier="1:1" id="eY3-6d-XYq"/>
-                                    <constraint firstItem="iiw-lc-tAj" firstAttribute="leading" secondItem="ZRd-nx-6zT" secondAttribute="leading" constant="5" id="vLn-U7-E1E"/>
-                                    <constraint firstAttribute="bottom" secondItem="iiw-lc-tAj" secondAttribute="bottom" constant="5" id="xaN-O4-CRD"/>
                                     <constraint firstAttribute="width" constant="50" id="yxa-Zi-NyA"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
@@ -52,31 +39,14 @@
                                     <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
                                         <color key="value" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="image" value="currentLocation"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vbw-dZ-kxw" userLabel="Save Spot Container" customClass="IconContainingView" customModule="Car_Connect" customModuleProvider="target">
                                 <rect key="frame" x="315" y="528" width="50" height="50"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eKc-Ie-p0c">
-                                        <rect key="frame" x="5" y="5" width="40" height="40"/>
-                                        <state key="normal" image="saveIcon"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="self.imageView.contentMode">
-                                                <integer key="value" value="1"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                        <connections>
-                                            <action selector="saveSpotButtonPressed:" destination="9pv-A4-QxB" eventType="touchUpInside" id="eHL-6o-Qse"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
                                 <color key="backgroundColor" red="0.91764705879999997" green="0.91764705879999997" blue="0.91764705879999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstItem="eKc-Ie-p0c" firstAttribute="leading" secondItem="vbw-dZ-kxw" secondAttribute="leading" constant="5" id="1PB-3f-JGw"/>
-                                    <constraint firstAttribute="bottom" secondItem="eKc-Ie-p0c" secondAttribute="bottom" constant="5" id="Cwq-gD-ler"/>
                                     <constraint firstAttribute="width" constant="50" id="Tls-sy-02P"/>
-                                    <constraint firstItem="eKc-Ie-p0c" firstAttribute="top" secondItem="vbw-dZ-kxw" secondAttribute="top" constant="5" id="syQ-iI-nDJ"/>
-                                    <constraint firstAttribute="trailing" secondItem="eKc-Ie-p0c" secondAttribute="trailing" constant="5" id="zTx-xl-bwQ"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -88,6 +58,7 @@
                                     <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
                                         <color key="value" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="image" value="saveIcon"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
@@ -110,8 +81,6 @@
                     </tabBarItem>
                     <connections>
                         <outlet property="mapView" destination="Ktz-wG-KRk" id="iRn-0W-mjN"/>
-                        <outlet property="saveSpotButton" destination="eKc-Ie-p0c" id="Hzx-Qg-KZb"/>
-                        <outlet property="showCurrentLocationButton" destination="iiw-lc-tAj" id="0Uc-dv-gml"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
@@ -131,23 +100,10 @@
                             </mapView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GfC-7a-3JL" userLabel="Location Container" customClass="IconContainingView" customModule="Car_Connect" customModuleProvider="target">
                                 <rect key="frame" x="10" y="528" width="50" height="50"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7b8-co-ar2">
-                                        <rect key="frame" x="5" y="5" width="40" height="40"/>
-                                        <state key="normal" image="currentLocation"/>
-                                        <connections>
-                                            <action selector="showCurrentLocationButtonPressed:" destination="8rJ-Kc-sve" eventType="touchUpInside" id="FlF-1B-7kT"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
                                 <color key="backgroundColor" red="0.91764705882352937" green="0.91764705882352937" blue="0.91764705882352937" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstItem="7b8-co-ar2" firstAttribute="leading" secondItem="GfC-7a-3JL" secondAttribute="leading" constant="5" id="BD5-cO-ncc"/>
                                     <constraint firstAttribute="width" constant="50" id="Jax-e1-eOD"/>
                                     <constraint firstAttribute="width" secondItem="GfC-7a-3JL" secondAttribute="height" multiplier="1:1" id="RKu-Af-0dn"/>
-                                    <constraint firstAttribute="bottom" secondItem="7b8-co-ar2" secondAttribute="bottom" constant="5" id="ST7-n8-jja"/>
-                                    <constraint firstItem="7b8-co-ar2" firstAttribute="top" secondItem="GfC-7a-3JL" secondAttribute="top" constant="5" id="cvG-9k-CM6"/>
-                                    <constraint firstAttribute="trailing" secondItem="7b8-co-ar2" secondAttribute="trailing" constant="5" id="qjW-gu-fzL"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -159,31 +115,14 @@
                                     <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
                                         <color key="value" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="image" value="currentLocation"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bZS-Tg-Yhl" userLabel="Directions Container" customClass="IconContainingView" customModule="Car_Connect" customModuleProvider="target">
                                 <rect key="frame" x="315" y="528" width="50" height="50"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3tj-gL-Ye8">
-                                        <rect key="frame" x="5" y="5" width="40" height="40"/>
-                                        <state key="normal" image="directionsIcon"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="self.imageView.contentMode">
-                                                <integer key="value" value="1"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                        <connections>
-                                            <action selector="showDirectionsButtonPressed:" destination="8rJ-Kc-sve" eventType="touchUpInside" id="CQa-OT-uUD"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
                                 <color key="backgroundColor" red="0.91764705879999997" green="0.91764705879999997" blue="0.91764705879999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstItem="3tj-gL-Ye8" firstAttribute="top" secondItem="bZS-Tg-Yhl" secondAttribute="top" constant="5" id="Uho-38-1Y0"/>
                                     <constraint firstAttribute="width" constant="50" id="V5c-os-88U"/>
-                                    <constraint firstAttribute="bottom" secondItem="3tj-gL-Ye8" secondAttribute="bottom" constant="5" id="jqm-ia-ZR1"/>
-                                    <constraint firstAttribute="trailing" secondItem="3tj-gL-Ye8" secondAttribute="trailing" constant="5" id="oQ0-8Q-nfv"/>
-                                    <constraint firstItem="3tj-gL-Ye8" firstAttribute="leading" secondItem="bZS-Tg-Yhl" secondAttribute="leading" constant="5" id="xGu-4l-uTE"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -195,6 +134,7 @@
                                     <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
                                         <color key="value" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="image" value="directionsIcon"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
@@ -215,8 +155,6 @@
                     <tabBarItem key="tabBarItem" title="Find Vehicle" image="findCarTabIcon" id="cPa-gy-q4n"/>
                     <connections>
                         <outlet property="mapView" destination="h48-2G-uTT" id="8b4-gs-Wfk"/>
-                        <outlet property="showCurrentLocationButton" destination="7b8-co-ar2" id="DLr-UG-bxd"/>
-                        <outlet property="showDirectionsButton" destination="3tj-gL-Ye8" id="yNm-8F-uCj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>

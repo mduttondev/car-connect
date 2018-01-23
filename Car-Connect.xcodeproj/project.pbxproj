@@ -19,6 +19,8 @@
 		C955CE231FBE79DE002D82B3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C955CE211FBE79DE002D82B3 /* LaunchScreen.storyboard */; };
 		C955CE2E1FBE79DE002D82B3 /* Car_ConnectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C955CE2D1FBE79DE002D82B3 /* Car_ConnectTests.swift */; };
 		C955CE391FBE79DE002D82B3 /* Car_ConnectUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C955CE381FBE79DE002D82B3 /* Car_ConnectUITests.swift */; };
+		C98E62F22016C8D5006F9258 /* CLLocationCoordinate2D+Dictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = C98E62F12016C8D5006F9258 /* CLLocationCoordinate2D+Dictionary.swift */; };
+		C98E62F42016C950006F9258 /* StorageHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = C98E62F32016C950006F9258 /* StorageHandler.swift */; };
 		C9A301A41FBE854F0064DD9F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C9A301A31FBE854F0064DD9F /* GoogleService-Info.plist */; };
 		C9A301A61FBE86590064DD9F /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9A301A51FBE86590064DD9F /* AdSupport.framework */; };
 		C9A301AE1FBE8F680064DD9F /* CarConnect.ai in Resources */ = {isa = PBXBuildFile; fileRef = C9A301AA1FBE8F680064DD9F /* CarConnect.ai */; };
@@ -29,8 +31,10 @@
 		C9A301B61FBE901B0064DD9F /* iTunesArtwork@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C9A301B31FBE901B0064DD9F /* iTunesArtwork@2x.png */; };
 		C9A301B71FBE901B0064DD9F /* iTunesArtwork@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = C9A301B41FBE901B0064DD9F /* iTunesArtwork@3x.png */; };
 		C9A301B91FBE93190064DD9F /* CarConnect+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A301B81FBE93190064DD9F /* CarConnect+Extensions.swift */; };
+		C9D2E13D2016D45B00A39183 /* IconContainingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9D2E13C2016D45B00A39183 /* IconContainingView.xib */; };
 		C9ED3D621FE6DDA90096BDF2 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9ED3D611FE6DDA90096BDF2 /* CoreLocation.framework */; };
 		C9ED3D641FE6DED20096BDF2 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9ED3D631FE6DED20096BDF2 /* LocationManager.swift */; };
+		C9FC540E2016D0410007AB20 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9FC540D2016D0410007AB20 /* Constants.swift */; };
 		D8C3EB338BE9C9B51E45E498 /* Pods_Car_ConnectUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8427A9C63DDD5BCFC23F9355 /* Pods_Car_ConnectUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -75,6 +79,8 @@
 		C955CE341FBE79DE002D82B3 /* Car-ConnectUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Car-ConnectUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C955CE381FBE79DE002D82B3 /* Car_ConnectUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Car_ConnectUITests.swift; sourceTree = "<group>"; };
 		C955CE3A1FBE79DE002D82B3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C98E62F12016C8D5006F9258 /* CLLocationCoordinate2D+Dictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CLLocationCoordinate2D+Dictionary.swift"; sourceTree = "<group>"; };
+		C98E62F32016C950006F9258 /* StorageHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageHandler.swift; sourceTree = "<group>"; };
 		C9A301A31FBE854F0064DD9F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C9A301A51FBE86590064DD9F /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		C9A301AA1FBE8F680064DD9F /* CarConnect.ai */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CarConnect.ai; sourceTree = "<group>"; };
@@ -85,9 +91,11 @@
 		C9A301B31FBE901B0064DD9F /* iTunesArtwork@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iTunesArtwork@2x.png"; sourceTree = "<group>"; };
 		C9A301B41FBE901B0064DD9F /* iTunesArtwork@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iTunesArtwork@3x.png"; sourceTree = "<group>"; };
 		C9A301B81FBE93190064DD9F /* CarConnect+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CarConnect+Extensions.swift"; sourceTree = "<group>"; };
+		C9D2E13C2016D45B00A39183 /* IconContainingView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IconContainingView.xib; sourceTree = "<group>"; };
 		C9ED3D611FE6DDA90096BDF2 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		C9ED3D631FE6DED20096BDF2 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		C9ED3D671FE6EFF50096BDF2 /* SwiftLint.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = SwiftLint.sh; sourceTree = "<group>"; };
+		C9FC540D2016D0410007AB20 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		E07820C283C2C4A5D46B1F78 /* Pods_Car_ConnectTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Car_ConnectTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1E02FABBCB2957647B0C955 /* Pods_Car_Connect.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Car_Connect.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -219,6 +227,7 @@
 				C955CE1C1FBE79DE002D82B3 /* Main.storyboard */,
 				C955CE1F1FBE79DE002D82B3 /* Assets.xcassets */,
 				C955CE211FBE79DE002D82B3 /* LaunchScreen.storyboard */,
+				C9D2E13C2016D45B00A39183 /* IconContainingView.xib */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -242,6 +251,9 @@
 			children = (
 				C9A301B81FBE93190064DD9F /* CarConnect+Extensions.swift */,
 				C91488871FD47CE2000D7EE0 /* IconContainingView.swift */,
+				C98E62F12016C8D5006F9258 /* CLLocationCoordinate2D+Dictionary.swift */,
+				C98E62F32016C950006F9258 /* StorageHandler.swift */,
+				C9FC540D2016D0410007AB20 /* Constants.swift */,
 			);
 			path = "Convenience Classes";
 			sourceTree = "<group>";
@@ -374,6 +386,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C955CE231FBE79DE002D82B3 /* LaunchScreen.storyboard in Resources */,
+				C9D2E13D2016D45B00A39183 /* IconContainingView.xib in Resources */,
 				C9A301B61FBE901B0064DD9F /* iTunesArtwork@2x.png in Resources */,
 				C9A301A41FBE854F0064DD9F /* GoogleService-Info.plist in Resources */,
 				C955CE201FBE79DE002D82B3 /* Assets.xcassets in Resources */,
@@ -587,8 +600,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				C955CE1B1FBE79DE002D82B3 /* FindViewController.swift in Sources */,
+				C98E62F22016C8D5006F9258 /* CLLocationCoordinate2D+Dictionary.swift in Sources */,
+				C98E62F42016C950006F9258 /* StorageHandler.swift in Sources */,
 				C9A301B91FBE93190064DD9F /* CarConnect+Extensions.swift in Sources */,
 				C91488861FD46CB8000D7EE0 /* ParkingMeterViewController.swift in Sources */,
+				C9FC540E2016D0410007AB20 /* Constants.swift in Sources */,
 				C9ED3D641FE6DED20096BDF2 /* LocationManager.swift in Sources */,
 				C91488881FD47CE2000D7EE0 /* IconContainingView.swift in Sources */,
 				C955CE171FBE79DE002D82B3 /* AppDelegate.swift in Sources */,
