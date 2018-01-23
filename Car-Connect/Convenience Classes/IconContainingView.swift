@@ -46,7 +46,11 @@ class IconContainingView: UIView {
 
 	@IBOutlet weak var actionButton: UIButton!
 
-	@IBOutlet weak var disablingView: UIView!
+	@IBOutlet weak var disablingView: UIView! {
+		didSet {
+			disablingView.isHidden = true
+		}
+	}
 
 	// MARK - Properties
 	var enabled: Bool {

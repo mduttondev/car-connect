@@ -11,6 +11,8 @@ import MapKit
 
 class FindViewController: UIViewController, CCLocationManagerDelegate {
 
+	let storageHandler = StorageHandler()
+
 	@IBOutlet weak var mapView: MKMapView! {
 		didSet {
 			mapView.showsUserLocation = true
@@ -31,7 +33,24 @@ class FindViewController: UIViewController, CCLocationManagerDelegate {
 		if let location = locationManager.userLocation {
 			centerMapOnUserLocation(location)
 		}
+
+		if let existingUserLocationCoordinate = storageHandler.getParkedLocationFromDefaults() {
+			let annotation = MKPointAnnotation()
+			annotation.coordinate = existingUserLocationCoordinate.coordinate
+			mapView.addAnnotation(annotation)
+		}
+
 	}
+    
+    /*
+ // TODO:
+ 
+ 1) Get All Tabs to load on start up
+ 
+ 2) Moved all the iconContainingView stuff into one class and one instance in the story board that I dont have to put all the subviews in for each.
+ 
+ 2a) I'll probably have to create a method to size the views accordingly. Might look into the work code base to do that.
+ */
 
 	@IBAction func showCurrentLocationButtonPressed(_ sender: UIButton) {
 		if let location = locationManager.userLocation {

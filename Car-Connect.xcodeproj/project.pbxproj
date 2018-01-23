@@ -31,7 +31,6 @@
 		C9A301B61FBE901B0064DD9F /* iTunesArtwork@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C9A301B31FBE901B0064DD9F /* iTunesArtwork@2x.png */; };
 		C9A301B71FBE901B0064DD9F /* iTunesArtwork@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = C9A301B41FBE901B0064DD9F /* iTunesArtwork@3x.png */; };
 		C9A301B91FBE93190064DD9F /* CarConnect+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A301B81FBE93190064DD9F /* CarConnect+Extensions.swift */; };
-		C9D2E13D2016D45B00A39183 /* IconContainingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9D2E13C2016D45B00A39183 /* IconContainingView.xib */; };
 		C9ED3D621FE6DDA90096BDF2 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9ED3D611FE6DDA90096BDF2 /* CoreLocation.framework */; };
 		C9ED3D641FE6DED20096BDF2 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9ED3D631FE6DED20096BDF2 /* LocationManager.swift */; };
 		C9FC540E2016D0410007AB20 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9FC540D2016D0410007AB20 /* Constants.swift */; };
@@ -91,7 +90,6 @@
 		C9A301B31FBE901B0064DD9F /* iTunesArtwork@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iTunesArtwork@2x.png"; sourceTree = "<group>"; };
 		C9A301B41FBE901B0064DD9F /* iTunesArtwork@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iTunesArtwork@3x.png"; sourceTree = "<group>"; };
 		C9A301B81FBE93190064DD9F /* CarConnect+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CarConnect+Extensions.swift"; sourceTree = "<group>"; };
-		C9D2E13C2016D45B00A39183 /* IconContainingView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IconContainingView.xib; sourceTree = "<group>"; };
 		C9ED3D611FE6DDA90096BDF2 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		C9ED3D631FE6DED20096BDF2 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		C9ED3D671FE6EFF50096BDF2 /* SwiftLint.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = SwiftLint.sh; sourceTree = "<group>"; };
@@ -227,7 +225,6 @@
 				C955CE1C1FBE79DE002D82B3 /* Main.storyboard */,
 				C955CE1F1FBE79DE002D82B3 /* Assets.xcassets */,
 				C955CE211FBE79DE002D82B3 /* LaunchScreen.storyboard */,
-				C9D2E13C2016D45B00A39183 /* IconContainingView.xib */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -386,7 +383,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				C955CE231FBE79DE002D82B3 /* LaunchScreen.storyboard in Resources */,
-				C9D2E13D2016D45B00A39183 /* IconContainingView.xib in Resources */,
 				C9A301B61FBE901B0064DD9F /* iTunesArtwork@2x.png in Resources */,
 				C9A301A41FBE854F0064DD9F /* GoogleService-Info.plist in Resources */,
 				C955CE201FBE79DE002D82B3 /* Assets.xcassets in Resources */,
