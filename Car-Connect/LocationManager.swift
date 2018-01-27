@@ -25,15 +25,6 @@ class CCLocationManger: NSObject, CLLocationManagerDelegate {
 	private override init() {
 		super.init()
 
-		if CLLocationManager.authorizationStatus() == .notDetermined {
-			locationManager.requestWhenInUseAuthorization()
-		}
-
-		if CLLocationManager.locationServicesEnabled() {
-			locationManager.delegate = self
-			locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
-			locationManager.startUpdatingLocation()
-		}
 	}
 
 	func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {

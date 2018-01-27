@@ -13,7 +13,7 @@ struct StorageHandler {
 
 	private let locationKey = "ParkedLocation"
 
-	func getParkedLocationFromDefaults() -> CLLocation? {
+	func getParkingLocationFromDefaults() -> CLLocation? {
 		guard let coordinateDictionary = UserDefaults.standard.object(forKey: locationKey) as? CLLocationDictionary else { return nil }
 		let coordinate = CLLocationCoordinate2D(dict: coordinateDictionary)
 		let location = CLLocation(latitude: coordinate.latitude,
@@ -28,5 +28,13 @@ struct StorageHandler {
 		let coordinate = location.coordinate
 		let storableCoordinate = coordinate.asDictionary
 		UserDefaults.standard.set(storableCoordinate, forKey: locationKey)
+	}
+
+	/// Removes saved parking location if one exists
+	func clearSavedParkingLocation() {
+		let defaults = UserDefaults.standard
+		guard let _ = defaults.object(forKey: locationKey) as? CLLocationDictionary else { return }
+
+		defaults.removeObject(forKey: locationKey)
 	}
 }

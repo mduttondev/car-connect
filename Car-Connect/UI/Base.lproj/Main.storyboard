@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -22,40 +21,14 @@
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="hybrid" translatesAutoresizingMaskIntoConstraints="NO" id="Ktz-wG-KRk">
                                 <rect key="frame" x="0.0" y="20" width="375" height="598"/>
                             </mapView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZRd-nx-6zT" userLabel="Location Container" customClass="IconContainingView" customModule="Car_Connect" customModuleProvider="target">
-                                <rect key="frame" x="10" y="528" width="50" height="50"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ueI-Yj-R7A">
-                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                        <connections>
-                                            <action selector="showCurrentLocationButtonPressed:" destination="9pv-A4-QxB" eventType="touchUpInside" id="8mN-ip-Z0M"/>
-                                        </connections>
-                                    </button>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="lFo-p7-LUp">
-                                        <rect key="frame" x="5" y="5" width="40" height="40"/>
-                                    </imageView>
-                                    <view alpha="0.84999999999999998" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jZL-RU-uQ3">
-                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </view>
-                                </subviews>
-                                <color key="backgroundColor" red="0.91764705879999997" green="0.91764705879999997" blue="0.91764705879999997" alpha="1" colorSpace="calibratedRGB"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WI3-8w-v4S" customClass="FloatingButton" customModule="Car_Connect" customModuleProvider="target">
+                                <rect key="frame" x="15" y="523" width="45" height="45"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="lFo-p7-LUp" secondAttribute="bottom" constant="5" id="1B7-0B-XZm"/>
-                                    <constraint firstAttribute="trailing" secondItem="lFo-p7-LUp" secondAttribute="trailing" constant="5" id="9RA-rK-Q3i"/>
-                                    <constraint firstItem="ueI-Yj-R7A" firstAttribute="width" secondItem="ZRd-nx-6zT" secondAttribute="width" id="Giv-aI-1zB"/>
-                                    <constraint firstItem="jZL-RU-uQ3" firstAttribute="width" secondItem="ZRd-nx-6zT" secondAttribute="width" id="SAd-4k-V1n"/>
-                                    <constraint firstItem="jZL-RU-uQ3" firstAttribute="centerX" secondItem="ZRd-nx-6zT" secondAttribute="centerX" id="SvL-Yn-G2J"/>
-                                    <constraint firstItem="ueI-Yj-R7A" firstAttribute="height" secondItem="ZRd-nx-6zT" secondAttribute="height" id="UIM-QB-uNe"/>
-                                    <constraint firstItem="ueI-Yj-R7A" firstAttribute="centerY" secondItem="ZRd-nx-6zT" secondAttribute="centerY" id="VbF-hy-QdP"/>
-                                    <constraint firstItem="lFo-p7-LUp" firstAttribute="top" secondItem="ZRd-nx-6zT" secondAttribute="top" constant="5" id="byE-Yj-WuB"/>
-                                    <constraint firstItem="jZL-RU-uQ3" firstAttribute="height" secondItem="ZRd-nx-6zT" secondAttribute="height" id="dhD-Fx-RcW"/>
-                                    <constraint firstAttribute="width" secondItem="ZRd-nx-6zT" secondAttribute="height" multiplier="1:1" id="eY3-6d-XYq"/>
-                                    <constraint firstItem="lFo-p7-LUp" firstAttribute="leading" secondItem="ZRd-nx-6zT" secondAttribute="leading" constant="5" id="gU8-Q1-RGf"/>
-                                    <constraint firstItem="jZL-RU-uQ3" firstAttribute="centerY" secondItem="ZRd-nx-6zT" secondAttribute="centerY" id="lvt-VA-lKj"/>
-                                    <constraint firstItem="ueI-Yj-R7A" firstAttribute="centerX" secondItem="ZRd-nx-6zT" secondAttribute="centerX" id="sNu-mE-JWM"/>
-                                    <constraint firstAttribute="width" constant="50" id="yxa-Zi-NyA"/>
+                                    <constraint firstAttribute="width" constant="45" id="OgK-Es-Xue"/>
+                                    <constraint firstAttribute="height" constant="45" id="YsY-vN-XNJ"/>
                                 </constraints>
+                                <state key="normal" title="Button" image="currentLocation"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                         <real key="value" value="5"/>
@@ -64,78 +37,80 @@
                                         <real key="value" value="1"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                        <color key="value" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="value" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="image" keyPath="image" value="currentLocation"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="imageInset">
+                                        <real key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <outlet property="actionButton" destination="ueI-Yj-R7A" id="liS-d6-lCW"/>
-                                    <outlet property="disablingView" destination="jZL-RU-uQ3" id="uBZ-6J-M8z"/>
-                                    <outlet property="imageView" destination="lFo-p7-LUp" id="xLN-oH-PqN"/>
+                                    <action selector="showCurrentLocationButtonPressed:" destination="9pv-A4-QxB" eventType="touchUpInside" id="p7o-rE-xaM"/>
                                 </connections>
-                            </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vbw-dZ-kxw" userLabel="Save Spot Container" customClass="IconContainingView" customModule="Car_Connect" customModuleProvider="target">
-                                <rect key="frame" x="315" y="528" width="50" height="50"/>
-                                <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9FR-5h-r9o">
-                                        <rect key="frame" x="5" y="5" width="40" height="40"/>
-                                    </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Dg-wv-QB0">
-                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                        <connections>
-                                            <action selector="saveSpotButtonPressed:" destination="9pv-A4-QxB" eventType="touchUpInside" id="fXs-0E-T9a"/>
-                                        </connections>
-                                    </button>
-                                    <view alpha="0.84999999999999998" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oAX-Bf-L8J">
-                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </view>
-                                </subviews>
-                                <color key="backgroundColor" red="0.91764705879999997" green="0.91764705879999997" blue="0.91764705879999997" alpha="1" colorSpace="calibratedRGB"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uIr-wp-fUu" customClass="FloatingButton" customModule="Car_Connect" customModuleProvider="target">
+                                <rect key="frame" x="315" y="523" width="45" height="45"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="9FR-5h-r9o" secondAttribute="trailing" constant="5" id="8Rt-yK-hCQ"/>
-                                    <constraint firstItem="5Dg-wv-QB0" firstAttribute="width" secondItem="vbw-dZ-kxw" secondAttribute="width" id="9EH-cZ-EwD"/>
-                                    <constraint firstItem="oAX-Bf-L8J" firstAttribute="centerY" secondItem="vbw-dZ-kxw" secondAttribute="centerY" id="FWJ-bp-IPh"/>
-                                    <constraint firstItem="5Dg-wv-QB0" firstAttribute="height" secondItem="vbw-dZ-kxw" secondAttribute="height" id="Faw-uh-uzh"/>
-                                    <constraint firstItem="oAX-Bf-L8J" firstAttribute="width" secondItem="vbw-dZ-kxw" secondAttribute="width" id="HmS-OX-znM"/>
-                                    <constraint firstAttribute="width" constant="50" id="Tls-sy-02P"/>
-                                    <constraint firstItem="9FR-5h-r9o" firstAttribute="leading" secondItem="vbw-dZ-kxw" secondAttribute="leading" constant="5" id="WV3-0H-pzi"/>
-                                    <constraint firstAttribute="bottom" secondItem="9FR-5h-r9o" secondAttribute="bottom" constant="5" id="dV5-7M-dxz"/>
-                                    <constraint firstItem="oAX-Bf-L8J" firstAttribute="height" secondItem="vbw-dZ-kxw" secondAttribute="height" id="djW-WY-SNW"/>
-                                    <constraint firstItem="oAX-Bf-L8J" firstAttribute="centerX" secondItem="vbw-dZ-kxw" secondAttribute="centerX" id="gLc-PS-HFf"/>
-                                    <constraint firstItem="9FR-5h-r9o" firstAttribute="top" secondItem="vbw-dZ-kxw" secondAttribute="top" constant="5" id="iif-lu-Z7q"/>
-                                    <constraint firstItem="5Dg-wv-QB0" firstAttribute="centerX" secondItem="vbw-dZ-kxw" secondAttribute="centerX" id="ts4-UP-p4U"/>
-                                    <constraint firstItem="5Dg-wv-QB0" firstAttribute="centerY" secondItem="vbw-dZ-kxw" secondAttribute="centerY" id="wBq-Ye-bZC"/>
+                                    <constraint firstAttribute="width" constant="45" id="KFJ-RR-6Ap"/>
+                                    <constraint firstAttribute="height" constant="45" id="jSU-wm-YHQ"/>
                                 </constraints>
+                                <state key="normal" image="saveIcon"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="imageInset">
                                         <real key="value" value="5"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
                                         <real key="value" value="1"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                        <color key="value" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="value" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="image" keyPath="image" value="saveIcon"/>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <outlet property="actionButton" destination="5Dg-wv-QB0" id="pzb-Jz-ZcJ"/>
-                                    <outlet property="disablingView" destination="oAX-Bf-L8J" id="YNB-U8-t4A"/>
-                                    <outlet property="imageView" destination="9FR-5h-r9o" id="QZD-dy-bTN"/>
+                                    <action selector="saveSpotButtonPressed:" destination="9pv-A4-QxB" eventType="touchUpInside" id="KLI-2A-Ijq"/>
                                 </connections>
-                            </view>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xXg-Rv-Bpf" customClass="FloatingButton" customModule="Car_Connect" customModuleProvider="target">
+                                <rect key="frame" x="317" y="463" width="40" height="40"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="Aw8-ap-WBg"/>
+                                    <constraint firstAttribute="height" constant="40" id="me5-za-Wdd"/>
+                                </constraints>
+                                <state key="normal" title="Button" image="trashIcon"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="imageInset">
+                                        <real key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="deletePressed:" destination="9pv-A4-QxB" eventType="touchUpInside" id="K0G-Jr-a2H"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="vbw-dZ-kxw" firstAttribute="width" secondItem="vbw-dZ-kxw" secondAttribute="height" multiplier="1:1" id="6Zo-1L-VfA"/>
+                            <constraint firstItem="uIr-wp-fUu" firstAttribute="top" secondItem="xXg-Rv-Bpf" secondAttribute="bottom" constant="20" id="9Gn-aZ-X6g"/>
+                            <constraint firstItem="PQr-Ze-W5v" firstAttribute="trailing" secondItem="uIr-wp-fUu" secondAttribute="trailing" constant="15" id="CKW-GH-iBH"/>
                             <constraint firstItem="Ktz-wG-KRk" firstAttribute="trailing" secondItem="PQr-Ze-W5v" secondAttribute="trailing" id="JcK-TC-RPU"/>
-                            <constraint firstItem="PQr-Ze-W5v" firstAttribute="trailing" secondItem="vbw-dZ-kxw" secondAttribute="trailing" constant="10" id="PYa-1O-fSk"/>
-                            <constraint firstItem="PQr-Ze-W5v" firstAttribute="bottom" secondItem="vbw-dZ-kxw" secondAttribute="bottom" constant="40" id="Q4B-g2-a3s"/>
+                            <constraint firstItem="xXg-Rv-Bpf" firstAttribute="centerX" secondItem="uIr-wp-fUu" secondAttribute="centerX" id="LYF-iq-3vr"/>
                             <constraint firstItem="Ktz-wG-KRk" firstAttribute="leading" secondItem="PQr-Ze-W5v" secondAttribute="leading" id="TiK-CR-oAr"/>
                             <constraint firstItem="Ktz-wG-KRk" firstAttribute="top" secondItem="PQr-Ze-W5v" secondAttribute="top" id="iwe-oW-Vis"/>
-                            <constraint firstItem="PQr-Ze-W5v" firstAttribute="bottom" secondItem="ZRd-nx-6zT" secondAttribute="bottom" constant="40" id="pfk-pX-dOL"/>
-                            <constraint firstItem="ZRd-nx-6zT" firstAttribute="leading" secondItem="PQr-Ze-W5v" secondAttribute="leading" constant="10" id="qeZ-XY-Tvd"/>
+                            <constraint firstItem="PQr-Ze-W5v" firstAttribute="bottom" secondItem="uIr-wp-fUu" secondAttribute="bottom" constant="50" id="kWX-P0-qeY"/>
+                            <constraint firstItem="PQr-Ze-W5v" firstAttribute="bottom" secondItem="WI3-8w-v4S" secondAttribute="bottom" constant="50" id="nD4-5V-bdc"/>
+                            <constraint firstItem="WI3-8w-v4S" firstAttribute="leading" secondItem="PQr-Ze-W5v" secondAttribute="leading" constant="15" id="qna-Qr-zsf"/>
                             <constraint firstItem="Ktz-wG-KRk" firstAttribute="bottom" secondItem="PQr-Ze-W5v" secondAttribute="bottom" id="vrf-Gt-fSx"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="PQr-Ze-W5v"/>
@@ -145,149 +120,14 @@
                     </tabBarItem>
                     <connections>
                         <outlet property="mapView" destination="Ktz-wG-KRk" id="iRn-0W-mjN"/>
+                        <outlet property="parkingButton" destination="uIr-wp-fUu" id="TFk-5C-3VG"/>
+                        <outlet property="showCurrentLocationButton" destination="WI3-8w-v4S" id="cBa-h8-cdG"/>
+                        <outlet property="trashButton" destination="xXg-Rv-Bpf" id="YG2-1E-kyu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="749.60000000000002" y="-320.68965517241384"/>
-        </scene>
-        <!--Find Vehicle-->
-        <scene sceneID="wg7-f3-ORb">
-            <objects>
-                <viewController id="8rJ-Kc-sve" customClass="FindViewController" customModule="Car_Connect" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="QS5-Rx-YEW">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="hybrid" translatesAutoresizingMaskIntoConstraints="NO" id="h48-2G-uTT">
-                                <rect key="frame" x="0.0" y="20" width="375" height="598"/>
-                            </mapView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GfC-7a-3JL" userLabel="Location Container" customClass="IconContainingView" customModule="Car_Connect" customModuleProvider="target">
-                                <rect key="frame" x="10" y="528" width="50" height="50"/>
-                                <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rTP-4H-6Ih">
-                                        <rect key="frame" x="5" y="5" width="40" height="40"/>
-                                    </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I5D-hI-UgX">
-                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                        <connections>
-                                            <action selector="showCurrentLocationButtonPressed:" destination="8rJ-Kc-sve" eventType="touchUpInside" id="q9I-NK-Smn"/>
-                                        </connections>
-                                    </button>
-                                    <view alpha="0.84999999999999998" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nkV-tF-17b">
-                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </view>
-                                </subviews>
-                                <color key="backgroundColor" red="0.91764705882352937" green="0.91764705882352937" blue="0.91764705882352937" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstItem="nkV-tF-17b" firstAttribute="centerY" secondItem="GfC-7a-3JL" secondAttribute="centerY" id="5FJ-dK-O0M"/>
-                                    <constraint firstItem="I5D-hI-UgX" firstAttribute="centerX" secondItem="GfC-7a-3JL" secondAttribute="centerX" id="7md-t6-uNW"/>
-                                    <constraint firstItem="rTP-4H-6Ih" firstAttribute="top" secondItem="GfC-7a-3JL" secondAttribute="top" constant="5" id="Ap2-uZ-rxR"/>
-                                    <constraint firstItem="rTP-4H-6Ih" firstAttribute="leading" secondItem="GfC-7a-3JL" secondAttribute="leading" constant="5" id="BTc-3A-NNj"/>
-                                    <constraint firstAttribute="bottom" secondItem="rTP-4H-6Ih" secondAttribute="bottom" constant="5" id="FWz-dF-xnP"/>
-                                    <constraint firstAttribute="width" constant="50" id="Jax-e1-eOD"/>
-                                    <constraint firstItem="I5D-hI-UgX" firstAttribute="centerY" secondItem="GfC-7a-3JL" secondAttribute="centerY" id="K6j-Vs-hoL"/>
-                                    <constraint firstAttribute="width" secondItem="GfC-7a-3JL" secondAttribute="height" multiplier="1:1" id="RKu-Af-0dn"/>
-                                    <constraint firstItem="I5D-hI-UgX" firstAttribute="height" secondItem="GfC-7a-3JL" secondAttribute="height" id="Ryo-EU-bc7"/>
-                                    <constraint firstItem="nkV-tF-17b" firstAttribute="height" secondItem="GfC-7a-3JL" secondAttribute="height" id="jln-Kr-Rcn"/>
-                                    <constraint firstItem="I5D-hI-UgX" firstAttribute="width" secondItem="GfC-7a-3JL" secondAttribute="width" id="kmy-Uc-IfB"/>
-                                    <constraint firstItem="nkV-tF-17b" firstAttribute="width" secondItem="GfC-7a-3JL" secondAttribute="width" id="qu5-55-CuV"/>
-                                    <constraint firstItem="nkV-tF-17b" firstAttribute="centerX" secondItem="GfC-7a-3JL" secondAttribute="centerX" id="srv-Tq-xsQ"/>
-                                    <constraint firstAttribute="trailing" secondItem="rTP-4H-6Ih" secondAttribute="trailing" constant="5" id="uny-X7-dYC"/>
-                                </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="5"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                        <real key="value" value="1"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                        <color key="value" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="image" keyPath="image" value="currentLocation"/>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <outlet property="actionButton" destination="I5D-hI-UgX" id="xDg-FY-8Mt"/>
-                                    <outlet property="disablingView" destination="nkV-tF-17b" id="dKx-hI-Lre"/>
-                                    <outlet property="imageView" destination="rTP-4H-6Ih" id="l8P-E1-nVC"/>
-                                </connections>
-                            </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bZS-Tg-Yhl" userLabel="Directions Container" customClass="IconContainingView" customModule="Car_Connect" customModuleProvider="target">
-                                <rect key="frame" x="315" y="528" width="50" height="50"/>
-                                <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="n0H-Yt-zlC">
-                                        <rect key="frame" x="5" y="5" width="40" height="40"/>
-                                    </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ltE-xh-pa4">
-                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                        <connections>
-                                            <action selector="showDirectionsButtonPressed:" destination="8rJ-Kc-sve" eventType="touchUpInside" id="oAq-dj-T8m"/>
-                                        </connections>
-                                    </button>
-                                    <view alpha="0.84999999999999998" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FbY-RD-9uQ">
-                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </view>
-                                </subviews>
-                                <color key="backgroundColor" red="0.91764705879999997" green="0.91764705879999997" blue="0.91764705879999997" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstItem="ltE-xh-pa4" firstAttribute="width" secondItem="bZS-Tg-Yhl" secondAttribute="width" id="3o4-M4-KGy"/>
-                                    <constraint firstItem="ltE-xh-pa4" firstAttribute="centerY" secondItem="bZS-Tg-Yhl" secondAttribute="centerY" id="57t-ao-wUJ"/>
-                                    <constraint firstItem="n0H-Yt-zlC" firstAttribute="leading" secondItem="bZS-Tg-Yhl" secondAttribute="leading" constant="5" id="A8j-q0-W7o"/>
-                                    <constraint firstAttribute="trailing" secondItem="n0H-Yt-zlC" secondAttribute="trailing" constant="5" id="Ak8-2h-aK1"/>
-                                    <constraint firstItem="n0H-Yt-zlC" firstAttribute="top" secondItem="bZS-Tg-Yhl" secondAttribute="top" constant="5" id="SZC-sP-HRz"/>
-                                    <constraint firstItem="FbY-RD-9uQ" firstAttribute="width" secondItem="bZS-Tg-Yhl" secondAttribute="width" id="Sss-2j-dDz"/>
-                                    <constraint firstAttribute="width" constant="50" id="V5c-os-88U"/>
-                                    <constraint firstItem="FbY-RD-9uQ" firstAttribute="centerY" secondItem="bZS-Tg-Yhl" secondAttribute="centerY" id="Y9X-uU-4td"/>
-                                    <constraint firstAttribute="bottom" secondItem="n0H-Yt-zlC" secondAttribute="bottom" constant="5" id="aTZ-OW-Ym2"/>
-                                    <constraint firstItem="FbY-RD-9uQ" firstAttribute="height" secondItem="bZS-Tg-Yhl" secondAttribute="height" id="b43-mU-BeU"/>
-                                    <constraint firstItem="ltE-xh-pa4" firstAttribute="centerX" secondItem="bZS-Tg-Yhl" secondAttribute="centerX" id="bzo-CT-nDL"/>
-                                    <constraint firstItem="FbY-RD-9uQ" firstAttribute="centerX" secondItem="bZS-Tg-Yhl" secondAttribute="centerX" id="dU9-B2-UH0"/>
-                                    <constraint firstItem="ltE-xh-pa4" firstAttribute="height" secondItem="bZS-Tg-Yhl" secondAttribute="height" id="oPE-37-w3g"/>
-                                </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="5"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                        <real key="value" value="1"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                        <color key="value" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="image" keyPath="image" value="directionsIcon"/>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <outlet property="actionButton" destination="ltE-xh-pa4" id="NB7-9W-Cwb"/>
-                                    <outlet property="disablingView" destination="FbY-RD-9uQ" id="IAd-E0-Xmc"/>
-                                    <outlet property="imageView" destination="n0H-Yt-zlC" id="pyx-eC-Zkl"/>
-                                </connections>
-                            </view>
-                        </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="h48-2G-uTT" firstAttribute="bottom" secondItem="O1u-W8-tvY" secondAttribute="bottom" id="AN4-fS-lHH"/>
-                            <constraint firstItem="O1u-W8-tvY" firstAttribute="bottom" secondItem="GfC-7a-3JL" secondAttribute="bottom" constant="40" id="Bcb-9v-Pid"/>
-                            <constraint firstItem="bZS-Tg-Yhl" firstAttribute="width" secondItem="bZS-Tg-Yhl" secondAttribute="height" multiplier="1:1" id="BiD-T3-GE0"/>
-                            <constraint firstItem="h48-2G-uTT" firstAttribute="trailing" secondItem="O1u-W8-tvY" secondAttribute="trailing" id="C5K-UE-Wdd"/>
-                            <constraint firstItem="GfC-7a-3JL" firstAttribute="leading" secondItem="O1u-W8-tvY" secondAttribute="leading" constant="10" id="Lzc-fz-hEh"/>
-                            <constraint firstItem="O1u-W8-tvY" firstAttribute="bottom" secondItem="bZS-Tg-Yhl" secondAttribute="bottom" constant="40" id="Uu7-Xk-FNd"/>
-                            <constraint firstItem="h48-2G-uTT" firstAttribute="top" secondItem="O1u-W8-tvY" secondAttribute="top" id="V9T-je-OlI"/>
-                            <constraint firstItem="h48-2G-uTT" firstAttribute="leading" secondItem="O1u-W8-tvY" secondAttribute="leading" id="lXA-3g-5qK"/>
-                            <constraint firstItem="O1u-W8-tvY" firstAttribute="trailing" secondItem="bZS-Tg-Yhl" secondAttribute="trailing" constant="10" id="ryg-IR-DFb"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="O1u-W8-tvY"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Find Vehicle" image="findCarTabIcon" id="cPa-gy-q4n"/>
-                    <connections>
-                        <outlet property="mapView" destination="h48-2G-uTT" id="8b4-gs-Wfk"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="749.60000000000002" y="359.37031484257875"/>
         </scene>
         <!--Meter Timer-->
         <scene sceneID="pqx-Qv-pPV">
@@ -303,7 +143,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Ln-xi-cDJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1" y="853"/>
+            <point key="canvasLocation" x="750" y="355"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
@@ -316,7 +156,6 @@
                     </tabBar>
                     <connections>
                         <segue destination="9pv-A4-QxB" kind="relationship" relationship="viewControllers" id="u7Y-xg-7CH"/>
-                        <segue destination="8rJ-Kc-sve" kind="relationship" relationship="viewControllers" id="lzU-1b-eKA"/>
                         <segue destination="BsU-5W-B5Z" kind="relationship" relationship="viewControllers" id="VnJ-Gp-4E5"/>
                     </connections>
                 </tabBarController>
@@ -327,10 +166,9 @@
     </scenes>
     <resources>
         <image name="currentLocation" width="48" height="48"/>
-        <image name="directionsIcon" width="611" height="595"/>
-        <image name="findCarTabIcon" width="30" height="30"/>
         <image name="meterTabIcon" width="18" height="30"/>
         <image name="parkingTabIcon" width="30" height="30"/>
         <image name="saveIcon" width="524" height="464"/>
+        <image name="trashIcon" width="473" height="509"/>
     </resources>
 </document>
