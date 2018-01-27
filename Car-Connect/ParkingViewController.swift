@@ -1,5 +1,5 @@
 //
-//  FirstViewController.swift
+//  ParkingViewController.swift
 //  Car-Connect
 //
 //  Created by Matthew Dutton on 11/16/17.
@@ -95,7 +95,7 @@ class ParkingViewController: UIViewController, MKMapViewDelegate, CLLocationMana
 		updateUI(hasSavedLocation: false)
 	}
 
-	// MARK: -
+	// MARK: - Configuration
 	func updateUI(hasSavedLocation: Bool) {
 		if hasSavedLocation {
 			let directionsImage = #imageLiteral(resourceName: "directionsIcon")
@@ -164,7 +164,7 @@ class ParkingViewController: UIViewController, MKMapViewDelegate, CLLocationMana
 
 	}
 
-	// MARK: MKMapView Delegate
+	// MARK: - MKMapView Delegate -
 	func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
 		let renderer = MKPolylineRenderer(polyline: overlay as! MKPolyline)
 		renderer.strokeColor = UIColor.blue
@@ -172,21 +172,13 @@ class ParkingViewController: UIViewController, MKMapViewDelegate, CLLocationMana
 	}
 
 	// MARK: - CLLocationManager Delegate -
-	func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
 		guard let location = locations.last else { return }
 		userLocation = location
 		didUpdateUserLocation(location)
 	}
 
-	private func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
-		if status == .authorizedAlways || status == .authorizedWhenInUse {
-			manager.startUpdatingLocation()
-		} else {
-			manager.stopUpdatingLocation()
-		}
-	}
-
-	func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
 		if status == .denied  || status == .restricted {
 			locationManager.stopUpdatingLocation()
 		} else {
