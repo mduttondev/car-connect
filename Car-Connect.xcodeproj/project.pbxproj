@@ -19,6 +19,7 @@
 		C955CE231FBE79DE002D82B3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C955CE211FBE79DE002D82B3 /* LaunchScreen.storyboard */; };
 		C955CE2E1FBE79DE002D82B3 /* Car_ConnectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C955CE2D1FBE79DE002D82B3 /* Car_ConnectTests.swift */; };
 		C955CE391FBE79DE002D82B3 /* Car_ConnectUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C955CE381FBE79DE002D82B3 /* Car_ConnectUITests.swift */; };
+		C9662D61201E6BDC001188FF /* UIAlertController+StandardAlerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9662D60201E6BDC001188FF /* UIAlertController+StandardAlerts.swift */; };
 		C98E62F22016C8D5006F9258 /* CLLocationCoordinate2D+Dictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = C98E62F12016C8D5006F9258 /* CLLocationCoordinate2D+Dictionary.swift */; };
 		C98E62F42016C950006F9258 /* StorageHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = C98E62F32016C950006F9258 /* StorageHandler.swift */; };
 		C9A301A41FBE854F0064DD9F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C9A301A31FBE854F0064DD9F /* GoogleService-Info.plist */; };
@@ -33,6 +34,7 @@
 		C9A301B91FBE93190064DD9F /* CarConnect+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A301B81FBE93190064DD9F /* CarConnect+Extensions.swift */; };
 		C9ED3D621FE6DDA90096BDF2 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9ED3D611FE6DDA90096BDF2 /* CoreLocation.framework */; };
 		C9ED3D641FE6DED20096BDF2 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9ED3D631FE6DED20096BDF2 /* LocationManager.swift */; };
+		C9F057CD201E7ECE00DCE906 /* ArchivesToEllipse.gpx in Resources */ = {isa = PBXBuildFile; fileRef = C9F057CC201E7ECE00DCE906 /* ArchivesToEllipse.gpx */; };
 		C9FA43F0201D2ED400989776 /* National Archives.gpx in Resources */ = {isa = PBXBuildFile; fileRef = C9FA43EF201D2ED400989776 /* National Archives.gpx */; };
 		C9FA43F2201D305B00989776 /* The Ellipse.gpx in Resources */ = {isa = PBXBuildFile; fileRef = C9FA43F1201D305B00989776 /* The Ellipse.gpx */; };
 		C9FC540E2016D0410007AB20 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9FC540D2016D0410007AB20 /* Constants.swift */; };
@@ -80,6 +82,7 @@
 		C955CE341FBE79DE002D82B3 /* Car-ConnectUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Car-ConnectUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C955CE381FBE79DE002D82B3 /* Car_ConnectUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Car_ConnectUITests.swift; sourceTree = "<group>"; };
 		C955CE3A1FBE79DE002D82B3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C9662D60201E6BDC001188FF /* UIAlertController+StandardAlerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertController+StandardAlerts.swift"; sourceTree = "<group>"; };
 		C98E62F12016C8D5006F9258 /* CLLocationCoordinate2D+Dictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CLLocationCoordinate2D+Dictionary.swift"; sourceTree = "<group>"; };
 		C98E62F32016C950006F9258 /* StorageHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageHandler.swift; sourceTree = "<group>"; };
 		C9A301A31FBE854F0064DD9F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -95,6 +98,7 @@
 		C9ED3D611FE6DDA90096BDF2 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		C9ED3D631FE6DED20096BDF2 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		C9ED3D671FE6EFF50096BDF2 /* SwiftLint.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = SwiftLint.sh; sourceTree = "<group>"; };
+		C9F057CC201E7ECE00DCE906 /* ArchivesToEllipse.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = ArchivesToEllipse.gpx; sourceTree = "<group>"; };
 		C9FA43EF201D2ED400989776 /* National Archives.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "National Archives.gpx"; sourceTree = "<group>"; };
 		C9FA43F1201D305B00989776 /* The Ellipse.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "The Ellipse.gpx"; sourceTree = "<group>"; };
 		C9FC540D2016D0410007AB20 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -256,6 +260,7 @@
 				C98E62F12016C8D5006F9258 /* CLLocationCoordinate2D+Dictionary.swift */,
 				C98E62F32016C950006F9258 /* StorageHandler.swift */,
 				C9FC540D2016D0410007AB20 /* Constants.swift */,
+				C9662D60201E6BDC001188FF /* UIAlertController+StandardAlerts.swift */,
 			);
 			path = "Convenience Classes";
 			sourceTree = "<group>";
@@ -273,6 +278,7 @@
 			children = (
 				C9FA43EF201D2ED400989776 /* National Archives.gpx */,
 				C9FA43F1201D305B00989776 /* The Ellipse.gpx */,
+				C9F057CC201E7ECE00DCE906 /* ArchivesToEllipse.gpx */,
 			);
 			path = "Location GPX Files";
 			sourceTree = "<group>";
@@ -402,6 +408,7 @@
 				C955CE201FBE79DE002D82B3 /* Assets.xcassets in Resources */,
 				C9A301B11FBE8F680064DD9F /* CarConnectIconColor.pdf in Resources */,
 				C9A301B71FBE901B0064DD9F /* iTunesArtwork@3x.png in Resources */,
+				C9F057CD201E7ECE00DCE906 /* ArchivesToEllipse.gpx in Resources */,
 				C9FA43F2201D305B00989776 /* The Ellipse.gpx in Resources */,
 				C9A301B51FBE901B0064DD9F /* iTunesArtwork@1x.png in Resources */,
 				C9A301AE1FBE8F680064DD9F /* CarConnect.ai in Resources */,
@@ -621,6 +628,7 @@
 				C955CE171FBE79DE002D82B3 /* AppDelegate.swift in Sources */,
 				C955CE191FBE79DE002D82B3 /* ParkingViewController.swift in Sources */,
 				C923F398201D08EC00204573 /* FloatingButton.swift in Sources */,
+				C9662D61201E6BDC001188FF /* UIAlertController+StandardAlerts.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -11,6 +11,12 @@ import CoreLocation
 
 public enum Constants {
 
-	static let span: CLLocationDegrees = 0.001
+	static let span: CLLocationDegrees = 0.0025
 
+	static let defaultAnimationDuration: TimeInterval = 0.1
+
+	static let lineWidth: CGFloat = 6.0
+	static let mapEdgeInsetsForOverylay: CGFloat = 20.0
+
+	static let overlayUpdateRate: Int = 5
 }

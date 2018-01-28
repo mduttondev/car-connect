@@ -16,6 +16,9 @@ class ParkingViewController: UIViewController, MKMapViewDelegate, CLLocationMana
 	let storageHandler = StorageHandler()
 
 	var userLocation: CLLocation?
+	var callDirectionCount: Int = 0
+
+	private var directionsBeingDisplayed = false
 
 	/// Current state of saved Spot
 	///
@@ -85,6 +88,15 @@ class ParkingViewController: UIViewController, MKMapViewDelegate, CLLocationMana
 	}
 
 	@IBAction func deletePressed(_ sender: FloatingButton) {
+		let deleteConfirmed: ((UIAlertAction) -> Void) = { [weak self] _ in
+			self?.clearSavedSpotAndDirections()
+		}
+
+		let alert = UIAlertController(type: .confirmSpotDelete, positiveAction: deleteConfirmed)
+		present(alert, animated: true, completion: nil)
+	}
+
+	private func clearSavedSpotAndDirections() {
 		storageHandler.clearSavedParkingLocation()
 		mapView.annotations.forEach {
 			if $0 is MKPointAnnotation {
@@ -93,23 +105,31 @@ class ParkingViewController: UIViewController, MKMapViewDelegate, CLLocationMana
 		}
 		mapView.removeOverlays(mapView.overlays)
 		updateUI(hasSavedLocation: false)
+
+		directionsBeingDisplayed = false
+		callDirectionCount = 3
+
+		if let userLocation = userLocation {
+			centerMapOnUserLocation(userLocation)
+		}
 	}
 
 	// MARK: - Configuration
 	func updateUI(hasSavedLocation: Bool) {
+		let animationDuration = Constants.defaultAnimationDuration
 		if hasSavedLocation {
 			let directionsImage = #imageLiteral(resourceName: "directionsIcon")
 			parkingButton.setImage(directionsImage, for: .normal)
 			saveStatus = .spotSaved
 			trashButton.isHidden = false
-			UIView.animate(withDuration: 0.1) {
+			UIView.animate(withDuration: animationDuration) {
 				self.trashButton.alpha = 1
 			}
 		} else {
 			let saveIcon = #imageLiteral(resourceName: "saveIcon")
 			parkingButton.setImage(saveIcon, for: .normal)
 			saveStatus = .noSpotSaved
-			UIView.animate(withDuration: 0.1, animations: {
+			UIView.animate(withDuration: animationDuration, animations: {
 				self.trashButton.alpha = 0
 			}, completion: { [weak self] _ in
 				self?.trashButton.isHidden = true
@@ -119,6 +139,12 @@ class ParkingViewController: UIViewController, MKMapViewDelegate, CLLocationMana
 
 	private func didUpdateUserLocation(_ location: CLLocation) {
 		centerMapOnUserLocation(location)
+
+		callDirectionCount += 1
+
+		if directionsBeingDisplayed && callDirectionCount % Constants.overlayUpdateRate == 0 {
+			getDirections()
+		}
 	}
 
 	private func centerMapOnUserLocation(_ location: CLLocation) {
@@ -142,23 +168,38 @@ class ParkingViewController: UIViewController, MKMapViewDelegate, CLLocationMana
 	}
 
 	private func getDirections() {
-		print(#function)
+
 		let savedPoint = mapView.annotations.filter { $0 is MKPointAnnotation }.first
-		guard let userLocation = userLocation, let savedSpot = savedPoint else { return }
+		let userLocation = mapView.annotations.filter { $0 is MKUserLocation }.first
+
+		guard let user = userLocation, let marker = savedPoint else { return }
+
 		let request = MKDirectionsRequest()
-		request.source = MKMapItem(placemark: MKPlacemark(coordinate: userLocation.coordinate, addressDictionary: nil))
-		request.destination = MKMapItem(placemark: MKPlacemark(coordinate: savedSpot.coordinate, addressDictionary: nil))
+		request.source = MKMapItem(placemark: MKPlacemark(coordinate: user.coordinate, addressDictionary: nil))
+		request.destination = MKMapItem(placemark: MKPlacemark(coordinate: marker.coordinate, addressDictionary: nil))
 		request.requestsAlternateRoutes = false
 		request.transportType = .walking
 
+		let existingOverlay = mapView.overlays.first
+
 		let directions = MKDirections(request: request)
 		directions.calculate { [weak self] response, error in
-			guard let unwrappedResponse = response else { return }
+			guard let strongSelf = self,
+				let unwrappedResponse = response else { return }
 
 			for route in unwrappedResponse.routes {
-				self?.mapView.add(route.polyline)
-				let edgeInsets = UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
-				self?.mapView.setVisibleMapRect(route.polyline.boundingMapRect, edgePadding: edgeInsets, animated: true)
+				strongSelf.mapView.add(route.polyline)
+				let inset = Constants.mapEdgeInsetsForOverylay
+				let edgeInsets = UIEdgeInsets(top: inset, left: inset, bottom: inset, right: inset)
+
+				if !strongSelf.directionsBeingDisplayed {
+					strongSelf.directionsBeingDisplayed = true
+					strongSelf.mapView.setVisibleMapRect(route.polyline.boundingMapRect, edgePadding: edgeInsets, animated: true)
+				}
+			}
+
+			if let oldOverlay = existingOverlay {
+				strongSelf.mapView.remove(oldOverlay)
 			}
 		}
 
@@ -168,17 +209,18 @@ class ParkingViewController: UIViewController, MKMapViewDelegate, CLLocationMana
 	func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
 		let renderer = MKPolylineRenderer(polyline: overlay as! MKPolyline)
 		renderer.strokeColor = UIColor.blue
+		renderer.lineWidth = Constants.lineWidth
 		return renderer
 	}
 
 	// MARK: - CLLocationManager Delegate -
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+	func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
 		guard let location = locations.last else { return }
 		userLocation = location
 		didUpdateUserLocation(location)
 	}
 
-    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+	func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
 		if status == .denied  || status == .restricted {
 			locationManager.stopUpdatingLocation()
 		} else {
