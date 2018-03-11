@@ -21,6 +21,7 @@ extension UIAlertController {
 
 	enum AlertType {
 		case confirmSpotDelete
+		case notificationsDisabled
 	}
 
 	/// Creates a UIAlertController based on a given type.
@@ -54,6 +55,12 @@ extension UIAlertController {
 			let proceedAction = UIAlertAction(title: "Delete", style: .destructive, handler: positiveAction)
 			let cancelAction = UIAlertAction(title: "Cancel", style: .default, handler: negativeAction)
 			return AlertContent(title: title, message: message, style: .alert, actions: [proceedAction, cancelAction])
+		case .notificationsDisabled:
+			let title = "Notifications Disabled"
+			let message = "Notifications are currently disabled for this application. Please turn on notifications in settings and try that again"
+			let settingsAction = UIAlertAction(title: "Settings", style: .default, handler: positiveAction)
+			let cancelAction = UIAlertAction(title: "Never mind", style: .default, handler: negativeAction)
+			return AlertContent(title: title, message: message, style: .alert, actions: [settingsAction, cancelAction])
 		}
 	}
 

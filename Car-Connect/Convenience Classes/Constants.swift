@@ -19,4 +19,10 @@ public enum Constants {
 	static let mapEdgeInsetsForOverylay: CGFloat = 20.0
 
 	static let overlayUpdateRate: Int = 5
+
+	enum DefaultsKey: String {
+		case locationKey = "ParkedLocation"
+		case meterExpirationKey = "MeterExpiration"
+		case notificationExpirationKey = "NotificationExpiration"
+	}
 }

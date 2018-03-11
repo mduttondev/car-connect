@@ -61,7 +61,7 @@ class ParkingViewController: UIViewController, MKMapViewDelegate, CLLocationMana
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
 
-		if let existingUserLocationCoordinate = storageHandler.getParkingLocationFromDefaults() {
+		if let existingUserLocationCoordinate = storageHandler.readParkingLocationFromDefaults() {
 			let annotation = MKPointAnnotation()
 			annotation.coordinate = existingUserLocationCoordinate.coordinate
 			mapView.addAnnotation(annotation)

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina3_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -15,14 +15,14 @@
             <objects>
                 <viewController id="9pv-A4-QxB" customClass="ParkingViewController" customModule="Car_Connect" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tsR-hK-woN">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="hybrid" translatesAutoresizingMaskIntoConstraints="NO" id="Ktz-wG-KRk">
-                                <rect key="frame" x="0.0" y="20" width="375" height="598"/>
+                                <rect key="frame" x="0.0" y="20" width="320" height="411"/>
                             </mapView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WI3-8w-v4S" customClass="FloatingButton" customModule="Car_Connect" customModuleProvider="target">
-                                <rect key="frame" x="15" y="523" width="45" height="45"/>
+                                <rect key="frame" x="15" y="336" width="45" height="45"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="45" id="OgK-Es-Xue"/>
@@ -48,7 +48,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uIr-wp-fUu" customClass="FloatingButton" customModule="Car_Connect" customModuleProvider="target">
-                                <rect key="frame" x="315" y="523" width="45" height="45"/>
+                                <rect key="frame" x="260" y="336" width="45" height="45"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="45" id="KFJ-RR-6Ap"/>
@@ -74,7 +74,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xXg-Rv-Bpf" customClass="FloatingButton" customModule="Car_Connect" customModuleProvider="target">
-                                <rect key="frame" x="317" y="463" width="40" height="40"/>
+                                <rect key="frame" x="262" y="276" width="40" height="40"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="40" id="Aw8-ap-WBg"/>
@@ -134,12 +134,78 @@
             <objects>
                 <viewController id="BsU-5W-B5Z" customClass="ParkingMeterViewController" customModule="Car_Connect" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qZO-EF-yo2">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Parking meter expires in:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wmV-s1-p98">
+                                <rect key="frame" x="15" y="60" width="290" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Send me a reminder in:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QhF-SM-sSi">
+                                <rect key="frame" x="15" y="193" width="290" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Press to set" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AJb-u2-jva" customClass="ConfigurableActionTextField" customModule="Car_Connect" customModuleProvider="target">
+                                <rect key="frame" x="15" y="98" width="290" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="h4Z-zK-KKf"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isPasteEnabled" value="NO"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSelectEnabled" value="NO"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSelectAllEnabled" value="NO"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isCopyEnabled" value="NO"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isCutEnabled" value="NO"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isDeleteEnabled" value="NO"/>
+                                </userDefinedRuntimeAttributes>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Press to set" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hm4-73-Mzw" customClass="ConfigurableActionTextField" customModule="Car_Connect" customModuleProvider="target">
+                                <rect key="frame" x="15" y="231" width="290" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="Q5e-N7-1Lp"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isPasteEnabled" value="NO"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSelectEnabled" value="NO"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSelectAllEnabled" value="NO"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isCopyEnabled" value="NO"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isCutEnabled" value="NO"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isDeleteEnabled" value="NO"/>
+                                </userDefinedRuntimeAttributes>
+                            </textField>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="AJb-u2-jva" firstAttribute="leading" secondItem="7SH-jZ-fLT" secondAttribute="leading" constant="15" id="0aH-Nq-UQx"/>
+                            <constraint firstItem="wmV-s1-p98" firstAttribute="leading" secondItem="7SH-jZ-fLT" secondAttribute="leading" constant="15" id="1Xb-Rg-Vey"/>
+                            <constraint firstItem="QhF-SM-sSi" firstAttribute="top" secondItem="AJb-u2-jva" secondAttribute="bottom" constant="45" id="3pF-d1-8nl"/>
+                            <constraint firstItem="AJb-u2-jva" firstAttribute="top" secondItem="wmV-s1-p98" secondAttribute="bottom" constant="8" symbolic="YES" id="4wm-54-APn"/>
+                            <constraint firstItem="7SH-jZ-fLT" firstAttribute="trailing" secondItem="wmV-s1-p98" secondAttribute="trailing" constant="15" id="5jZ-5l-jnr"/>
+                            <constraint firstItem="7SH-jZ-fLT" firstAttribute="trailing" secondItem="QhF-SM-sSi" secondAttribute="trailing" constant="15" id="5kc-Xg-vK2"/>
+                            <constraint firstItem="wmV-s1-p98" firstAttribute="top" secondItem="7SH-jZ-fLT" secondAttribute="top" constant="40" id="CAu-z2-D3n"/>
+                            <constraint firstItem="hm4-73-Mzw" firstAttribute="leading" secondItem="7SH-jZ-fLT" secondAttribute="leading" constant="15" id="Sum-YB-vsi"/>
+                            <constraint firstItem="7SH-jZ-fLT" firstAttribute="trailing" secondItem="AJb-u2-jva" secondAttribute="trailing" constant="15" id="bAd-RR-o5v"/>
+                            <constraint firstItem="7SH-jZ-fLT" firstAttribute="trailing" secondItem="hm4-73-Mzw" secondAttribute="trailing" constant="15" id="enf-RC-qFx"/>
+                            <constraint firstItem="QhF-SM-sSi" firstAttribute="leading" secondItem="7SH-jZ-fLT" secondAttribute="leading" constant="15" id="hwP-BD-O05"/>
+                            <constraint firstItem="hm4-73-Mzw" firstAttribute="top" secondItem="QhF-SM-sSi" secondAttribute="bottom" constant="8" symbolic="YES" id="hxv-19-TEt"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="7SH-jZ-fLT"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Meter Timer" image="meterTabIcon" id="p7h-CI-qKe"/>
+                    <connections>
+                        <outlet property="meterTextField" destination="AJb-u2-jva" id="cIm-Ba-0rF"/>
+                        <outlet property="reminderTextField" destination="hm4-73-Mzw" id="ums-pF-Ker"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Ln-xi-cDJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

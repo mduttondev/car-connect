@@ -12,6 +12,7 @@
 		C91488861FD46CB8000D7EE0 /* ParkingMeterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91488851FD46CB8000D7EE0 /* ParkingMeterViewController.swift */; };
 		C91488881FD47CE2000D7EE0 /* IconContainingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91488871FD47CE2000D7EE0 /* IconContainingView.swift */; };
 		C923F398201D08EC00204573 /* FloatingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C923F397201D08EC00204573 /* FloatingButton.swift */; };
+		C94330412055BAF4008095C0 /* SettingsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94330402055BAF4008095C0 /* SettingsManager.swift */; };
 		C955CE171FBE79DE002D82B3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C955CE161FBE79DE002D82B3 /* AppDelegate.swift */; };
 		C955CE191FBE79DE002D82B3 /* ParkingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C955CE181FBE79DE002D82B3 /* ParkingViewController.swift */; };
 		C955CE1E1FBE79DE002D82B3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C955CE1C1FBE79DE002D82B3 /* Main.storyboard */; };
@@ -34,6 +35,7 @@
 		C9A301B91FBE93190064DD9F /* CarConnect+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A301B81FBE93190064DD9F /* CarConnect+Extensions.swift */; };
 		C9ED3D621FE6DDA90096BDF2 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9ED3D611FE6DDA90096BDF2 /* CoreLocation.framework */; };
 		C9ED3D641FE6DED20096BDF2 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9ED3D631FE6DED20096BDF2 /* LocationManager.swift */; };
+		C9EDFDD22029394B00A721AE /* ConfigurableActionTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EDFDD12029394B00A721AE /* ConfigurableActionTextField.swift */; };
 		C9F057CD201E7ECE00DCE906 /* ArchivesToEllipse.gpx in Resources */ = {isa = PBXBuildFile; fileRef = C9F057CC201E7ECE00DCE906 /* ArchivesToEllipse.gpx */; };
 		C9FA43F0201D2ED400989776 /* National Archives.gpx in Resources */ = {isa = PBXBuildFile; fileRef = C9FA43EF201D2ED400989776 /* National Archives.gpx */; };
 		C9FA43F2201D305B00989776 /* The Ellipse.gpx in Resources */ = {isa = PBXBuildFile; fileRef = C9FA43F1201D305B00989776 /* The Ellipse.gpx */; };
@@ -69,6 +71,7 @@
 		C91488851FD46CB8000D7EE0 /* ParkingMeterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkingMeterViewController.swift; sourceTree = "<group>"; };
 		C91488871FD47CE2000D7EE0 /* IconContainingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconContainingView.swift; sourceTree = "<group>"; };
 		C923F397201D08EC00204573 /* FloatingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingButton.swift; sourceTree = "<group>"; };
+		C94330402055BAF4008095C0 /* SettingsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsManager.swift; sourceTree = "<group>"; };
 		C955CE131FBE79DE002D82B3 /* Car-Connect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Car-Connect.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C955CE161FBE79DE002D82B3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C955CE181FBE79DE002D82B3 /* ParkingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkingViewController.swift; sourceTree = "<group>"; };
@@ -98,6 +101,7 @@
 		C9ED3D611FE6DDA90096BDF2 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		C9ED3D631FE6DED20096BDF2 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		C9ED3D671FE6EFF50096BDF2 /* SwiftLint.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = SwiftLint.sh; sourceTree = "<group>"; };
+		C9EDFDD12029394B00A721AE /* ConfigurableActionTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurableActionTextField.swift; sourceTree = "<group>"; };
 		C9F057CC201E7ECE00DCE906 /* ArchivesToEllipse.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = ArchivesToEllipse.gpx; sourceTree = "<group>"; };
 		C9FA43EF201D2ED400989776 /* National Archives.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "National Archives.gpx"; sourceTree = "<group>"; };
 		C9FA43F1201D305B00989776 /* The Ellipse.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "The Ellipse.gpx"; sourceTree = "<group>"; };
@@ -192,9 +196,11 @@
 				C9FA43F3201D307D00989776 /* Location GPX Files */,
 				C9A301A81FBE87430064DD9F /* UI */,
 				C9ED3D661FE6E88E0096BDF2 /* Convenience Classes */,
+				C955CE161FBE79DE002D82B3 /* AppDelegate.swift */,
 				C955CE181FBE79DE002D82B3 /* ParkingViewController.swift */,
 				C91488851FD46CB8000D7EE0 /* ParkingMeterViewController.swift */,
 				C9ED3D631FE6DED20096BDF2 /* LocationManager.swift */,
+				C94330402055BAF4008095C0 /* SettingsManager.swift */,
 			);
 			path = "Car-Connect";
 			sourceTree = "<group>";
@@ -221,7 +227,6 @@
 			isa = PBXGroup;
 			children = (
 				C955CE241FBE79DE002D82B3 /* Info.plist */,
-				C955CE161FBE79DE002D82B3 /* AppDelegate.swift */,
 				C9A301A31FBE854F0064DD9F /* GoogleService-Info.plist */,
 			);
 			path = "Supporting Files";
@@ -261,6 +266,7 @@
 				C98E62F32016C950006F9258 /* StorageHandler.swift */,
 				C9FC540D2016D0410007AB20 /* Constants.swift */,
 				C9662D60201E6BDC001188FF /* UIAlertController+StandardAlerts.swift */,
+				C9EDFDD12029394B00A721AE /* ConfigurableActionTextField.swift */,
 			);
 			path = "Convenience Classes";
 			sourceTree = "<group>";
@@ -619,6 +625,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C98E62F22016C8D5006F9258 /* CLLocationCoordinate2D+Dictionary.swift in Sources */,
+				C94330412055BAF4008095C0 /* SettingsManager.swift in Sources */,
 				C98E62F42016C950006F9258 /* StorageHandler.swift in Sources */,
 				C9A301B91FBE93190064DD9F /* CarConnect+Extensions.swift in Sources */,
 				C91488861FD46CB8000D7EE0 /* ParkingMeterViewController.swift in Sources */,
@@ -626,6 +633,7 @@
 				C9ED3D641FE6DED20096BDF2 /* LocationManager.swift in Sources */,
 				C91488881FD47CE2000D7EE0 /* IconContainingView.swift in Sources */,
 				C955CE171FBE79DE002D82B3 /* AppDelegate.swift in Sources */,
+				C9EDFDD22029394B00A721AE /* ConfigurableActionTextField.swift in Sources */,
 				C955CE191FBE79DE002D82B3 /* ParkingViewController.swift in Sources */,
 				C923F398201D08EC00204573 /* FloatingButton.swift in Sources */,
 				C9662D61201E6BDC001188FF /* UIAlertController+StandardAlerts.swift in Sources */,
