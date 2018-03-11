@@ -9,7 +9,7 @@
 import UIKit
 import UserNotifications
 
-class ParkingMeterViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegate {
+class ParkingMeterViewController: UIViewController, UITextFieldDelegate {
 
 	@IBOutlet weak var meterTextField: ConfigurableActionTextField!
 
@@ -99,22 +99,20 @@ class ParkingMeterViewController: UIViewController, UITextFieldDelegate, UIPicke
 				setExpiredText(textField: textField)
 				pickerView.setDate(getOneMinuteDate(), animated: false)
 				storageHandler.clearDefaultsKey(key)
+				return
 
 			} else if let countdownDate = convertDateToCountdown(savedDate) {
 				// if the date is in the future, and can get a date from the convert methdod set it
 				setDate(countdownDate, inTextField: textField)
 				pickerView.setDate(countdownDate, animated: false)
-
-			} else {
-				// This case really should not occur with the checks above in place but is a catch all
-				textField.text = ""
-				pickerView.setDate(getOneMinuteDate(), animated: false)
+				return
 			}
-		} else {
-			// If there were no saved dates then show the place holder
-			textField.text = ""
-			pickerView.setDate(getOneMinuteDate(), animated: false)
+
 		}
+		// If there were no saved dates then show the place holder
+		textField.text = ""
+		pickerView.setDate(getOneMinuteDate(), animated: false)
+
 	}
 
 	private func setDate(_ date: Date, inTextField textField: UITextField?) {
