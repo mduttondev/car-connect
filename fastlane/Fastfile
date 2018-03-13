@@ -52,7 +52,7 @@ platform :ios do
 
     # Commit and push to remote
     commit_version_bump(
-      message: 'Build number bump by fastlane - 'ios increment' lane',
+      message: 'Build number bump by fastlane - [ios increment] lane',
       force: true
     )
 
