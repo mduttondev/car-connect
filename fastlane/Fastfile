@@ -39,11 +39,6 @@ platform :ios do
     # You can also use other beta testing services here (run `fastlane actions`)
   end
 
-  desc "Upload Metadata to App Store"
-  lane :deliver do
-    deliver(force: true)
-  end
-
   desc "Increment the build number and Commit"
   lane :increment do
 
@@ -77,6 +72,11 @@ platform :ios do
   lane :download_metadata do
     download_screenshots
     download_metadata
+  end
+
+  desc "Upload Metadata to App Store"
+  lane :upload_metadata do
+    deliver(force: true)
   end
 
   # You can define as many lanes as you want
