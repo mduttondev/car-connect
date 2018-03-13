@@ -78,6 +78,11 @@ platform :ios do
     deliver(force: true)
   end
 
+  desc "Upload Metadata to App Store"
+  lane :place_frames do
+    frame_screenshots(path: "./fastlane/screenshots")
+  end
+
   # You can define as many lanes as you want
 
   after_all do |lane|
