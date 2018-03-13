@@ -48,6 +48,11 @@ Deploy Metadata and screenshots from the App Store
 fastlane ios upload_metadata
 ```
 Upload Metadata to App Store
+### ios place_frames
+```
+fastlane ios place_frames
+```
+Upload Metadata to App Store
 
 ----
 
