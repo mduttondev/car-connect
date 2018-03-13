@@ -14,6 +14,7 @@
 fastlane_version "2.60.1"
 
 default_platform :ios
+# FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD = "mkvw-hvcz-gsko-vnnq"
 
 platform :ios do
   before_all do
@@ -30,7 +31,7 @@ platform :ios do
   desc "Submit a new Beta Build to Apple TestFlight"
   desc "This will also make sure the profile is up to date"
   lane :beta do
-    # match(type: "appstore") # more information: https://codesigning.guide
+    match(type: "appstore") # more information: https://codesigning.guide
     gym(scheme: "Car-Connect") # Build your app - more options available
     pilot
 
@@ -38,23 +39,50 @@ platform :ios do
     # You can also use other beta testing services here (run `fastlane actions`)
   end
 
+  desc "Upload Metadata to App Store"
+  lane :deliver do
+    deliver(force: true)
+  end
+
+  desc "Increment the build number and Commit"
+  lane :increment do
+
+    # Bump build number
+    increment_build_number
+
+    # Commit and push to remote
+    commit_version_bump(
+      message: 'Build number bump by fastlane - buildnumber lane',
+      force: true
+    )
+
+    push_to_git_remote(
+      remote: "origin",         # optional, default: "origin"
+      local_branch: "development",  # optional, aliased by "branch", default: "master"
+      remote_branch: "development", # optional, default is set to local_branch
+      tags: false     # optional, default: true
+    )
+  end
+
   desc "Deploy a new version to the App Store"
   lane :release do
-    # match(type: "appstore")
-    # snapshot
+    increment_build_number
+    match(type: "appstore")
     gym(scheme: "Car-Connect") # Build your app - more options available
     deliver(force: true)
     # frameit
+  end
+
+  desc "Deploy Metadata and screenshots from the App Store"
+  lane :download_metadata do
+    download_screenshots
+    download_metadata
   end
 
   # You can define as many lanes as you want
 
   after_all do |lane|
     # This block is called, only if the executed lane was successful
-
-    # slack(
-    #   message: "Successfully deployed new App Update."
-    # )
   end
 
   error do |lane, exception|

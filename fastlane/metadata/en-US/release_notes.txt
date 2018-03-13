@@ -1,3 +1,4 @@
-- Minor bug fixes
+Updated for iPhone X and rewritten in Swift. 
 
-Version 2.0 written in swift coming soon!
+- Bug Fixes
+- Improvements
