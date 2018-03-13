@@ -28,11 +28,26 @@ fastlane ios beta
 Submit a new Beta Build to Apple TestFlight
 
 This will also make sure the profile is up to date
+### ios deliver
+```
+fastlane ios deliver
+```
+Upload Metadata to App Store
+### ios increment
+```
+fastlane ios increment
+```
+Increment the build number and Commit
 ### ios release
 ```
 fastlane ios release
 ```
 Deploy a new version to the App Store
+### ios download_metadata
+```
+fastlane ios download_metadata
+```
+Deploy Metadata and screenshots from the App Store
 
 ----
 
