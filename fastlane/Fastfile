@@ -83,7 +83,12 @@ platform :ios do
     frame_screenshots(path: "./fastlane/screenshots")
   end
 
-  # You can define as many lanes as you want
+  desc "Push ./devices.txt to register new devices and create a new profile accordingly"
+  lane :deviceRegistration do
+  	register_devices(
+  	  devices_file: "./devices.txt")
+  	match development --force_for_new_devices
+  end
 
   after_all do |lane|
     # This block is called, only if the executed lane was successful
