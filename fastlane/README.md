@@ -53,6 +53,11 @@ Upload Metadata to App Store
 fastlane ios place_frames
 ```
 Upload Metadata to App Store
+### ios deviceRegistration
+```
+fastlane ios deviceRegistration
+```
+Push ./devices.txt to register new devices and create a new profile accordingly
 
 ----
 

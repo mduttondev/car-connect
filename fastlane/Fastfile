@@ -17,9 +17,7 @@ default_platform :ios
 
 platform :ios do
   before_all do
-    # ENV["SLACK_URL"] = "https://hooks.slack.com/services/..."
     cocoapods
-    # carthage
   end
 
   desc "Runs all the tests"
@@ -32,16 +30,12 @@ platform :ios do
   lane :beta do
     match(type: "appstore") # more information: https://codesigning.guide
     gym(scheme: "Car-Connect") # Build your app - more options available
-    pilot
-
-    # sh "your_script.sh"
-    # You can also use other beta testing services here (run `fastlane actions`)
+    pilot(skip_waiting_for_build_processing: true)
   end
 
   desc "Increment the build number and Commit"
   lane :increment do
 
-    # Bump build number
     increment_build_number
 
     # Commit and push to remote
@@ -69,13 +63,17 @@ platform :ios do
 
   desc "Deploy Metadata and screenshots from the App Store"
   lane :download_metadata do
-    download_screenshots
-    download_metadata
+    sh 'fastlane deliver download_screenshots --force'
+    sh 'fastlane deliver download_metadata --force'
   end
 
   desc "Upload Metadata to App Store"
   lane :upload_metadata do
-    deliver(force: true)
+    deliver(
+      submit_for_review: false,
+      force: true,
+      metadata_path: "./fastlane/metadata"
+    )
   end
 
   desc "Upload Metadata to App Store"
@@ -102,10 +100,3 @@ platform :ios do
   end
 
 end
-
-
-# More information about multiple platforms in fastlane: https://github.com/fastlane/fastlane/blob/master/fastlane/docs/Platforms.md
-# All available actions: https://docs.fastlane.tools/actions
-
-# fastlane reports which actions are used. No personal data is recorded. 
-# Learn more at https://github.com/fastlane/fastlane#metrics
