@@ -35,6 +35,7 @@ class CCLocationManger: NSObject, CLLocationManagerDelegate {
 
 	private func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
 		if status == .authorizedAlways || status == .authorizedWhenInUse {
+			manager.distanceFilter = 100.0
 			manager.startUpdatingLocation()
 		} else {
 			manager.stopUpdatingLocation()
