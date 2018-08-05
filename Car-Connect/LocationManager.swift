@@ -24,7 +24,6 @@ class CCLocationManger: NSObject, CLLocationManagerDelegate {
 
 	private override init() {
 		super.init()
-
 	}
 
 	func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
@@ -36,6 +35,7 @@ class CCLocationManger: NSObject, CLLocationManagerDelegate {
 	private func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
 		if status == .authorizedAlways || status == .authorizedWhenInUse {
 			manager.distanceFilter = 100.0
+			manager.desiredAccuracy = kCLLocationAccuracyBest
 			manager.startUpdatingLocation()
 		} else {
 			manager.stopUpdatingLocation()

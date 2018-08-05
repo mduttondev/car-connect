@@ -33,6 +33,20 @@ This will also make sure the profile is up to date
 fastlane ios increment
 ```
 Increment the build number and Commit
+### ios betaInternal
+```
+fastlane ios betaInternal
+```
+Submit a new Beta Build to Apple TestFlight, submit for review and release to internal testers
+
+This will also make sure the profile is up to date
+### ios betaRelease
+```
+fastlane ios betaRelease
+```
+Submit a new Beta Build to Apple TestFlight, submit for review and release to all testers
+
+This will also make sure the profile is up to date
 ### ios release
 ```
 fastlane ios release

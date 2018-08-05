@@ -49,6 +49,7 @@ class ParkingViewController: UIViewController, MKMapViewDelegate, CLLocationMana
 
 		locationManager.delegate = self
 		locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+		locationManager.distanceFilter = 25
 
 		if CLLocationManager.authorizationStatus() == .notDetermined {
 			locationManager.requestWhenInUseAuthorization()
@@ -138,8 +139,6 @@ class ParkingViewController: UIViewController, MKMapViewDelegate, CLLocationMana
 	}
 
 	private func didUpdateUserLocation(_ location: CLLocation) {
-		centerMapOnUserLocation(location)
-
 		callDirectionCount += 1
 
 		if directionsBeingDisplayed && callDirectionCount % Constants.overlayUpdateRate == 0 {
@@ -183,11 +182,11 @@ class ParkingViewController: UIViewController, MKMapViewDelegate, CLLocationMana
 		let existingOverlay = mapView.overlays.first
 
 		let directions = MKDirections(request: request)
-		directions.calculate { [weak self] response, error in
+		directions.calculate { [weak self] response, _ in
 			guard let strongSelf = self,
-				let unwrappedResponse = response else { return }
+				let response = response else { return }
 
-			for route in unwrappedResponse.routes {
+			for route in response.routes {
 				strongSelf.mapView.add(route.polyline)
 				let inset = Constants.mapEdgeInsetsForOverylay
 				let edgeInsets = UIEdgeInsets(top: inset, left: inset, bottom: inset, right: inset)
@@ -198,8 +197,8 @@ class ParkingViewController: UIViewController, MKMapViewDelegate, CLLocationMana
 				}
 			}
 
-			if let oldOverlay = existingOverlay {
-				strongSelf.mapView.remove(oldOverlay)
+			if let existing = existingOverlay {
+				strongSelf.mapView.remove(existing)
 			}
 		}
 
@@ -224,6 +223,9 @@ class ParkingViewController: UIViewController, MKMapViewDelegate, CLLocationMana
 		if status == .denied  || status == .restricted {
 			locationManager.stopUpdatingLocation()
 		} else {
+			if let location = locationManager.location {
+				centerMapOnUserLocation(location)
+			}
 			locationManager.startUpdatingLocation()
 		}
 	}

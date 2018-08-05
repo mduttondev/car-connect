@@ -52,13 +52,40 @@ platform :ios do
     )
   end
 
+  desc "Submit a new Beta Build to Apple TestFlight, submit for review and release to internal testers"
+  desc "This will also make sure the profile is up to date"
+  lane :betaInternal do
+    increment
+
+    match(type: "appstore") # more information: https://codesigning.guide
+
+    gym(scheme: "Car-Connect", 
+    clean: true) # Build your app - more options available
+
+    pilot(distribute_external: false,
+      changelog: 'Newest changes, added functionality, bug fixes')
+  end
+
+  desc "Submit a new Beta Build to Apple TestFlight, submit for review and release to all testers"
+  desc "This will also make sure the profile is up to date"
+  lane :betaRelease do
+    increment
+    match(type: "appstore") # more information: https://codesigning.guide
+
+    gym(scheme: "Car-Connect", 
+    clean: true) # Build your app - more options available
+
+    pilot(distribute_external: true,
+      groups: ["External"],
+    	changelog: 'Newest changes, added functionality, bug fixes')
+  end
+
   desc "Deploy a new version to the App Store"
   lane :release do
     increment_build_number
     match(type: "appstore")
     gym(scheme: "Car-Connect") # Build your app - more options available
     deliver(force: true)
-    # frameit
   end
 
   desc "Deploy Metadata and screenshots from the App Store"
