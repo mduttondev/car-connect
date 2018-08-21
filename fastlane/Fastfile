@@ -105,9 +105,18 @@ platform :ios do
 
   desc "Update version with given type (patch|minor|major). Called as: fastlane bump type:minor"
   lane :bump do |options|
+    
     increment_version_number(
       bump_type: options[:type].to_s
     )
+    
+    version = get_version_number(
+      target: "Car-Connect"
+    )
+
+    increment
+    
+    deliver(app_version: "#{version}")
   end
 
   desc "Push ./devices.txt to register new devices and create a new profile accordingly"
@@ -115,19 +124,6 @@ platform :ios do
   	register_devices(
   	  devices_file: "./devices.txt")
   	match development --force_for_new_devices
-  end
-
-
-
-  after_all do |lane|
-    # This block is called, only if the executed lane was successful
-  end
-
-  error do |lane, exception|
-    # slack(
-    #   message: exception.message,
-    #   success: false
-    # )
   end
 
 end
