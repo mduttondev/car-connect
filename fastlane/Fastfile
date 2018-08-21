@@ -107,7 +107,7 @@ platform :ios do
   lane :bump do |options|
     
     increment_version_number(
-      bump_type: options[:type].to_s
+      bump_type: "#{options[:type].to_s}"
     )
     
     version = get_version_number(
