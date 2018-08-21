@@ -1,4 +1,4 @@
-git_url "https://github.com/mduttondev/Certificates"
+git_url("git@github.com:mduttondev/Certificates.git")
 
 app_identifier ["com.mkdutton.Car-Connect"]
 username "mduttondev@gmail.com"
