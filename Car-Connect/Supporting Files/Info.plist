@@ -18,20 +18,20 @@
 	<string>2.2.2</string>
 	<key>CFBundleVersion</key>
 	<string>24</string>
-	<key>Fabric</key>
-	<dict>
-		<key>APIKey</key>
-		<string>59f486796c08f97effc9178d1210ee7b7d2862fb</string>
-		<key>Kits</key>
-		<array>
-			<dict>
-				<key>KitInfo</key>
-				<dict/>
-				<key>KitName</key>
-				<string>Crashlytics</string>
-			</dict>
-		</array>
-	</dict>
+    <key>Fabric</key>
+    <dict>
+        <key>APIKey</key>
+        <string>59f486796c08f97effc9178d1210ee7b7d2862fb</string>
+        <key>Kits</key>
+        <array>
+            <dict>
+                <key>KitInfo</key>
+                <dict/>
+                <key>KitName</key>
+                <string>Crashlytics</string>
+            </dict>
+        </array>
+    </dict>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>ITSAppUsesNonExemptEncryption</key>

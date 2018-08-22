@@ -6,35 +6,35 @@
 	<string>ca-app-pub-3940256099942544/2934735716</string>
 	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
 	<string>ca-app-pub-3940256099942544/4411468910</string>
-	<key>TRACKING_ID</key>
-	<string>UA-79192441-1</string>
 	<key>CLIENT_ID</key>
-	<string>441116625105-uhaaptonde0g90r7t6ltndirlul01ko8.apps.googleusercontent.com</string>
+	<string>471126975726-4k1eeq17fggkhh8nd5o2m3s3o4inbqom.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.441116625105-uhaaptonde0g90r7t6ltndirlul01ko8</string>
+	<string>com.googleusercontent.apps.471126975726-4k1eeq17fggkhh8nd5o2m3s3o4inbqom</string>
 	<key>API_KEY</key>
-	<string>AIzaSyBLyS7FeqEjBAhhidg32A0QuCbjJ50hS6Y</string>
+	<string>AIzaSyB483_iRdOegpTETMc-ni4KSy0AXaHrWhQ</string>
 	<key>GCM_SENDER_ID</key>
-	<string>441116625105</string>
+	<string>471126975726</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
 	<string>com.mkdutton.Car-Connect</string>
 	<key>PROJECT_ID</key>
-	<string>car-connect-5117c</string>
+	<string>car-connect-40e2a</string>
+	<key>STORAGE_BUCKET</key>
+	<string>car-connect-40e2a.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<true></true>
 	<key>IS_ANALYTICS_ENABLED</key>
-	<true></true>
-	<key>IS_APPINVITE_ENABLED</key>
 	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
 	<key>IS_GCM_ENABLED</key>
 	<true></true>
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:441116625105:ios:8918d6501d711151</string>
+	<string>1:471126975726:ios:8918d6501d711151</string>
 	<key>DATABASE_URL</key>
-	<string>https://car-connect-5117c.firebaseio.com</string>
+	<string>https://car-connect-40e2a.firebaseio.com</string>
 </dict>
 </plist>

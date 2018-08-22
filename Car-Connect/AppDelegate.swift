@@ -18,14 +18,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	var window: UIWindow?
 
 	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-		Fabric.with([Crashlytics.self])
 
 		// Use Firebase library to configure APIs
 		FirebaseApp.configure()
 
+		Fabric.with([Crashlytics.self])
+
 		let settingsManager = SettingsManager.shared
 
-		UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound]) { (granted, error) in
+		UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound]) { (granted, _) in
 			// Enable or disable features based on authorization.
 			settingsManager.notificationsEnabled = granted
 
@@ -54,7 +55,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	func applicationDidBecomeActive(_ application: UIApplication) {
 		// Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
 		let settingsManager = SettingsManager.shared
-		UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound]) { (granted, error) in
+		UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound]) { (granted, _) in
 			// Enable or disable features based on authorization.
 			settingsManager.notificationsEnabled = granted
 		}

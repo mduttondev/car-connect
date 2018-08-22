@@ -24,7 +24,6 @@
 		C9662D61201E6BDC001188FF /* UIAlertController+StandardAlerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9662D60201E6BDC001188FF /* UIAlertController+StandardAlerts.swift */; };
 		C98E62F22016C8D5006F9258 /* CLLocationCoordinate2D+Dictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = C98E62F12016C8D5006F9258 /* CLLocationCoordinate2D+Dictionary.swift */; };
 		C98E62F42016C950006F9258 /* StorageHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = C98E62F32016C950006F9258 /* StorageHandler.swift */; };
-		C9A301A41FBE854F0064DD9F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C9A301A31FBE854F0064DD9F /* GoogleService-Info.plist */; };
 		C9A301A61FBE86590064DD9F /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9A301A51FBE86590064DD9F /* AdSupport.framework */; };
 		C9A301AE1FBE8F680064DD9F /* CarConnect.ai in Resources */ = {isa = PBXBuildFile; fileRef = C9A301AA1FBE8F680064DD9F /* CarConnect.ai */; };
 		C9A301AF1FBE8F680064DD9F /* CarConnectIconColor.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C9A301AB1FBE8F680064DD9F /* CarConnectIconColor.jpg */; };
@@ -38,6 +37,7 @@
 		C9ED3D641FE6DED20096BDF2 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9ED3D631FE6DED20096BDF2 /* LocationManager.swift */; };
 		C9EDFDD22029394B00A721AE /* ConfigurableActionTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EDFDD12029394B00A721AE /* ConfigurableActionTextField.swift */; };
 		C9F057CD201E7ECE00DCE906 /* ArchivesToEllipse.gpx in Resources */ = {isa = PBXBuildFile; fileRef = C9F057CC201E7ECE00DCE906 /* ArchivesToEllipse.gpx */; };
+		C9F63C63212D0AD200A42E78 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C9F63C62212D0AD200A42E78 /* GoogleService-Info.plist */; };
 		C9FA43F0201D2ED400989776 /* National Archives.gpx in Resources */ = {isa = PBXBuildFile; fileRef = C9FA43EF201D2ED400989776 /* National Archives.gpx */; };
 		C9FA43F2201D305B00989776 /* The Ellipse.gpx in Resources */ = {isa = PBXBuildFile; fileRef = C9FA43F1201D305B00989776 /* The Ellipse.gpx */; };
 		C9FC540E2016D0410007AB20 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9FC540D2016D0410007AB20 /* Constants.swift */; };
@@ -89,7 +89,6 @@
 		C9662D60201E6BDC001188FF /* UIAlertController+StandardAlerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertController+StandardAlerts.swift"; sourceTree = "<group>"; };
 		C98E62F12016C8D5006F9258 /* CLLocationCoordinate2D+Dictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CLLocationCoordinate2D+Dictionary.swift"; sourceTree = "<group>"; };
 		C98E62F32016C950006F9258 /* StorageHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageHandler.swift; sourceTree = "<group>"; };
-		C9A301A31FBE854F0064DD9F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C9A301A51FBE86590064DD9F /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		C9A301AA1FBE8F680064DD9F /* CarConnect.ai */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CarConnect.ai; sourceTree = "<group>"; };
 		C9A301AB1FBE8F680064DD9F /* CarConnectIconColor.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = CarConnectIconColor.jpg; sourceTree = "<group>"; };
@@ -104,6 +103,7 @@
 		C9ED3D671FE6EFF50096BDF2 /* SwiftLint.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = SwiftLint.sh; sourceTree = "<group>"; };
 		C9EDFDD12029394B00A721AE /* ConfigurableActionTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurableActionTextField.swift; sourceTree = "<group>"; };
 		C9F057CC201E7ECE00DCE906 /* ArchivesToEllipse.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = ArchivesToEllipse.gpx; sourceTree = "<group>"; };
+		C9F63C62212D0AD200A42E78 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C9FA43EF201D2ED400989776 /* National Archives.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "National Archives.gpx"; sourceTree = "<group>"; };
 		C9FA43F1201D305B00989776 /* The Ellipse.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "The Ellipse.gpx"; sourceTree = "<group>"; };
 		C9FC540D2016D0410007AB20 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -168,6 +168,7 @@
 		C955CE0A1FBE79DE002D82B3 = {
 			isa = PBXGroup;
 			children = (
+				C9F63C62212D0AD200A42E78 /* GoogleService-Info.plist */,
 				C9ED3D691FE6F0160096BDF2 /* Scripts */,
 				C955CE151FBE79DE002D82B3 /* Car-Connect */,
 				C955CE2C1FBE79DE002D82B3 /* Car-ConnectTests */,
@@ -191,8 +192,8 @@
 		C955CE151FBE79DE002D82B3 /* Car-Connect */ = {
 			isa = PBXGroup;
 			children = (
+				C9F63C64212D0C2A00A42E78 /* Supporting Files */,
 				C9A301A91FBE8F540064DD9F /* Artwork */,
-				C9A301A71FBE87290064DD9F /* Supporting Files */,
 				C9FA43F3201D307D00989776 /* Location GPX Files */,
 				C9A301A81FBE87430064DD9F /* UI */,
 				C9ED3D661FE6E88E0096BDF2 /* Convenience Classes */,
@@ -221,15 +222,6 @@
 				C955CE3A1FBE79DE002D82B3 /* Info.plist */,
 			);
 			path = "Car-ConnectUITests";
-			sourceTree = "<group>";
-		};
-		C9A301A71FBE87290064DD9F /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				C955CE241FBE79DE002D82B3 /* Info.plist */,
-				C9A301A31FBE854F0064DD9F /* GoogleService-Info.plist */,
-			);
-			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		C9A301A81FBE87430064DD9F /* UI */ = {
@@ -277,6 +269,14 @@
 				C9ED3D671FE6EFF50096BDF2 /* SwiftLint.sh */,
 			);
 			path = Scripts;
+			sourceTree = "<group>";
+		};
+		C9F63C64212D0C2A00A42E78 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				C955CE241FBE79DE002D82B3 /* Info.plist */,
+			);
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		C9FA43F3201D307D00989776 /* Location GPX Files */ = {
@@ -358,7 +358,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0910;
-				LastUpgradeCheck = 0910;
+				LastUpgradeCheck = 0940;
 				ORGANIZATIONNAME = "Matthew Dutton";
 				TargetAttributes = {
 					C955CE121FBE79DE002D82B3 = {
@@ -405,7 +405,6 @@
 			files = (
 				C955CE231FBE79DE002D82B3 /* LaunchScreen.storyboard in Resources */,
 				C9A301B61FBE901B0064DD9F /* iTunesArtwork@2x.png in Resources */,
-				C9A301A41FBE854F0064DD9F /* GoogleService-Info.plist in Resources */,
 				C955CE201FBE79DE002D82B3 /* Assets.xcassets in Resources */,
 				C9A301B11FBE8F680064DD9F /* CarConnectIconColor.pdf in Resources */,
 				C9A301B71FBE901B0064DD9F /* iTunesArtwork@3x.png in Resources */,
@@ -417,6 +416,7 @@
 				C9A301AF1FBE8F680064DD9F /* CarConnectIconColor.jpg in Resources */,
 				C9FA43F0201D2ED400989776 /* National Archives.gpx in Resources */,
 				C955CE1E1FBE79DE002D82B3 /* Main.storyboard in Resources */,
+				C9F63C63212D0AD200A42E78 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -484,7 +484,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Fabric/run\" 59f486796c08f97effc9178d1210ee7b7d2862fb d6bc0507f09198ef303827cffa9cf7acce8f24451bd3e338406e554d284f58e8";
+			shellScript = "\"${PODS_ROOT}/Fabric/run\" // 59f486796c08f97effc9178d1210ee7b7d2862fb d6bc0507f09198ef303827cffa9cf7acce8f24451bd3e338406e554d284f58e8";
 		};
 		C9ED3D651FE6E83D0096BDF2 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -625,6 +625,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -632,6 +633,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -682,6 +684,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -689,6 +692,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
