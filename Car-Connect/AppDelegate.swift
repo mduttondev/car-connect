@@ -21,7 +21,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 		// Use Firebase library to configure APIs
 		FirebaseApp.configure()
-
 		Fabric.with([Crashlytics.self])
 
 		let settingsManager = SettingsManager.shared
