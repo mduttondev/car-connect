@@ -70,6 +70,7 @@ class ParkingViewController: UIViewController, MKMapViewDelegate, CLLocationMana
 		} else {
 			updateUI(hasSavedLocation: false)
 		}
+
 	}
 
 	// MARK: - Button Actions -

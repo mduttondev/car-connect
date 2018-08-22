@@ -7,8 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		58E28BAE3708B56AA51BD14B /* libPods-Car-ConnectUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A2D24471D4E348F6D80AF6C9 /* libPods-Car-ConnectUITests.a */; };
 		902D033BC140C2806C3B9A4C /* Pods_Car_Connect.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1E02FABBCB2957647B0C955 /* Pods_Car_Connect.framework */; };
-		9A6E275ACC2771639DB955D4 /* Pods_Car_ConnectTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E07820C283C2C4A5D46B1F78 /* Pods_Car_ConnectTests.framework */; };
+		A95D92B09B64AC6E68576F53 /* libPods-Car-ConnectTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C7A6DF06FCFC0D7039056E92 /* libPods-Car-ConnectTests.a */; };
 		C91488861FD46CB8000D7EE0 /* ParkingMeterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91488851FD46CB8000D7EE0 /* ParkingMeterViewController.swift */; };
 		C91488881FD47CE2000D7EE0 /* IconContainingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91488871FD47CE2000D7EE0 /* IconContainingView.swift */; };
 		C923F398201D08EC00204573 /* FloatingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C923F397201D08EC00204573 /* FloatingButton.swift */; };
@@ -40,7 +41,6 @@
 		C9FA43F0201D2ED400989776 /* National Archives.gpx in Resources */ = {isa = PBXBuildFile; fileRef = C9FA43EF201D2ED400989776 /* National Archives.gpx */; };
 		C9FA43F2201D305B00989776 /* The Ellipse.gpx in Resources */ = {isa = PBXBuildFile; fileRef = C9FA43F1201D305B00989776 /* The Ellipse.gpx */; };
 		C9FC540E2016D0410007AB20 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9FC540D2016D0410007AB20 /* Constants.swift */; };
-		D8C3EB338BE9C9B51E45E498 /* Pods_Car_ConnectUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8427A9C63DDD5BCFC23F9355 /* Pods_Car_ConnectUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,9 +65,10 @@
 		02A51ACF2CCB2DC7B61E0C69 /* Pods-Car-ConnectUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Car-ConnectUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Car-ConnectUITests/Pods-Car-ConnectUITests.release.xcconfig"; sourceTree = "<group>"; };
 		25AADBBC3EC3B0E1D8DF537F /* Pods-Car-ConnectTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Car-ConnectTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Car-ConnectTests/Pods-Car-ConnectTests.debug.xcconfig"; sourceTree = "<group>"; };
 		7EA701D6CA89CB48625501AC /* Pods-Car-Connect.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Car-Connect.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Car-Connect/Pods-Car-Connect.debug.xcconfig"; sourceTree = "<group>"; };
-		8427A9C63DDD5BCFC23F9355 /* Pods_Car_ConnectUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Car_ConnectUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		97EBF5634B809F60D44AC541 /* Pods-Car-Connect.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Car-Connect.release.xcconfig"; path = "Pods/Target Support Files/Pods-Car-Connect/Pods-Car-Connect.release.xcconfig"; sourceTree = "<group>"; };
+		A2D24471D4E348F6D80AF6C9 /* libPods-Car-ConnectUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Car-ConnectUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C652E85AC3E29968F65B81F5 /* Pods-Car-ConnectUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Car-ConnectUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Car-ConnectUITests/Pods-Car-ConnectUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		C7A6DF06FCFC0D7039056E92 /* libPods-Car-ConnectTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Car-ConnectTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C91488851FD46CB8000D7EE0 /* ParkingMeterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkingMeterViewController.swift; sourceTree = "<group>"; };
 		C91488871FD47CE2000D7EE0 /* IconContainingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconContainingView.swift; sourceTree = "<group>"; };
 		C923F397201D08EC00204573 /* FloatingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingButton.swift; sourceTree = "<group>"; };
@@ -106,7 +107,6 @@
 		C9FA43EF201D2ED400989776 /* National Archives.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "National Archives.gpx"; sourceTree = "<group>"; };
 		C9FA43F1201D305B00989776 /* The Ellipse.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "The Ellipse.gpx"; sourceTree = "<group>"; };
 		C9FC540D2016D0410007AB20 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		E07820C283C2C4A5D46B1F78 /* Pods_Car_ConnectTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Car_ConnectTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1E02FABBCB2957647B0C955 /* Pods_Car_Connect.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Car_Connect.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -125,7 +125,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9A6E275ACC2771639DB955D4 /* Pods_Car_ConnectTests.framework in Frameworks */,
+				A95D92B09B64AC6E68576F53 /* libPods-Car-ConnectTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -133,7 +133,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D8C3EB338BE9C9B51E45E498 /* Pods_Car_ConnectUITests.framework in Frameworks */,
+				58E28BAE3708B56AA51BD14B /* libPods-Car-ConnectUITests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -146,8 +146,8 @@
 				C9ED3D611FE6DDA90096BDF2 /* CoreLocation.framework */,
 				C9A301A51FBE86590064DD9F /* AdSupport.framework */,
 				F1E02FABBCB2957647B0C955 /* Pods_Car_Connect.framework */,
-				E07820C283C2C4A5D46B1F78 /* Pods_Car_ConnectTests.framework */,
-				8427A9C63DDD5BCFC23F9355 /* Pods_Car_ConnectUITests.framework */,
+				C7A6DF06FCFC0D7039056E92 /* libPods-Car-ConnectTests.a */,
+				A2D24471D4E348F6D80AF6C9 /* libPods-Car-ConnectUITests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -301,8 +301,8 @@
 				C955CE101FBE79DE002D82B3 /* Frameworks */,
 				C955CE111FBE79DE002D82B3 /* Resources */,
 				E96816A694DCB499AEB0CDA5 /* [CP] Embed Pods Frameworks */,
-				C91DAEDB1FBE7B940012E47A /* ShellScript */,
 				C9ED3D651FE6E83D0096BDF2 /* ShellScript */,
+				C91DAEDB1FBE7B940012E47A /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -524,8 +524,8 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Car-Connect/Pods-Car-Connect-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
-				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities-framework/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb-framework/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
