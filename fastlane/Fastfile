@@ -134,16 +134,8 @@ platform :ios do
 
   desc "Push ./devices.txt to register new devices and create a new profile accordingly"
   lane :deviceRegistration do
-  	register_devices(
-  	  devices_file: "./fastlane/devices.txt")
-  	match development --force_for_new_devices
-  end
-
-  desc "Push ./devices.txt to register new devices and create a new profile accordingly"
-  lane :deviceRegistration do
-  	register_devices(
-  	  devices_file: "./devices.txt")
-  	match development --force_for_new_devices
+  	register_devices(devices_file: "./fastlane/devices.txt")
+    match(type: "development", force_for_new_devices: true)
   end
 
 end
