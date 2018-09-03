@@ -113,10 +113,30 @@ platform :ios do
     version = get_version_number(
       target: "Car-Connect"
     )
-
     increment
     
     deliver(app_version: "#{version}")
+  end
+
+  desc "Upload testers file to TestFlight"
+  lane :upload_testers do
+    sh 'fastlane pilot import -c ./testers.csv'
+  end
+
+  desc "Download testers file to TestFlight"
+  lane :download_testers do
+    sh 'fastlane pilot export -c ./testers.csv'
+  end
+
+  lane :shell do
+    sh('env')
+  end
+
+  desc "Push ./devices.txt to register new devices and create a new profile accordingly"
+  lane :deviceRegistration do
+  	register_devices(
+  	  devices_file: "./fastlane/devices.txt")
+  	match development --force_for_new_devices
   end
 
   desc "Push ./devices.txt to register new devices and create a new profile accordingly"
