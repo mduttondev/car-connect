@@ -63,6 +63,7 @@ platform :ios do
     clean: true) # Build your app - more options available
 
     pilot(distribute_external: false,
+      skip_waiting_for_build_processing: true,
       changelog: 'Newest changes, added functionality, bug fixes')
   end
 
