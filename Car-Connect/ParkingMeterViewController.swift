@@ -21,6 +21,8 @@ class ParkingMeterViewController: UIViewController, UITextFieldDelegate {
 
 	var activeTextField: ConfigurableActionTextField?
 
+	var timer: Timer?
+
 	// MARK: - LifeCycle
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -28,14 +30,16 @@ class ParkingMeterViewController: UIViewController, UITextFieldDelegate {
 
 		configureTextFieldAppearance(meterTextField)
 		configureTextFieldAppearance(reminderTextField)
-
 	}
 
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
+		timer = generateTimer()
+	}
 
-		configureTextField(reminderTextField, forDateKey: Constants.DefaultsKey.notificationExpirationKey)
-		configureTextField(meterTextField, forDateKey: Constants.DefaultsKey.meterExpirationKey)
+	override func viewWillDisappear(_ animated: Bool) {
+		super.viewWillDisappear(animated)
+		timer?.invalidate()
 	}
 
 	// MARK: - UITextField Delegate
@@ -48,7 +52,7 @@ class ParkingMeterViewController: UIViewController, UITextFieldDelegate {
 		if let activeTextField = activeTextField {
 			activeTextField.resignFirstResponder()
 		} else {
-			// Something weird happened and there isnt an active textfield but cancel was pressed anyway.
+			// Something strange happened and there isnt an active textfield but cancel was pressed anyway.
 			// Just close the picker and we can start over
 			view.endEditing(true)
 		}
@@ -107,8 +111,8 @@ class ParkingMeterViewController: UIViewController, UITextFieldDelegate {
 				pickerView.setDate(countdownDate, animated: false)
 				return
 			}
-
 		}
+
 		// If there were no saved dates then show the place holder
 		textField.text = ""
 		pickerView.setDate(getOneMinuteDate(), animated: false)
@@ -124,6 +128,7 @@ class ParkingMeterViewController: UIViewController, UITextFieldDelegate {
 
 		if hours > 0 {
 			textField.text = "\(hours) Hours    \(minutes) Minutes"
+
 		} else {
 			if minutes > 1 {
 				textField.text = "\(minutes) Minutes"
@@ -159,7 +164,7 @@ class ParkingMeterViewController: UIViewController, UITextFieldDelegate {
 
 		let trigger = UNTimeIntervalNotificationTrigger(timeInterval: interval, repeats: false)
 
-		let request = UNNotificationRequest(identifier:"Meter Notification",
+		let request = UNNotificationRequest(identifier: "Meter Notification",
 											content: content,
 											trigger: trigger)
 
@@ -246,5 +251,17 @@ class ParkingMeterViewController: UIViewController, UITextFieldDelegate {
 		toolbar.sizeToFit()
 
 		return toolbar
+	}
+
+	// Generate the timer object
+	func generateTimer() -> Timer {
+		return Timer.scheduledTimer(withTimeInterval: 2.0, repeats: true, block: { [weak self] timer in
+			guard let strongSelf = self else { return }
+
+			guard !(strongSelf.meterTextField.isEditing || strongSelf.reminderTextField.isEditing) else { return }
+
+			strongSelf.configureTextField(strongSelf.meterTextField, forDateKey: Constants.DefaultsKey.meterExpirationKey)
+			strongSelf.configureTextField(strongSelf.reminderTextField, forDateKey: Constants.DefaultsKey.notificationExpirationKey)
+		})
 	}
 }
