@@ -39,7 +39,7 @@ platform :ios do
     increment_build_number
 
     if options[:commit]
-      commit_version_increment(
+      commit_increment(
         branch: 'develop',
         commit_message: 'Build number bump by fastlane - [ios increment] lane'
       )
@@ -61,12 +61,17 @@ platform :ios do
       skip_waiting_for_build_processing: true,
       changelog: 'Newest changes, added functionality, bug fixes')
 
+    commit_all_changes(
+      message: 'Fastlane Beta - Internal',
+      branch: 'develop'
+    )
   end
 
   desc "Submit a new Beta Build to Apple TestFlight, submit for review and release to all testers"
   desc "This will also make sure the profile is up to date"
   lane :betaRelease do
     increment
+
     match(type: "appstore") # more information: https://codesigning.guide
 
     gym(scheme: "Car-Connect", 
@@ -76,6 +81,10 @@ platform :ios do
       groups: ["External"],
       changelog: 'Newest changes, added functionality, bug fixes')
 
+    commit_all_changes(
+      message: 'Fastlane Beta - Release',
+      branch: 'develop'
+    )
   end
 
   desc "Deploy a new version to the App Store"
@@ -84,6 +93,11 @@ platform :ios do
     match(type: "appstore")
     gym(scheme: "Car-Connect") # Build your app - more options available
     deliver(force: true)
+
+    commit_all_changes(
+      message: 'Fastlane Release',
+      branch: 'develop'
+    )
   end
 
   desc "Deploy Metadata and screenshots from the App Store"
@@ -142,7 +156,7 @@ platform :ios do
   ## Convenience Lanes
   ####################################
   desc "Commit and push the build number increase"
-  lane :commit_version_increment do |options|
+  lane :commit_increment do |options|
     message = options[:message] ||= 'No commit message specified'
     branch = options[:branch] ||= 'develop'
 
