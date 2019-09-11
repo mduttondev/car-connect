@@ -87,9 +87,9 @@ fastlane ios shell
 fastlane ios deviceRegistration
 ```
 Push ./devices.txt to register new devices and create a new profile accordingly
-### ios commit_version_increment
+### ios commit_increment
 ```
-fastlane ios commit_version_increment
+fastlane ios commit_increment
 ```
 Commit and push the build number increase
 ### ios commit_all_changes
