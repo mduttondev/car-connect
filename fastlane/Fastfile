@@ -34,22 +34,17 @@ platform :ios do
   end
 
   desc "Increment the build number and Commit"
-  lane :increment do
+  lane :increment do |options|
 
     increment_build_number
 
-    # Commit and push to remote
-    commit_version_bump(
-      message: 'Build number bump by fastlane - [ios increment] lane',
-      force: true
-    )
-
-    push_to_git_remote(
-      remote: "origin",         # optional, default: "origin"
-      local_branch: "develop",  # optional, aliased by "branch", default: "master"
-      remote_branch: "develop", # optional, default is set to local_branch
-      tags: false     # optional, default: true
-    )
+    if options[:commit]
+      commit_version_increment(
+        branch: 'develop',
+        commit_message: 'Build number bump by fastlane - [ios increment] lane'
+      )
+    end
+  
   end
 
   desc "Submit a new Beta Build to Apple TestFlight, submit for review and release to internal testers"
@@ -65,6 +60,7 @@ platform :ios do
     pilot(distribute_external: false,
       skip_waiting_for_build_processing: true,
       changelog: 'Newest changes, added functionality, bug fixes')
+
   end
 
   desc "Submit a new Beta Build to Apple TestFlight, submit for review and release to all testers"
@@ -78,12 +74,13 @@ platform :ios do
 
     pilot(distribute_external: true,
       groups: ["External"],
-    	changelog: 'Newest changes, added functionality, bug fixes')
+      changelog: 'Newest changes, added functionality, bug fixes')
+
   end
 
   desc "Deploy a new version to the App Store"
   lane :release do
-    increment_build_number
+    increment
     match(type: "appstore")
     gym(scheme: "Car-Connect") # Build your app - more options available
     deliver(force: true)
@@ -114,9 +111,10 @@ platform :ios do
     version = get_version_number(
       target: "Car-Connect"
     )
-    increment
     
     deliver(app_version: "#{version}")
+
+    increment
   end
 
   desc "Upload testers file to TestFlight"
@@ -137,6 +135,52 @@ platform :ios do
   lane :deviceRegistration do
   	register_devices(devices_file: "./fastlane/devices.txt")
     match(type: "development", force_for_new_devices: true)
+  end
+
+
+  ####################################
+  ## Convenience Lanes
+  ####################################
+  desc "Commit and push the build number increase"
+  lane :commit_version_increment do |options|
+    message = options[:message] ||= 'No commit message specified'
+    branch = options[:branch] ||= 'develop'
+
+    # Commit and push to remote
+    commit_version_bump(
+      message: message,
+      force: true
+    )
+
+    push_to_git_remote(
+      remote: "origin",
+      local_branch: branch,
+      remote_branch: branch,
+      tags: false
+    )
+  end
+
+  desc "Commit and push all changes in the working directory to the specified branch"
+  lane :commit_all_changes do |options|
+    message = options[:message] ||= 'No commit message specified'
+    branch = options[:branch] ||= 'develop'
+
+    git_add(
+      path: "."
+    )
+
+    git_commit(
+      path: ".",
+      message: message
+    )
+
+    push_to_git_remote(
+      remote: "origin",
+      local_branch: branch,
+      remote_branch: branch,
+      tags: false
+    )
+
   end
 
 end
