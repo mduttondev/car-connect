@@ -73,8 +73,8 @@ class ParkingMeterViewController: UIViewController, UITextFieldDelegate {
 				storageHandler.writeDate(convertedDate, forKey: Constants.DefaultsKey.notificationExpirationKey)
 			} else {
 				let alert = UIAlertController(type: .notificationsDisabled, style: .alert, positiveAction: { _ in
-					if let appSettings = URL(string: UIApplicationOpenSettingsURLString) {
-						UIApplication.shared.open(appSettings, options: [:], completionHandler: nil)
+					if let appSettings = URL(string: UIApplication.openSettingsURLString) {
+						UIApplication.shared.open(appSettings, options: convertToUIApplicationOpenExternalURLOptionsKeyDictionary([:]), completionHandler: nil)
 					}
 				})
 				present(alert, animated: true, completion: nil)
@@ -154,7 +154,7 @@ class ParkingMeterViewController: UIViewController, UITextFieldDelegate {
 		let content = UNMutableNotificationContent()
 		content.title = "Dont forget!"
 		content.subtitle = "Your parking meter is almost out of time!"
-		content.sound = UNNotificationSound.default()
+		content.sound = UNNotificationSound.default
 
 		let calendar = Calendar.current
 		let hoursInSeconds = calendar.component(.hour, from: date) * 60 * 60
@@ -264,4 +264,9 @@ class ParkingMeterViewController: UIViewController, UITextFieldDelegate {
 			strongSelf.configureTextField(strongSelf.reminderTextField, forDateKey: Constants.DefaultsKey.notificationExpirationKey)
 		})
 	}
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+private func convertToUIApplicationOpenExternalURLOptionsKeyDictionary(_ input: [String: Any]) -> [UIApplication.OpenExternalURLOptionsKey: Any] {
+	return Dictionary(uniqueKeysWithValues: input.map { key, value in (UIApplication.OpenExternalURLOptionsKey(rawValue: key), value)})
 }

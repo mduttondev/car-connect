@@ -15,7 +15,7 @@ extension UIAlertController {
 	struct AlertContent {
 		let title: String?
 		let message: String?
-		let style: UIAlertControllerStyle
+		let style: UIAlertController.Style
 		let actions: [UIAlertAction]?
 	}
 
@@ -33,7 +33,7 @@ extension UIAlertController {
 	///   - style: UIAlertControllerStyle to be used with this alert, defaults to `.alert`
 	///   - positiveAction: ButtonHandler to be used with the (positive/proceed) response from the user
 	///   - negativeAction: ButtonHandler to be used with the (negative/cancel) response from the user
-	convenience init(type: AlertType, style: UIAlertControllerStyle = .alert, positiveAction: ButtonHandler = nil, negativeAction: ButtonHandler = nil) {
+	convenience init(type: AlertType, style: UIAlertController.Style = .alert, positiveAction: ButtonHandler = nil, negativeAction: ButtonHandler = nil) {
 		self.init(title: nil, message: nil, preferredStyle: style)
 
 		let alertContent = getContent(forType: type, positiveAction: positiveAction, negativeAction: negativeAction)

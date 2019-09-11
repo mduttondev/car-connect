@@ -174,7 +174,7 @@ class ParkingViewController: UIViewController, MKMapViewDelegate, CLLocationMana
 
 		guard let user = userLocation, let marker = savedPoint else { return }
 
-		let request = MKDirectionsRequest()
+		let request = MKDirections.Request()
 		request.source = MKMapItem(placemark: MKPlacemark(coordinate: user.coordinate, addressDictionary: nil))
 		request.destination = MKMapItem(placemark: MKPlacemark(coordinate: marker.coordinate, addressDictionary: nil))
 		request.requestsAlternateRoutes = false
@@ -188,7 +188,7 @@ class ParkingViewController: UIViewController, MKMapViewDelegate, CLLocationMana
 				let response = response else { return }
 
 			for route in response.routes {
-				strongSelf.mapView.add(route.polyline)
+				strongSelf.mapView.addOverlay(route.polyline)
 				let inset = Constants.mapEdgeInsetsForOverylay
 				let edgeInsets = UIEdgeInsets(top: inset, left: inset, bottom: inset, right: inset)
 
@@ -199,7 +199,7 @@ class ParkingViewController: UIViewController, MKMapViewDelegate, CLLocationMana
 			}
 
 			if let existing = existingOverlay {
-				strongSelf.mapView.remove(existing)
+				strongSelf.mapView.removeOverlay(existing)
 			}
 		}
 
