@@ -41,7 +41,15 @@ class ParkingViewController: UIViewController, MKMapViewDelegate, CLLocationMana
 
 	@IBOutlet weak var showCurrentLocationButton: FloatingButton!
 	@IBOutlet weak var parkingButton: FloatingButton!
-	@IBOutlet weak var trashButton: FloatingButton!
+    @IBOutlet weak var trashButton: FloatingButton! {
+        didSet {
+            guard #available(iOS 13, *) else {
+                let image = UIImage(named: "trash")
+                trashButton.setImage(image, for: .normal)
+                return
+            }
+        }
+    }
 
 	// MARK: - Lifecycle -
 	override func viewDidLoad() {
