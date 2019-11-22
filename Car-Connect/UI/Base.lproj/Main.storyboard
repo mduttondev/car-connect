@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
-    <device id="retina3_5" orientation="portrait" appearance="light"/>
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
@@ -13,14 +13,14 @@
             <objects>
                 <viewController id="9pv-A4-QxB" customClass="ParkingViewController" customModule="Car_Connect" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tsR-hK-woN">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="hybrid" translatesAutoresizingMaskIntoConstraints="NO" id="Ktz-wG-KRk">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="431"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="769"/>
                             </mapView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WI3-8w-v4S" customClass="FloatingButton" customModule="Car_Connect" customModuleProvider="target">
-                                <rect key="frame" x="15" y="336" width="45" height="45"/>
+                                <rect key="frame" x="15" y="718" width="45" height="45"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="45" id="OgK-Es-Xue"/>
@@ -46,7 +46,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uIr-wp-fUu" customClass="FloatingButton" customModule="Car_Connect" customModuleProvider="target">
-                                <rect key="frame" x="260" y="336" width="45" height="45"/>
+                                <rect key="frame" x="354" y="718" width="45" height="45"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="45" id="KFJ-RR-6Ap"/>
@@ -72,7 +72,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xXg-Rv-Bpf" customClass="FloatingButton" customModule="Car_Connect" customModuleProvider="target">
-                                <rect key="frame" x="262.5" y="276" width="40" height="40"/>
+                                <rect key="frame" x="356.5" y="658" width="40" height="40"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="40" id="Aw8-ap-WBg"/>
@@ -101,7 +101,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="uIr-wp-fUu" firstAttribute="top" secondItem="xXg-Rv-Bpf" secondAttribute="bottom" constant="20" id="9Gn-aZ-X6g"/>
                             <constraint firstItem="PQr-Ze-W5v" firstAttribute="trailing" secondItem="uIr-wp-fUu" secondAttribute="trailing" constant="15" id="CKW-GH-iBH"/>
@@ -119,6 +119,7 @@
                     <tabBarItem key="tabBarItem" title="Parking Location" image="parkingTabIcon" id="acW-dT-cKf">
                         <inset key="largeContentSizeImageInsets" minX="0.0" minY="5" maxX="0.0" maxY="0.0"/>
                     </tabBarItem>
+                    <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="mapView" destination="Ktz-wG-KRk" id="iRn-0W-mjN"/>
                         <outlet property="parkingButton" destination="uIr-wp-fUu" id="TFk-5C-3VG"/>
@@ -135,23 +136,23 @@
             <objects>
                 <viewController id="BsU-5W-B5Z" customClass="ParkingMeterViewController" customModule="Car_Connect" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qZO-EF-yo2">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Parking meter expires in:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wmV-s1-p98">
-                                <rect key="frame" x="15" y="40" width="290" height="30"/>
+                                <rect key="frame" x="15" y="84" width="384" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Send me a reminder in:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QhF-SM-sSi">
-                                <rect key="frame" x="15" y="173" width="290" height="30"/>
+                                <rect key="frame" x="15" y="217" width="384" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Press to set" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AJb-u2-jva" customClass="ConfigurableActionTextField" customModule="Car_Connect" customModuleProvider="target">
-                                <rect key="frame" x="15" y="78" width="290" height="50"/>
+                                <rect key="frame" x="15" y="122" width="384" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="h4Z-zK-KKf"/>
                                 </constraints>
@@ -167,7 +168,7 @@
                                 </userDefinedRuntimeAttributes>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Press to set" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hm4-73-Mzw" customClass="ConfigurableActionTextField" customModule="Car_Connect" customModuleProvider="target">
-                                <rect key="frame" x="15" y="211" width="290" height="50"/>
+                                <rect key="frame" x="15" y="255" width="384" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="Q5e-N7-1Lp"/>
                                 </constraints>
@@ -183,7 +184,7 @@
                                 </userDefinedRuntimeAttributes>
                             </textField>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="AJb-u2-jva" firstAttribute="leading" secondItem="7SH-jZ-fLT" secondAttribute="leading" constant="15" id="0aH-Nq-UQx"/>
                             <constraint firstItem="wmV-s1-p98" firstAttribute="leading" secondItem="7SH-jZ-fLT" secondAttribute="leading" constant="15" id="1Xb-Rg-Vey"/>
@@ -214,6 +215,7 @@
         <scene sceneID="yl2-sM-qoP">
             <objects>
                 <tabBarController id="49e-Tb-3d3" sceneMemberID="viewController">
+                    <nil key="simulatedTopBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="W28-zg-YXA">
                         <rect key="frame" x="0.0" y="975" width="768" height="49"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
@@ -226,7 +228,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="0.0" y="0.0"/>
+            <point key="canvasLocation" x="-384" y="-49"/>
         </scene>
     </scenes>
     <resources>
