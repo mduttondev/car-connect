@@ -25,4 +25,12 @@ public enum Constants {
 		case meterExpirationKey = "MeterExpiration"
 		case notificationExpirationKey = "NotificationExpiration"
 	}
+
+    enum MapInsets {
+        static let sideInsetsPortrait = CGFloat(-100)
+        static let topInsetsPortrait = CGFloat(-70)
+
+        static let sideInsetsLandscape = CGFloat(-70)
+        static let topInsetsLandscape = CGFloat(-50)
+    }
 }

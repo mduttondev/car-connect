@@ -18,8 +18,6 @@ class ParkingViewController: UIViewController, MKMapViewDelegate, CLLocationMana
 	var userLocation: CLLocation?
 	var callDirectionCount: Int = 0
 
-    let standardInset = CGFloat(-70)
-
 	private var directionsBeingDisplayed = false
 
 	/// Current state of saved Spot
@@ -141,14 +139,12 @@ class ParkingViewController: UIViewController, MKMapViewDelegate, CLLocationMana
 		}
 	}
 
+    var hasPerformInitialZoom = false
 	private func didUpdateUserLocation(_ location: CLLocation) {
 		callDirectionCount += 1
 
         let userLocation = MKMapPoint(location.coordinate)
-        let insets = UIEdgeInsets(top: standardInset,
-                                  left: standardInset,
-                                  bottom: standardInset,
-                                  right: standardInset)
+        let insets = getInsets(for: UIDevice.current.orientation)
 
         let insetMapRect = mapView.mapRectThatFits(mapView.visibleMapRect, edgePadding: insets)
 
@@ -159,7 +155,9 @@ class ParkingViewController: UIViewController, MKMapViewDelegate, CLLocationMana
 
             getDirections()
             centerMapOnUserLocation(location)
-		}
+        } else if !hasPerformInitialZoom {
+            centerMapOnUserLocation(location)
+        }
 	}
 
 	private func centerMapOnUserLocation(_ location: CLLocation) {
@@ -232,14 +230,9 @@ class ParkingViewController: UIViewController, MKMapViewDelegate, CLLocationMana
 
         let reuseId = "annotationView"
 
-        let annotationView = getAnnotationView(from: mapView, with: reuseId, using: annotation)
+        let annotationView = getPinAnnotationView(from: mapView, with: reuseId, using: annotation)
 
         annotationView.pinTintColor = .systemBlue
-
-        annotationView.contentMode = .scaleAspectFit
-
-        annotationView.isEnabled = true
-        annotationView.canShowCallout = false
 
         return annotationView
     }
@@ -280,12 +273,28 @@ class ParkingViewController: UIViewController, MKMapViewDelegate, CLLocationMana
 	}
 
 	// MARK: - Convenience -
-	fileprivate func getAnnotationView(from mapView: MKMapView,
+	fileprivate func getPinAnnotationView(from mapView: MKMapView,
 									   with reuseId: String,
 									   using annotation: MKAnnotation) -> MKPinAnnotationView {
 
 		return mapView.dequeueReusableAnnotationView(withIdentifier: reuseId) as? MKPinAnnotationView
 			?? MKPinAnnotationView(annotation: annotation, reuseIdentifier: reuseId)
 	}
+
+    fileprivate func getInsets(for orientation: UIDeviceOrientation) -> UIEdgeInsets {
+        let mapInsets = Constants.MapInsets.self
+
+        if orientation == .landscapeLeft || orientation == .landscapeRight {
+            return UIEdgeInsets(top: mapInsets.topInsetsLandscape,
+                                left: mapInsets.sideInsetsLandscape,
+                                bottom: mapInsets.topInsetsLandscape,
+                                right: mapInsets.sideInsetsLandscape)
+        }
+
+        return UIEdgeInsets(top: mapInsets.topInsetsPortrait,
+                            left: mapInsets.sideInsetsPortrait,
+                            bottom: mapInsets.topInsetsPortrait,
+                            right: mapInsets.sideInsetsPortrait)
+    }
 
 }
