@@ -233,6 +233,8 @@ class ParkingMeterViewController: UIViewController, UITextFieldDelegate {
 													  target: self,
 													  action: #selector(cancelPressed))
 
+        cancel.tintColor = UIColor(named: "color_tabBarTint")
+
 		let flexSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace,
 										target: nil,
 										action: nil)
@@ -241,6 +243,8 @@ class ParkingMeterViewController: UIViewController, UITextFieldDelegate {
 													style: .done,
 													target: self,
 													action: #selector(doneButtonAction))
+
+        done.tintColor = UIColor(named: NSLocalizedString("color_tabBarTint", comment: ""))
 
 		var items = [UIBarButtonItem]()
 		items.append(cancel)
