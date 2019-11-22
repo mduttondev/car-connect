@@ -18,6 +18,8 @@ class ParkingViewController: UIViewController, MKMapViewDelegate, CLLocationMana
 	var userLocation: CLLocation?
 	var callDirectionCount: Int = 0
 
+    let standardInset = CGFloat(-70)
+
 	private var directionsBeingDisplayed = false
 
 	/// Current state of saved Spot
@@ -34,8 +36,8 @@ class ParkingViewController: UIViewController, MKMapViewDelegate, CLLocationMana
 	// MARK: - UI Outlets -
 	@IBOutlet weak var mapView: MKMapView! {
 		didSet {
+            mapView.delegate = self
 			mapView.showsUserLocation = true
-			mapView.delegate = self
 		}
 	}
 
@@ -142,8 +144,21 @@ class ParkingViewController: UIViewController, MKMapViewDelegate, CLLocationMana
 	private func didUpdateUserLocation(_ location: CLLocation) {
 		callDirectionCount += 1
 
-		if directionsBeingDisplayed && callDirectionCount % Constants.overlayUpdateRate == 0 {
-			getDirections()
+        let userLocation = MKMapPoint(location.coordinate)
+        let insets = UIEdgeInsets(top: standardInset,
+                                  left: standardInset,
+                                  bottom: standardInset,
+                                  right: standardInset)
+
+        let insetMapRect = mapView.mapRectThatFits(mapView.visibleMapRect, edgePadding: insets)
+
+        let forcePositionUpdate = !insetMapRect.contains(userLocation)
+
+        if directionsBeingDisplayed &&
+            (callDirectionCount % Constants.overlayUpdateRate == 0 || forcePositionUpdate) {
+
+            getDirections()
+            centerMapOnUserLocation(location)
 		}
 	}
 
@@ -163,11 +178,12 @@ class ParkingViewController: UIViewController, MKMapViewDelegate, CLLocationMana
 		let annotation = MKPointAnnotation()
 		annotation.coordinate = userLocationCoordinate
 		mapView.addAnnotation(annotation)
+
 		storageHandler.writeParkedLocationToDefaults(userLocation)
 		updateUI(hasSavedLocation: true)
 	}
 
-	private func getDirections() {
+    private func getDirections(shouldFocusAfterRender: Bool = true) {
 
 		let savedPoint = mapView.annotations.filter { $0 is MKPointAnnotation }.first
 		let userLocation = mapView.annotations.filter { $0 is MKUserLocation }.first
@@ -194,7 +210,10 @@ class ParkingViewController: UIViewController, MKMapViewDelegate, CLLocationMana
 
 				if !strongSelf.directionsBeingDisplayed {
 					strongSelf.directionsBeingDisplayed = true
-					strongSelf.mapView.setVisibleMapRect(route.polyline.boundingMapRect, edgePadding: edgeInsets, animated: true)
+
+                    if shouldFocusAfterRender {
+                        strongSelf.mapView.setVisibleMapRect(route.polyline.boundingMapRect, edgePadding: edgeInsets, animated: true)
+                    }
 				}
 			}
 
@@ -206,6 +225,35 @@ class ParkingViewController: UIViewController, MKMapViewDelegate, CLLocationMana
 	}
 
 	// MARK: - MKMapView Delegate -
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        if annotation is MKUserLocation {
+            return nil
+        }
+
+        let reuseId = "annotationView"
+
+        let annotationView = getAnnotationView(from: mapView, with: reuseId, using: annotation)
+
+        annotationView.pinTintColor = .systemBlue
+
+        annotationView.contentMode = .scaleAspectFit
+
+        annotationView.isEnabled = true
+        annotationView.canShowCallout = false
+
+        return annotationView
+    }
+
+    func mapView(_ mapView: MKMapView, didAdd views: [MKAnnotationView]) {
+        for annotation in views {
+            let endFrame = annotation.frame
+            annotation.frame = annotation.frame.offsetBy(dx: 0, dy: -500)
+            UIView.animate(withDuration: 0.25) {
+                annotation.frame = endFrame
+            }
+        }
+    }
+
 	func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
 		let renderer = MKPolylineRenderer(polyline: overlay as! MKPolyline)
 		renderer.strokeColor = UIColor.blue
@@ -229,6 +277,15 @@ class ParkingViewController: UIViewController, MKMapViewDelegate, CLLocationMana
 			}
 			locationManager.startUpdatingLocation()
 		}
+	}
+
+	// MARK: - Convenience -
+	fileprivate func getAnnotationView(from mapView: MKMapView,
+									   with reuseId: String,
+									   using annotation: MKAnnotation) -> MKPinAnnotationView {
+
+		return mapView.dequeueReusableAnnotationView(withIdentifier: reuseId) as? MKPinAnnotationView
+			?? MKPinAnnotationView(annotation: annotation, reuseIdentifier: reuseId)
 	}
 
 }

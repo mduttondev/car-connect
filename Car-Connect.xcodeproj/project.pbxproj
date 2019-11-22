@@ -486,7 +486,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Fabric/run\" 59f486796c08f97effc9178d1210ee7b7d2862fb d6bc0507f09198ef303827cffa9cf7acce8f24451bd3e338406e554d284f58e8";
+			shellScript = "\"${PODS_ROOT}/Fabric/run\" 59f486796c08f97effc9178d1210ee7b7d2862fb d6bc0507f09198ef303827cffa9cf7acce8f24451bd3e338406e554d284f58e8\n";
 		};
 		C9ED3D651FE6E83D0096BDF2 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -499,7 +499,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Scripts/SwiftLint.sh\"";
+			shellScript = "#\"${SRCROOT}/Scripts/SwiftLint.sh\"\n";
 		};
 		CDD128F5DA2A8F361D9B6C4A /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -731,7 +731,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 38;
+				CURRENT_PROJECT_VERSION = 40;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = NN495VBEDV;
 				INFOPLIST_FILE = "Car-Connect/Supporting Files/Info.plist";
@@ -753,7 +753,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 38;
+				CURRENT_PROJECT_VERSION = 40;
 				DEVELOPMENT_TEAM = NN495VBEDV;
 				INFOPLIST_FILE = "Car-Connect/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
