@@ -44,6 +44,7 @@ class ParkingMeterViewController: UIViewController, UITextFieldDelegate {
 
 	// MARK: - UITextField Delegate
 	func textFieldDidBeginEditing(_ textField: UITextField) {
+        HapticGenerator.performImpact(ofStyle: .soft)
 		activeTextField = textField as? ConfigurableActionTextField
 	}
 
@@ -56,6 +57,8 @@ class ParkingMeterViewController: UIViewController, UITextFieldDelegate {
 			// Just close the picker and we can start over
 			view.endEditing(true)
 		}
+
+        HapticGenerator.performNotificationFeedback(ofType: .error)
 	}
 
 	@objc func doneButtonAction() {
@@ -80,6 +83,8 @@ class ParkingMeterViewController: UIViewController, UITextFieldDelegate {
 				present(alert, animated: true, completion: nil)
 			}
 		}
+
+        HapticGenerator.performNotificationFeedback(ofType: .success)
 	}
 
 	// MARK: - UI Configuration

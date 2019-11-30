@@ -13,6 +13,7 @@
 		C91488861FD46CB8000D7EE0 /* ParkingMeterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91488851FD46CB8000D7EE0 /* ParkingMeterViewController.swift */; };
 		C91488881FD47CE2000D7EE0 /* IconContainingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91488871FD47CE2000D7EE0 /* IconContainingView.swift */; };
 		C923F398201D08EC00204573 /* FloatingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C923F397201D08EC00204573 /* FloatingButton.swift */; };
+		C92406F12392F9EF00F0B775 /* HapticGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92406F02392F9EF00F0B775 /* HapticGenerator.swift */; };
 		C94330412055BAF4008095C0 /* SettingsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94330402055BAF4008095C0 /* SettingsManager.swift */; };
 		C955CE171FBE79DE002D82B3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C955CE161FBE79DE002D82B3 /* AppDelegate.swift */; };
 		C955CE191FBE79DE002D82B3 /* ParkingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C955CE181FBE79DE002D82B3 /* ParkingViewController.swift */; };
@@ -72,6 +73,7 @@
 		C91488851FD46CB8000D7EE0 /* ParkingMeterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkingMeterViewController.swift; sourceTree = "<group>"; };
 		C91488871FD47CE2000D7EE0 /* IconContainingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconContainingView.swift; sourceTree = "<group>"; };
 		C923F397201D08EC00204573 /* FloatingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingButton.swift; sourceTree = "<group>"; };
+		C92406F02392F9EF00F0B775 /* HapticGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticGenerator.swift; sourceTree = "<group>"; };
 		C94330402055BAF4008095C0 /* SettingsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsManager.swift; sourceTree = "<group>"; };
 		C955CE131FBE79DE002D82B3 /* Car-Connect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Car-Connect.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C955CE161FBE79DE002D82B3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -259,6 +261,7 @@
 				C9FC540D2016D0410007AB20 /* Constants.swift */,
 				C9662D60201E6BDC001188FF /* UIAlertController+StandardAlerts.swift */,
 				C9EDFDD12029394B00A721AE /* ConfigurableActionTextField.swift */,
+				C92406F02392F9EF00F0B775 /* HapticGenerator.swift */,
 			);
 			path = "Convenience Classes";
 			sourceTree = "<group>";
@@ -558,6 +561,7 @@
 				C9EDFDD22029394B00A721AE /* ConfigurableActionTextField.swift in Sources */,
 				C955CE191FBE79DE002D82B3 /* ParkingViewController.swift in Sources */,
 				C923F398201D08EC00204573 /* FloatingButton.swift in Sources */,
+				C92406F12392F9EF00F0B775 /* HapticGenerator.swift in Sources */,
 				C9662D61201E6BDC001188FF /* UIAlertController+StandardAlerts.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

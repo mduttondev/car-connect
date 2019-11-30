@@ -84,21 +84,27 @@ class ParkingViewController: UIViewController, MKMapViewDelegate, CLLocationMana
 	// MARK: - Button Actions -
 	@IBAction func showCurrentLocationButtonPressed(_ sender: UIButton) {
 		if let location = userLocation {
+            HapticGenerator.performImpact(ofStyle: .heavy)
 			centerMapOnUserLocation(location)
 		}
 	}
 
 	@IBAction func saveSpotButtonPressed(_ sender: FloatingButton) {
 		if saveStatus == .spotSaved {
-			getDirections()
+            getDirections() {
+                HapticGenerator.performNotificationFeedback(ofType: .success)
+            }
 		} else {
-			saveLocation()
+            saveLocation() {
+                HapticGenerator.performImpact(ofStyle: .light)
+            }
 		}
 
 	}
 
 	@IBAction func deletePressed(_ sender: FloatingButton) {
 		let deleteConfirmed: ((UIAlertAction) -> Void) = { [weak self] _ in
+            HapticGenerator.performNotificationFeedback(ofType: .success)
 			self?.clearSavedSpotAndDirections()
 		}
 
@@ -147,7 +153,7 @@ class ParkingViewController: UIViewController, MKMapViewDelegate, CLLocationMana
 		}
 	}
 
-    var hasPerformInitialZoom = false
+    var hasPerformedInitialZoom = false
 	private func didUpdateUserLocation(_ location: CLLocation) {
 		callDirectionCount += 1
 
@@ -163,7 +169,7 @@ class ParkingViewController: UIViewController, MKMapViewDelegate, CLLocationMana
 
             getDirections()
             centerMapOnUserLocation(location)
-        } else if !hasPerformInitialZoom {
+        } else if !hasPerformedInitialZoom {
             centerMapOnUserLocation(location)
         }
 	}
@@ -177,7 +183,7 @@ class ParkingViewController: UIViewController, MKMapViewDelegate, CLLocationMana
 		self.mapView.setRegion(region, animated: true)
 	}
 
-	private func saveLocation() {
+    private func saveLocation(completion: (() -> Void)? = nil) {
 		guard let userLocation = userLocation else { return }
 		let userLocationCoordinate = userLocation.coordinate
 
@@ -187,9 +193,10 @@ class ParkingViewController: UIViewController, MKMapViewDelegate, CLLocationMana
 
 		storageHandler.writeParkedLocationToDefaults(userLocation)
 		updateUI(hasSavedLocation: true)
+        completion?()
 	}
 
-    private func getDirections(shouldFocusAfterRender: Bool = true) {
+    private func getDirections(shouldFocusAfterRender: Bool = true, completion: (() -> Void)? = nil) {
 
 		let savedPoint = mapView.annotations.filter { $0 is MKPointAnnotation }.first
 		let userLocation = mapView.annotations.filter { $0 is MKUserLocation }.first
@@ -219,6 +226,7 @@ class ParkingViewController: UIViewController, MKMapViewDelegate, CLLocationMana
 
                     if shouldFocusAfterRender {
                         strongSelf.mapView.setVisibleMapRect(route.polyline.boundingMapRect, edgePadding: edgeInsets, animated: true)
+                        completion?()
                     }
 				}
 			}
