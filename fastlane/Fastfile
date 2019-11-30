@@ -64,8 +64,10 @@ platform :ios do
     )
     
     deliver(
-      app_version: version,
+      app_version: version.to_s,
       skip_binary_upload: true,
+      skip_screenshots: true,
+      force: true
     )
 
     pilot(distribute_external: false,

@@ -67,11 +67,6 @@ Upload Metadata to App Store
 fastlane ios bump
 ```
 Update version with given type (patch|minor|major). Called as: fastlane bump type:minor
-### ios testing
-```
-fastlane ios testing
-```
-
 ### ios upload_testers
 ```
 fastlane ios upload_testers

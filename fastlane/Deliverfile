@@ -8,4 +8,3 @@
 
 app_identifier "com.mkdutton.Car-Connect" # The bundle identifier of your app
 username "mduttondev@gmail.com" # your Apple ID user
-ipa "../builds/Car-Connect.ipa"
