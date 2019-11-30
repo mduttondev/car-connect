@@ -52,10 +52,21 @@ platform :ios do
   lane :betaInternal do
     increment
 
-    match(type: "appstore") # more information: https://codesigning.guide
+    match(type: "appstore")
 
-    gym(scheme: "Car-Connect", 
-    clean: true) # Build your app - more options available
+    gym(
+      scheme: "Car-Connect",
+      clean: true
+      )
+
+    version = get_version_number(
+      target: "Car-Connect"
+    )
+    
+    deliver(
+      app_version: version,
+      skip_binary_upload: true,
+    )
 
     pilot(distribute_external: false,
       skip_waiting_for_build_processing: true,
@@ -126,9 +137,12 @@ platform :ios do
       target: "Car-Connect"
     )
     
-    deliver(app_version: "#{version}")
+    deliver(
+      app_version: version,
+      skip_binary_upload: true,
+    )
 
-    increment
+    increment(commit:true)
   end
 
   desc "Upload testers file to TestFlight"
@@ -139,10 +153,6 @@ platform :ios do
   desc "Download testers file to TestFlight"
   lane :download_testers do
     sh 'fastlane pilot export -c ./testers.csv'
-  end
-
-  lane :shell do
-    sh('env')
   end
 
   desc "Push ./devices.txt to register new devices and create a new profile accordingly"
@@ -194,7 +204,6 @@ platform :ios do
       remote_branch: branch,
       tags: false
     )
-
   end
 
 end
