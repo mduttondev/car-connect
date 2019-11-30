@@ -1,4 +1,1 @@
-Updated for iPhone X and rewritten in Swift. 
 
-- Bug Fixes
-- Improvements
