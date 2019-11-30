@@ -41,7 +41,7 @@ platform :ios do
     if options[:commit]
       commit_increment(
         branch: 'develop',
-        commit_message: 'Build number bump by fastlane - [ios increment] lane'
+        message: 'Build number bump by fastlane - [ios increment] lane'
       )
     end
   
