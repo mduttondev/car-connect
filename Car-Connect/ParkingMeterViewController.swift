@@ -165,7 +165,11 @@ class ParkingMeterViewController: UIViewController, UITextFieldDelegate {
 		let hoursInSeconds = calendar.component(.hour, from: date) * 60 * 60
 		let minutesInSeconds = calendar.component(.minute, from: date) * 60
 
-		let interval = TimeInterval(hoursInSeconds + minutesInSeconds)
+		var interval = TimeInterval(hoursInSeconds + minutesInSeconds)
+
+        if interval < 1 {
+            interval = 1
+        }
 
 		let trigger = UNTimeIntervalNotificationTrigger(timeInterval: interval, repeats: false)
 
