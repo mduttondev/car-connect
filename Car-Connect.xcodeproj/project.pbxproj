@@ -23,6 +23,7 @@
 		C955CE2E1FBE79DE002D82B3 /* Car_ConnectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C955CE2D1FBE79DE002D82B3 /* Car_ConnectTests.swift */; };
 		C955CE391FBE79DE002D82B3 /* Car_ConnectUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C955CE381FBE79DE002D82B3 /* Car_ConnectUITests.swift */; };
 		C9662D61201E6BDC001188FF /* UIAlertController+StandardAlerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9662D60201E6BDC001188FF /* UIAlertController+StandardAlerts.swift */; };
+		C97A5A2C249946850008D040 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C97A5A27249945000008D040 /* GoogleService-Info.plist */; };
 		C98E62F22016C8D5006F9258 /* CLLocationCoordinate2D+Dictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = C98E62F12016C8D5006F9258 /* CLLocationCoordinate2D+Dictionary.swift */; };
 		C98E62F42016C950006F9258 /* StorageHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = C98E62F32016C950006F9258 /* StorageHandler.swift */; };
 		C9A301A61FBE86590064DD9F /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9A301A51FBE86590064DD9F /* AdSupport.framework */; };
@@ -38,7 +39,6 @@
 		C9ED3D641FE6DED20096BDF2 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9ED3D631FE6DED20096BDF2 /* LocationManager.swift */; };
 		C9EDFDD22029394B00A721AE /* ConfigurableActionTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EDFDD12029394B00A721AE /* ConfigurableActionTextField.swift */; };
 		C9F057CD201E7ECE00DCE906 /* ArchivesToEllipse.gpx in Resources */ = {isa = PBXBuildFile; fileRef = C9F057CC201E7ECE00DCE906 /* ArchivesToEllipse.gpx */; };
-		C9F63C63212D0AD200A42E78 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C9F63C62212D0AD200A42E78 /* GoogleService-Info.plist */; };
 		C9FA43F0201D2ED400989776 /* National Archives.gpx in Resources */ = {isa = PBXBuildFile; fileRef = C9FA43EF201D2ED400989776 /* National Archives.gpx */; };
 		C9FA43F2201D305B00989776 /* The Ellipse.gpx in Resources */ = {isa = PBXBuildFile; fileRef = C9FA43F1201D305B00989776 /* The Ellipse.gpx */; };
 		C9FC540E2016D0410007AB20 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9FC540D2016D0410007AB20 /* Constants.swift */; };
@@ -89,6 +89,7 @@
 		C955CE381FBE79DE002D82B3 /* Car_ConnectUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Car_ConnectUITests.swift; sourceTree = "<group>"; };
 		C955CE3A1FBE79DE002D82B3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C9662D60201E6BDC001188FF /* UIAlertController+StandardAlerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertController+StandardAlerts.swift"; sourceTree = "<group>"; };
+		C97A5A27249945000008D040 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C98E62F12016C8D5006F9258 /* CLLocationCoordinate2D+Dictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CLLocationCoordinate2D+Dictionary.swift"; sourceTree = "<group>"; };
 		C98E62F32016C950006F9258 /* StorageHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageHandler.swift; sourceTree = "<group>"; };
 		C9A301A51FBE86590064DD9F /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
@@ -105,7 +106,6 @@
 		C9ED3D671FE6EFF50096BDF2 /* SwiftLint.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = SwiftLint.sh; sourceTree = "<group>"; };
 		C9EDFDD12029394B00A721AE /* ConfigurableActionTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurableActionTextField.swift; sourceTree = "<group>"; };
 		C9F057CC201E7ECE00DCE906 /* ArchivesToEllipse.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = ArchivesToEllipse.gpx; sourceTree = "<group>"; };
-		C9F63C62212D0AD200A42E78 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C9FA43EF201D2ED400989776 /* National Archives.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "National Archives.gpx"; sourceTree = "<group>"; };
 		C9FA43F1201D305B00989776 /* The Ellipse.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "The Ellipse.gpx"; sourceTree = "<group>"; };
 		C9FC540D2016D0410007AB20 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -170,7 +170,7 @@
 		C955CE0A1FBE79DE002D82B3 = {
 			isa = PBXGroup;
 			children = (
-				C9F63C62212D0AD200A42E78 /* GoogleService-Info.plist */,
+				C97A5A27249945000008D040 /* GoogleService-Info.plist */,
 				C9ED3D691FE6F0160096BDF2 /* Scripts */,
 				C955CE151FBE79DE002D82B3 /* Car-Connect */,
 				C955CE2C1FBE79DE002D82B3 /* Car-ConnectTests */,
@@ -305,7 +305,7 @@
 				C955CE111FBE79DE002D82B3 /* Resources */,
 				E96816A694DCB499AEB0CDA5 /* [CP] Embed Pods Frameworks */,
 				C9ED3D651FE6E83D0096BDF2 /* ShellScript */,
-				C91DAEDB1FBE7B940012E47A /* ShellScript */,
+				C97A5A22249943C20008D040 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -408,6 +408,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C97A5A2C249946850008D040 /* GoogleService-Info.plist in Resources */,
 				C955CE231FBE79DE002D82B3 /* LaunchScreen.storyboard in Resources */,
 				C9A301B61FBE901B0064DD9F /* iTunesArtwork@2x.png in Resources */,
 				C955CE201FBE79DE002D82B3 /* Assets.xcassets in Resources */,
@@ -421,7 +422,6 @@
 				C9A301AF1FBE8F680064DD9F /* CarConnectIconColor.jpg in Resources */,
 				C9FA43F0201D2ED400989776 /* National Archives.gpx in Resources */,
 				C955CE1E1FBE79DE002D82B3 /* Main.storyboard in Resources */,
-				C9F63C63212D0AD200A42E78 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -478,18 +478,22 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		C91DAEDB1FBE7B940012E47A /* ShellScript */ = {
+		C97A5A22249943C20008D040 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
+			buildActionMask = 12;
 			files = (
 			);
+			inputFileListPaths = (
+			);
 			inputPaths = (
+			);
+			outputFileListPaths = (
 			);
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Fabric/run\" 59f486796c08f97effc9178d1210ee7b7d2862fb d6bc0507f09198ef303827cffa9cf7acce8f24451bd3e338406e554d284f58e8\n";
+			shellScript = "${PODS_ROOT}/FirebaseCrashlytics/run\n";
 		};
 		C9ED3D651FE6E83D0096BDF2 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -530,11 +534,13 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Car-Connect/Pods-Car-Connect-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities-framework/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/PromisesObjC-framework/FBLPromises.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb-framework/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBLPromises.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;

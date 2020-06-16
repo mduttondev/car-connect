@@ -2,9 +2,8 @@
 platform :ios, '10.0'
 
 def all_pods
-  pod 'Fabric'
-  pod 'Crashlytics'
-  pod 'Firebase/Core'
+  pod 'Firebase/Crashlytics'
+  pod 'Firebase/Analytics'
 end
 
 target 'Car-Connect' do

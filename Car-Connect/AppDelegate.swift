@@ -7,8 +7,7 @@
 //
 
 import UIKit
-import Fabric
-import Crashlytics
+import FirebaseCrashlytics
 import Firebase
 import UserNotifications
 
@@ -21,7 +20,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 		// Use Firebase library to configure APIs
 		FirebaseApp.configure()
-		Fabric.with([Crashlytics.self])
 
 		let settingsManager = SettingsManager.shared
 
@@ -39,13 +37,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		return true
 	}
 
-	func applicationWillResignActive(_ application: UIApplication) {
+	func applicationWillResignActive(_ application: UIApplication) { }
 
-	}
-
-	func applicationDidEnterBackground(_ application: UIApplication) {
-
-	}
+	func applicationDidEnterBackground(_ application: UIApplication) { }
 
 	func applicationWillEnterForeground(_ application: UIApplication) {
 		// Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
