@@ -165,6 +165,17 @@ platform :ios do
   end
 
 
+  desc "Force autocorrect using swiftlint"
+  lane :lint do
+    swiftlint(
+      mode: :autocorrect,                     # SwiftLint mode: :lint (default) or :autocorrect
+      ignore_exit_status: true)                 # Allow fastlane to continue even if SwiftLint returns a non-zero exit status 
+    
+    git_commit(path: ".", message: 'Fastlane lint')
+    push_to_git_remote
+  end
+
+
   ####################################
   ## Convenience Lanes
   ####################################
