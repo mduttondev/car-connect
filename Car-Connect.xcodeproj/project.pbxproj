@@ -3,17 +3,16 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 48;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		58E28BAE3708B56AA51BD14B /* libPods-Car-ConnectUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A2D24471D4E348F6D80AF6C9 /* libPods-Car-ConnectUITests.a */; };
-		902D033BC140C2806C3B9A4C /* Pods_Car_Connect.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1E02FABBCB2957647B0C955 /* Pods_Car_Connect.framework */; };
-		A95D92B09B64AC6E68576F53 /* libPods-Car-ConnectTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C7A6DF06FCFC0D7039056E92 /* libPods-Car-ConnectTests.a */; };
 		C91488861FD46CB8000D7EE0 /* ParkingMeterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91488851FD46CB8000D7EE0 /* ParkingMeterViewController.swift */; };
 		C91488881FD47CE2000D7EE0 /* IconContainingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91488871FD47CE2000D7EE0 /* IconContainingView.swift */; };
 		C923F398201D08EC00204573 /* FloatingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C923F397201D08EC00204573 /* FloatingButton.swift */; };
 		C92406F12392F9EF00F0B775 /* HapticGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92406F02392F9EF00F0B775 /* HapticGenerator.swift */; };
+		C929DD45272D842D0057D817 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = C929DD44272D842D0057D817 /* FirebaseAnalytics */; };
+		C929DD47272D842D0057D817 /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = C929DD46272D842D0057D817 /* FirebaseCrashlytics */; };
 		C94330412055BAF4008095C0 /* SettingsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94330402055BAF4008095C0 /* SettingsManager.swift */; };
 		C955CE171FBE79DE002D82B3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C955CE161FBE79DE002D82B3 /* AppDelegate.swift */; };
 		C955CE191FBE79DE002D82B3 /* ParkingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C955CE181FBE79DE002D82B3 /* ParkingViewController.swift */; };
@@ -62,18 +61,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0093859F736F97679023BB55 /* Pods-Car-ConnectTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Car-ConnectTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Car-ConnectTests/Pods-Car-ConnectTests.release.xcconfig"; sourceTree = "<group>"; };
-		02A51ACF2CCB2DC7B61E0C69 /* Pods-Car-ConnectUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Car-ConnectUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Car-ConnectUITests/Pods-Car-ConnectUITests.release.xcconfig"; sourceTree = "<group>"; };
-		25AADBBC3EC3B0E1D8DF537F /* Pods-Car-ConnectTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Car-ConnectTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Car-ConnectTests/Pods-Car-ConnectTests.debug.xcconfig"; sourceTree = "<group>"; };
-		7EA701D6CA89CB48625501AC /* Pods-Car-Connect.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Car-Connect.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Car-Connect/Pods-Car-Connect.debug.xcconfig"; sourceTree = "<group>"; };
-		97EBF5634B809F60D44AC541 /* Pods-Car-Connect.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Car-Connect.release.xcconfig"; path = "Pods/Target Support Files/Pods-Car-Connect/Pods-Car-Connect.release.xcconfig"; sourceTree = "<group>"; };
-		A2D24471D4E348F6D80AF6C9 /* libPods-Car-ConnectUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Car-ConnectUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		C652E85AC3E29968F65B81F5 /* Pods-Car-ConnectUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Car-ConnectUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Car-ConnectUITests/Pods-Car-ConnectUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		C7A6DF06FCFC0D7039056E92 /* libPods-Car-ConnectTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Car-ConnectTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C91488851FD46CB8000D7EE0 /* ParkingMeterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkingMeterViewController.swift; sourceTree = "<group>"; };
 		C91488871FD47CE2000D7EE0 /* IconContainingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconContainingView.swift; sourceTree = "<group>"; };
 		C923F397201D08EC00204573 /* FloatingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingButton.swift; sourceTree = "<group>"; };
 		C92406F02392F9EF00F0B775 /* HapticGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticGenerator.swift; sourceTree = "<group>"; };
+		C929DD49272D85470057D817 /* upload-symbols */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = "upload-symbols"; sourceTree = "<group>"; };
 		C94330402055BAF4008095C0 /* SettingsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsManager.swift; sourceTree = "<group>"; };
 		C955CE131FBE79DE002D82B3 /* Car-Connect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Car-Connect.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C955CE161FBE79DE002D82B3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -109,7 +101,6 @@
 		C9FA43EF201D2ED400989776 /* National Archives.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "National Archives.gpx"; sourceTree = "<group>"; };
 		C9FA43F1201D305B00989776 /* The Ellipse.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "The Ellipse.gpx"; sourceTree = "<group>"; };
 		C9FC540D2016D0410007AB20 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		F1E02FABBCB2957647B0C955 /* Pods_Car_Connect.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Car_Connect.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,8 +109,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				C9ED3D621FE6DDA90096BDF2 /* CoreLocation.framework in Frameworks */,
+				C929DD47272D842D0057D817 /* FirebaseCrashlytics in Frameworks */,
 				C9A301A61FBE86590064DD9F /* AdSupport.framework in Frameworks */,
-				902D033BC140C2806C3B9A4C /* Pods_Car_Connect.framework in Frameworks */,
+				C929DD45272D842D0057D817 /* FirebaseAnalytics in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -127,7 +119,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A95D92B09B64AC6E68576F53 /* libPods-Car-ConnectTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -135,7 +126,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				58E28BAE3708B56AA51BD14B /* libPods-Car-ConnectUITests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -147,24 +137,8 @@
 			children = (
 				C9ED3D611FE6DDA90096BDF2 /* CoreLocation.framework */,
 				C9A301A51FBE86590064DD9F /* AdSupport.framework */,
-				F1E02FABBCB2957647B0C955 /* Pods_Car_Connect.framework */,
-				C7A6DF06FCFC0D7039056E92 /* libPods-Car-ConnectTests.a */,
-				A2D24471D4E348F6D80AF6C9 /* libPods-Car-ConnectUITests.a */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		A5FD950D4FC3D4C122020ECF /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				7EA701D6CA89CB48625501AC /* Pods-Car-Connect.debug.xcconfig */,
-				97EBF5634B809F60D44AC541 /* Pods-Car-Connect.release.xcconfig */,
-				25AADBBC3EC3B0E1D8DF537F /* Pods-Car-ConnectTests.debug.xcconfig */,
-				0093859F736F97679023BB55 /* Pods-Car-ConnectTests.release.xcconfig */,
-				C652E85AC3E29968F65B81F5 /* Pods-Car-ConnectUITests.debug.xcconfig */,
-				02A51ACF2CCB2DC7B61E0C69 /* Pods-Car-ConnectUITests.release.xcconfig */,
-			);
-			name = Pods;
 			sourceTree = "<group>";
 		};
 		C955CE0A1FBE79DE002D82B3 = {
@@ -176,7 +150,6 @@
 				C955CE2C1FBE79DE002D82B3 /* Car-ConnectTests */,
 				C955CE371FBE79DE002D82B3 /* Car-ConnectUITests */,
 				C955CE141FBE79DE002D82B3 /* Products */,
-				A5FD950D4FC3D4C122020ECF /* Pods */,
 				0BF7A14C0ADF0AE1683ED2F5 /* Frameworks */,
 			);
 			sourceTree = "<group>";
@@ -269,6 +242,7 @@
 		C9ED3D691FE6F0160096BDF2 /* Scripts */ = {
 			isa = PBXGroup;
 			children = (
+				C929DD49272D85470057D817 /* upload-symbols */,
 				C9ED3D671FE6EFF50096BDF2 /* SwiftLint.sh */,
 			);
 			path = Scripts;
@@ -299,19 +273,21 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C955CE3D1FBE79DE002D82B3 /* Build configuration list for PBXNativeTarget "Car-Connect" */;
 			buildPhases = (
-				CDD128F5DA2A8F361D9B6C4A /* [CP] Check Pods Manifest.lock */,
 				C955CE0F1FBE79DE002D82B3 /* Sources */,
 				C955CE101FBE79DE002D82B3 /* Frameworks */,
 				C955CE111FBE79DE002D82B3 /* Resources */,
-				E96816A694DCB499AEB0CDA5 /* [CP] Embed Pods Frameworks */,
 				C9ED3D651FE6E83D0096BDF2 /* ShellScript */,
-				C97A5A22249943C20008D040 /* ShellScript */,
+				C929DD48272D84E60057D817 /* ShellScript */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = "Car-Connect";
+			packageProductDependencies = (
+				C929DD44272D842D0057D817 /* FirebaseAnalytics */,
+				C929DD46272D842D0057D817 /* FirebaseCrashlytics */,
+			);
 			productName = "Car-Connect";
 			productReference = C955CE131FBE79DE002D82B3 /* Car-Connect.app */;
 			productType = "com.apple.product-type.application";
@@ -320,7 +296,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C955CE401FBE79DE002D82B3 /* Build configuration list for PBXNativeTarget "Car-ConnectTests" */;
 			buildPhases = (
-				6078EDA6AF026C9C9A76E58E /* [CP] Check Pods Manifest.lock */,
 				C955CE251FBE79DE002D82B3 /* Sources */,
 				C955CE261FBE79DE002D82B3 /* Frameworks */,
 				C955CE271FBE79DE002D82B3 /* Resources */,
@@ -339,7 +314,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C955CE431FBE79DE002D82B3 /* Build configuration list for PBXNativeTarget "Car-ConnectUITests" */;
 			buildPhases = (
-				97542E4DCE2945421625E658 /* [CP] Check Pods Manifest.lock */,
 				C955CE301FBE79DE002D82B3 /* Sources */,
 				C955CE311FBE79DE002D82B3 /* Frameworks */,
 				C955CE321FBE79DE002D82B3 /* Resources */,
@@ -361,7 +335,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0910;
-				LastUpgradeCheck = 0940;
+				LastUpgradeCheck = 1220;
 				ORGANIZATIONNAME = "Matthew Dutton";
 				TargetAttributes = {
 					C955CE121FBE79DE002D82B3 = {
@@ -392,6 +366,9 @@
 				Base,
 			);
 			mainGroup = C955CE0A1FBE79DE002D82B3;
+			packageReferences = (
+				C929DD43272D842D0057D817 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			productRefGroup = C955CE141FBE79DE002D82B3 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -442,45 +419,9 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		6078EDA6AF026C9C9A76E58E /* [CP] Check Pods Manifest.lock */ = {
+		C929DD48272D84E60057D817 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Car-ConnectTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		97542E4DCE2945421625E658 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Car-ConnectUITests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		C97A5A22249943C20008D040 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 12;
 			files = (
 			);
 			inputFileListPaths = (
@@ -493,7 +434,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "${PODS_ROOT}/FirebaseCrashlytics/run\n";
+			shellScript = "${BUILD_DIR%Build/*}/SourcePackages/checkouts/firebase-ios-sdk/Crashlytics/run\n";
 		};
 		C9ED3D651FE6E83D0096BDF2 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -506,47 +447,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "#\"${SRCROOT}/Scripts/SwiftLint.sh\"\n";
-		};
-		CDD128F5DA2A8F361D9B6C4A /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Car-Connect-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		E96816A694DCB499AEB0CDA5 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Car-Connect/Pods-Car-Connect-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/GoogleUtilities-framework/GoogleUtilities.framework",
-				"${BUILT_PRODUCTS_DIR}/PromisesObjC-framework/FBLPromises.framework",
-				"${BUILT_PRODUCTS_DIR}/nanopb-framework/nanopb.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBLPromises.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Car-Connect/Pods-Car-Connect-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
+			shellScript = "\"${SRCROOT}/Scripts/SwiftLint.sh\"\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -648,6 +549,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -676,6 +578,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = "-ObjC";
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -707,6 +610,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -728,15 +632,16 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "-ObjC";
 				SDKROOT = iphoneos;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
 		C955CE3E1FBE79DE002D82B3 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7EA701D6CA89CB48625501AC /* Pods-Car-Connect.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -746,7 +651,11 @@
 				DEVELOPMENT_TEAM = NN495VBEDV;
 				INFOPLIST_FILE = "Car-Connect/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.mkdutton.Car-Connect";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -758,7 +667,6 @@
 		};
 		C955CE3F1FBE79DE002D82B3 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 97EBF5634B809F60D44AC541 /* Pods-Car-Connect.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -767,7 +675,11 @@
 				DEVELOPMENT_TEAM = NN495VBEDV;
 				INFOPLIST_FILE = "Car-Connect/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.mkdutton.Car-Connect";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -778,14 +690,17 @@
 		};
 		C955CE411FBE79DE002D82B3 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 25AADBBC3EC3B0E1D8DF537F /* Pods-Car-ConnectTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = NN495VBEDV;
 				INFOPLIST_FILE = "Car-ConnectTests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.mkdutton.Car-ConnectTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -796,14 +711,17 @@
 		};
 		C955CE421FBE79DE002D82B3 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0093859F736F97679023BB55 /* Pods-Car-ConnectTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = NN495VBEDV;
 				INFOPLIST_FILE = "Car-ConnectTests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.mkdutton.Car-ConnectTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -814,13 +732,16 @@
 		};
 		C955CE441FBE79DE002D82B3 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C652E85AC3E29968F65B81F5 /* Pods-Car-ConnectUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = NN495VBEDV;
 				INFOPLIST_FILE = "Car-ConnectUITests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.mkdutton.Car-ConnectUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -831,13 +752,16 @@
 		};
 		C955CE451FBE79DE002D82B3 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 02A51ACF2CCB2DC7B61E0C69 /* Pods-Car-ConnectUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = NN495VBEDV;
 				INFOPLIST_FILE = "Car-ConnectUITests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.mkdutton.Car-ConnectUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -886,6 +810,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		C929DD43272D842D0057D817 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 8.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		C929DD44272D842D0057D817 /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C929DD43272D842D0057D817 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
+		C929DD46272D842D0057D817 /* FirebaseCrashlytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C929DD43272D842D0057D817 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseCrashlytics;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = C955CE0B1FBE79DE002D82B3 /* Project object */;
 }

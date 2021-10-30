@@ -9,7 +9,7 @@
 import Foundation
 import CoreLocation
 
-protocol CCLocationManagerDelegate: class {
+protocol CCLocationManagerDelegate: AnyObject {
 	func didUpdateUserLocation(_ location: CLLocation)
 }
 
