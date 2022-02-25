@@ -2,44 +2,62 @@
 //  LocationManager.swift
 //  Car-Connect
 //
-//  Created by Matthew Dutton on 12/17/17.
-//  Copyright © 2017 Matthew Dutton. All rights reserved.
+//  Created by Matthew Dutton on 2/25/22.
 //
 
 import Foundation
-import CoreLocation
+import MapKit
 
-protocol CCLocationManagerDelegate: AnyObject {
-	func didUpdateUserLocation(_ location: CLLocation)
-}
+final class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
+    private var manager: CLLocationManager?
 
-class CCLocationManger: NSObject, CLLocationManagerDelegate {
+    private let defaultRegionCoordinate: CLLocationCoordinate2D
+    private let defaultCoordinateSpan: MKCoordinateSpan
 
-	static let sharedInstance = CCLocationManger()
+    @Published var region: MKCoordinateRegion
 
-	var userLocation: CLLocation?
-	private let locationManager = CLLocationManager()
+    override init() {
+        defaultRegionCoordinate = CLLocationCoordinate2D(latitude: 51.507222, longitude: -0.1275)
+        defaultCoordinateSpan = MKCoordinateSpan(latitudeDelta: Constants.span, longitudeDelta: Constants.span)
 
-	weak var delegate: CCLocationManagerDelegate?
+        region = MKCoordinateRegion(center: defaultRegionCoordinate,
+                                    span: defaultCoordinateSpan)
+    }
 
-	private override init() {
-		super.init()
-	}
+    func checkIfLocationServicesEnabled() {
+        if CLLocationManager.locationServicesEnabled() {
+            manager = CLLocationManager()
+            manager?.delegate = self
+            manager?.desiredAccuracy = kCLLocationAccuracyBest
+            checkLocationAuthorization()
+        } else {
+            // Go turn on LocationServices
+        }
+    }
 
-	func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-		guard let location = locations.last else { return }
-		userLocation = location
-		delegate?.didUpdateUserLocation(location)
-	}
+    private func checkLocationAuthorization() {
+        guard let manager = manager else { return }
 
-	private func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
-		if status == .authorizedAlways || status == .authorizedWhenInUse {
-			manager.distanceFilter = 100.0
-			manager.desiredAccuracy = kCLLocationAccuracyBest
-			manager.startUpdatingLocation()
-		} else {
-			manager.stopUpdatingLocation()
-		}
-	}
+        switch manager.authorizationStatus {
+        case .notDetermined:
+            manager.requestWhenInUseAuthorization()
+        case .restricted:
+            print("Your location is restricted")
+        case .denied:
+            print("You have denied, you need to go to settings to turn it on")
+        case .authorizedAlways, .authorizedWhenInUse:
+            print(manager.location?.coordinate)
+            region = MKCoordinateRegion(center: manager.location?.coordinate ?? defaultRegionCoordinate , span: defaultCoordinateSpan)
+        @unknown default:
+            break;
+        }
+    }
 
+    func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
+        checkLocationAuthorization()
+    }
+
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        region = MKCoordinateRegion(center: manager.location?.coordinate ?? defaultRegionCoordinate , span: defaultCoordinateSpan)
+    }
 }

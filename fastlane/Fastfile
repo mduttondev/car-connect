@@ -11,7 +11,7 @@
 
 # This is the minimum version number required.
 # Update this, if you use features of a newer version
-fastlane_version "2.60.1"
+fastlane_version '2.60.1'
 
 default_platform :ios
 
@@ -20,22 +20,21 @@ platform :ios do
     puts 'Starting fastfile...'
   end
 
-  desc "Runs all the tests"
+  desc 'Runs all the tests'
   lane :test do
     scan
   end
 
-  desc "Submit a new Beta Build to Apple TestFlight"
-  desc "This will also make sure the profile is up to date"
+  desc 'Submit a new Beta Build to Apple TestFlight'
+  desc 'This will also make sure the profile is up to date'
   lane :beta do
-    match(type: "appstore") # more information: https://codesigning.guide
-    gym(scheme: "Car-Connect") # Build your app - more options available
+    match(type: 'appstore') # more information: https://codesigning.guide
+    gym(scheme: 'Car-Connect') # Build your app - more options available
     pilot(skip_waiting_for_build_processing: true)
   end
 
-  desc "Increment the build number and Commit"
+  desc 'Increment the build number and Commit'
   lane :increment do |options|
-
     increment_build_number
 
     if options[:commit]
@@ -44,25 +43,24 @@ platform :ios do
         message: 'Build number bump by fastlane - [ios increment] lane'
       )
     end
-  
   end
 
-  desc "Submit a new Beta Build to Apple TestFlight, submit for review and release to internal testers"
-  desc "This will also make sure the profile is up to date"
+  desc 'Submit a new Beta Build to Apple TestFlight, submit for review and release to internal testers'
+  desc 'This will also make sure the profile is up to date'
   lane :betaInternal do
     increment
 
-    match(type: "appstore")
+    match(type: 'appstore')
 
     gym(
-      scheme: "Car-Connect",
+      scheme: 'Car-Connect',
       clean: true
-      )
+    )
 
     version = get_version_number(
-      target: "Car-Connect"
+      target: 'Car-Connect'
     )
-    
+
     deliver(
       app_version: version.to_s,
       skip_binary_upload: true,
@@ -72,8 +70,8 @@ platform :ios do
     )
 
     pilot(distribute_external: false,
-      skip_waiting_for_build_processing: true,
-      changelog: 'Newest changes, added functionality, bug fixes')
+          skip_waiting_for_build_processing: true,
+          changelog: 'Newest changes, added functionality, bug fixes')
 
     commit_all_changes(
       message: 'Fastlane Beta - Internal',
@@ -81,19 +79,19 @@ platform :ios do
     )
   end
 
-  desc "Submit a new Beta Build to Apple TestFlight, submit for review and release to all testers"
-  desc "This will also make sure the profile is up to date"
+  desc 'Submit a new Beta Build to Apple TestFlight, submit for review and release to all testers'
+  desc 'This will also make sure the profile is up to date'
   lane :betaRelease do
     increment
 
-    match(type: "appstore") # more information: https://codesigning.guide
+    match(type: 'appstore') # more information: https://codesigning.guide
 
-    gym(scheme: "Car-Connect", 
-    clean: true) # Build your app - more options available
+    gym(scheme: 'Car-Connect',
+        clean: true) # Build your app - more options available
 
     pilot(distribute_external: true,
-      groups: ["External"],
-      changelog: 'Newest changes, added functionality, bug fixes')
+          groups: ['External'],
+          changelog: 'Newest changes, added functionality, bug fixes')
 
     commit_all_changes(
       message: 'Fastlane Beta - Release',
@@ -101,11 +99,11 @@ platform :ios do
     )
   end
 
-  desc "Deploy a new version to the App Store"
+  desc 'Deploy a new version to the App Store'
   lane :release do
     increment
-    match(type: "appstore")
-    gym(scheme: "Car-Connect") # Build your app - more options available
+    match(type: 'appstore')
+    gym(scheme: 'Car-Connect') # Build your app - more options available
     deliver(force: true)
 
     commit_all_changes(
@@ -114,71 +112,70 @@ platform :ios do
     )
   end
 
-  desc "Deploy Metadata and screenshots from the App Store"
+  desc 'Deploy Metadata and screenshots from the App Store'
   lane :download_metadata do
     sh 'fastlane deliver download_screenshots --force'
     sh 'fastlane deliver download_metadata --force'
   end
 
-  desc "Upload Metadata to App Store"
+  desc 'Upload Metadata to App Store'
   lane :upload_metadata do
     deliver(
       submit_for_review: false,
       force: true,
-      metadata_path: "./fastlane/metadata"
+      metadata_path: './fastlane/metadata'
     )
   end
 
-  desc "Update version with given type (patch|minor|major). Called as: fastlane bump type:minor"
+  desc 'Update version with given type (patch|minor|major). Called as: fastlane bump type:minor'
   lane :bump do |options|
-    
     increment_version_number(
-      bump_type: "#{options[:type].to_s}"
+      bump_type: (options[:type]).to_s
     )
-    
+
     version = get_version_number(
-      target: "Car-Connect"
+      target: 'Car-Connect'
     )
-    
+
     deliver(
       app_version: version,
-      skip_binary_upload: true,
+      skip_binary_upload: true
     )
 
-    increment(commit:true)
+    increment(commit: true)
   end
 
-  desc "Upload testers file to TestFlight"
+  desc 'Upload testers file to TestFlight'
   lane :upload_testers do
     sh 'fastlane pilot import -c ./testers.csv'
   end
 
-  desc "Download testers file to TestFlight"
+  desc 'Download testers file to TestFlight'
   lane :download_testers do
     sh 'fastlane pilot export -c ./testers.csv'
   end
 
-  desc "Push ./devices.txt to register new devices and create a new profile accordingly"
+  desc 'Push ./devices.txt to register new devices and create a new profile accordingly'
   lane :deviceRegistration do
-  	register_devices(devices_file: "./fastlane/devices.txt")
-    match(type: "development", force_for_new_devices: true)
+    register_devices(devices_file: './fastlane/devices.txt')
+    match(type: 'development', force_for_new_devices: true)
   end
 
-  desc "Force autocorrect using swiftlint"
+  desc 'Force autocorrect using swiftlint'
   lane :lint do
     swiftlint(
-      mode: :autocorrect,                     # SwiftLint mode: :lint (default) or :autocorrect
-      ignore_exit_status: true)                 # Allow fastlane to continue even if SwiftLint returns a non-zero exit status 
-    
-    git_commit(path: ".", message: 'Fastlane lint')
+      mode: :autocorrect, # SwiftLint mode: :lint (default) or :autocorrect
+      ignore_exit_status: true
+    ) # Allow fastlane to continue even if SwiftLint returns a non-zero exit status
+
+    git_commit(path: '.', message: 'Fastlane lint')
     push_to_git_remote
   end
-
 
   ####################################
   ## Convenience Lanes
   ####################################
-  desc "Commit and push the build number increase"
+  desc 'Commit and push the build number increase'
   lane :commit_increment do |options|
     message = options[:message] ||= 'No commit message specified'
     branch = options[:branch] ||= 'develop'
@@ -190,33 +187,32 @@ platform :ios do
     )
 
     push_to_git_remote(
-      remote: "origin",
+      remote: 'origin',
       local_branch: branch,
       remote_branch: branch,
       tags: false
     )
   end
 
-  desc "Commit and push all changes in the working directory to the specified branch"
+  desc 'Commit and push all changes in the working directory to the specified branch'
   lane :commit_all_changes do |options|
     message = options[:message] ||= 'No commit message specified'
-    branch = options[:branch] ||= 'develop'
+    branch = options[:branch] ||= `git rev-parse --abbrev-ref HEAD`
 
     git_add(
-      path: "."
+      path: '.'
     )
 
     git_commit(
-      path: ".",
+      path: '.',
       message: message
     )
 
     push_to_git_remote(
-      remote: "origin",
+      remote: 'origin',
       local_branch: branch,
       remote_branch: branch,
       tags: false
     )
   end
-
 end
