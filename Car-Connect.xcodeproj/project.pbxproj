@@ -14,7 +14,6 @@
 		C913180D27C936790022E8FA /* StorageHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = C913180427C936790022E8FA /* StorageHandler.swift */; };
 		C913180E27C936790022E8FA /* UIAlertController+StandardAlerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = C913180527C936790022E8FA /* UIAlertController+StandardAlerts.swift */; };
 		C913180F27C936790022E8FA /* CarConnect+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C913180627C936790022E8FA /* CarConnect+Extensions.swift */; };
-		C913181127C936790022E8FA /* CLLocationCoordinate2D+Dictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = C913180827C936790022E8FA /* CLLocationCoordinate2D+Dictionary.swift */; };
 		C913181527C944700022E8FA /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C913181427C944700022E8FA /* MainView.swift */; };
 		C913181727C944960022E8FA /* MeterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C913181627C944960022E8FA /* MeterView.swift */; };
 		C913181927C94B110022E8FA /* ParkingLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C913181827C94B110022E8FA /* ParkingLocation.swift */; };
@@ -62,7 +61,6 @@
 		C913180427C936790022E8FA /* StorageHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StorageHandler.swift; sourceTree = "<group>"; };
 		C913180527C936790022E8FA /* UIAlertController+StandardAlerts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIAlertController+StandardAlerts.swift"; sourceTree = "<group>"; };
 		C913180627C936790022E8FA /* CarConnect+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CarConnect+Extensions.swift"; sourceTree = "<group>"; };
-		C913180827C936790022E8FA /* CLLocationCoordinate2D+Dictionary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CLLocationCoordinate2D+Dictionary.swift"; sourceTree = "<group>"; };
 		C913181427C944700022E8FA /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		C913181627C944960022E8FA /* MeterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeterView.swift; sourceTree = "<group>"; };
 		C913181827C94B110022E8FA /* ParkingLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkingLocation.swift; sourceTree = "<group>"; };
@@ -130,7 +128,6 @@
 				C913180427C936790022E8FA /* StorageHandler.swift */,
 				C913180527C936790022E8FA /* UIAlertController+StandardAlerts.swift */,
 				C913180627C936790022E8FA /* CarConnect+Extensions.swift */,
-				C913180827C936790022E8FA /* CLLocationCoordinate2D+Dictionary.swift */,
 			);
 			path = "Convenience Classes";
 			sourceTree = "<group>";
@@ -171,13 +168,13 @@
 				C913182A27C973A70022E8FA /* GoogleService-Info.plist */,
 				C91317FA27C936420022E8FA /* Artwork */,
 				C913181A27C95E8A0022E8FA /* Location GPX Files */,
-				C913180027C936790022E8FA /* Convenience Classes */,
 				C9C0D5DF27C9341C00EE0691 /* Car_ConnectApp.swift */,
 				C913181427C944700022E8FA /* MainView.swift */,
 				C9ECD7F12B008AF300683010 /* ParkingView */,
 				C913181627C944960022E8FA /* MeterView.swift */,
 				C9C0D5E327C9341D00EE0691 /* Assets.xcassets */,
 				C913182327C96A1A0022E8FA /* Launch Screen.storyboard */,
+				C913180027C936790022E8FA /* Convenience Classes */,
 				C9C0D5E527C9341D00EE0691 /* Preview Content */,
 			);
 			path = "Car-Connect";
@@ -373,7 +370,6 @@
 				C913181927C94B110022E8FA /* ParkingLocation.swift in Sources */,
 				C913180D27C936790022E8FA /* StorageHandler.swift in Sources */,
 				C9F73BB82B00602F004BBF6F /* AreaMap.swift in Sources */,
-				C913181127C936790022E8FA /* CLLocationCoordinate2D+Dictionary.swift in Sources */,
 				C913182227C964880022E8FA /* LocationManager.swift in Sources */,
 				C9C0D5E027C9341C00EE0691 /* Car_ConnectApp.swift in Sources */,
 				C913180A27C936790022E8FA /* Constants.swift in Sources */,

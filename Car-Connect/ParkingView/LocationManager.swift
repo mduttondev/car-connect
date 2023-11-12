@@ -11,14 +11,10 @@ import MapKit
 import SwiftUI
 
 final class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
-    static let defaultRegion = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 37.334606, longitude: -122.009102),
-                                                  span: .init(latitudeDelta: Constants.span, longitudeDelta: Constants.span))
 
     private var manager = CLLocationManager()
 
-    @Published var region = LocationManager.defaultRegion
-
-    @Published var userCoordinate: CLLocation?
+    @Published var userLocation: CLLocation?
 
     override init() {
         super.init()
@@ -30,7 +26,7 @@ final class LocationManager: NSObject, ObservableObject, CLLocationManagerDelega
     func setup() {
         switch manager.authorizationStatus {
         case .authorizedWhenInUse:
-            manager.requestLocation()
+            manager.startUpdatingLocation()
         case .notDetermined:
             manager.requestWhenInUseAuthorization()
         default:
@@ -40,7 +36,7 @@ final class LocationManager: NSObject, ObservableObject, CLLocationManagerDelega
 
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
         guard .authorizedWhenInUse == manager.authorizationStatus else { return }
-        manager.requestLocation()
+        manager.startUpdatingLocation()
     }
 
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
@@ -51,9 +47,19 @@ final class LocationManager: NSObject, ObservableObject, CLLocationManagerDelega
                          didUpdateLocations locations: [CLLocation]) {
         DispatchQueue.main.async {
             locations.last.map {
-                self.userCoordinate = $0
-                self.region.center = $0.coordinate
+                if let coordinate = self.userLocation?.coordinate, coordinate == $0.coordinate {
+                    return
+                }
+
+                self.userLocation = $0
             }
         }
+    }
+}
+
+extension CLLocationCoordinate2D: Equatable {
+    public static func == (lhs: CLLocationCoordinate2D, rhs: CLLocationCoordinate2D) -> Bool {
+        return lhs.latitude == rhs.latitude &&
+        lhs.longitude == rhs.longitude
     }
 }

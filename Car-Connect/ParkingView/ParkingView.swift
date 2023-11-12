@@ -11,9 +11,9 @@ import MapKit
 struct ParkingView: View {
     @StateObject private var locationManager = LocationManager()
 
-    @State var region = LocationManager.defaultRegion
+    @State var region = Constants.defaultRegion
 
-    @State private var userTrackingMode = MapUserTrackingMode.none
+    @State private var userTrackingMode = MapUserTrackingMode.follow
 
     @State var hasSetParkingSpot: Bool = StorageHandler.getParkingLocation() != nil
 
@@ -23,13 +23,6 @@ struct ParkingView: View {
                 showsUserLocation: true,
                 userTrackingMode: .constant($userTrackingMode.wrappedValue))
             .ignoresSafeArea()
-            .onChange(of: locationManager.userCoordinate) { newLocation in
-                guard let newLocation else { return }
-
-                withAnimation {
-                    self.region.center = newLocation.coordinate
-                }
-            }
 
             VStack {
                 Spacer()
@@ -63,7 +56,7 @@ struct ParkingView: View {
 
                     Button(action: {
                         if StorageHandler.getParkingLocation() == nil {
-                            let position = locationManager.region.center
+                            guard let position = locationManager.userLocation?.coordinate else { return }
                             StorageHandler.setParkingLocation(location: ParkingLocation(latitude: position.latitude,
                                                                                         lonitude: position.longitude))
                             self.hasSetParkingSpot = true
