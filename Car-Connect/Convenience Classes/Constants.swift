@@ -11,7 +11,8 @@ import CoreLocation
 
 public enum Constants {
 
-	static let span: CLLocationDegrees = 0.0025
+    static let narrowSpan: CLLocationDegrees = 0.002
+    static let span: CLLocationDegrees = 0.0025
 
 	static let defaultAnimationDuration: TimeInterval = 0.1
 

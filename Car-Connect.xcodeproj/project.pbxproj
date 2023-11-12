@@ -33,6 +33,8 @@
 		C9C0D5F127C9341D00EE0691 /* Car_ConnectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C0D5F027C9341D00EE0691 /* Car_ConnectTests.swift */; };
 		C9C0D5FB27C9341D00EE0691 /* Car_ConnectUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C0D5FA27C9341D00EE0691 /* Car_ConnectUITests.swift */; };
 		C9C0D5FD27C9341D00EE0691 /* Car_ConnectUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C0D5FC27C9341D00EE0691 /* Car_ConnectUITestsLaunchTests.swift */; };
+		C9ECD7F02B008AA400683010 /* ParkingMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9ECD7EF2B008AA400683010 /* ParkingMarker.swift */; };
+		C9F73BB82B00602F004BBF6F /* AreaMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F73BB72B00602F004BBF6F /* AreaMap.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,6 +82,8 @@
 		C9C0D5F627C9341D00EE0691 /* Car-ConnectUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Car-ConnectUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9C0D5FA27C9341D00EE0691 /* Car_ConnectUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Car_ConnectUITests.swift; sourceTree = "<group>"; };
 		C9C0D5FC27C9341D00EE0691 /* Car_ConnectUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Car_ConnectUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		C9ECD7EF2B008AA400683010 /* ParkingMarker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkingMarker.swift; sourceTree = "<group>"; };
+		C9F73BB72B00602F004BBF6F /* AreaMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AreaMap.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -170,10 +174,8 @@
 				C913180027C936790022E8FA /* Convenience Classes */,
 				C9C0D5DF27C9341C00EE0691 /* Car_ConnectApp.swift */,
 				C913181427C944700022E8FA /* MainView.swift */,
-				C9C0D5E127C9341C00EE0691 /* ParkingView.swift */,
-				C913182127C964880022E8FA /* LocationManager.swift */,
+				C9ECD7F12B008AF300683010 /* ParkingView */,
 				C913181627C944960022E8FA /* MeterView.swift */,
-				C913181827C94B110022E8FA /* ParkingLocation.swift */,
 				C9C0D5E327C9341D00EE0691 /* Assets.xcassets */,
 				C913182327C96A1A0022E8FA /* Launch Screen.storyboard */,
 				C9C0D5E527C9341D00EE0691 /* Preview Content */,
@@ -206,6 +208,18 @@
 			path = "Car-ConnectUITests";
 			sourceTree = "<group>";
 		};
+		C9ECD7F12B008AF300683010 /* ParkingView */ = {
+			isa = PBXGroup;
+			children = (
+				C913181827C94B110022E8FA /* ParkingLocation.swift */,
+				C9C0D5E127C9341C00EE0691 /* ParkingView.swift */,
+				C9F73BB72B00602F004BBF6F /* AreaMap.swift */,
+				C913182127C964880022E8FA /* LocationManager.swift */,
+				C9ECD7EF2B008AA400683010 /* ParkingMarker.swift */,
+			);
+			path = ParkingView;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -213,10 +227,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C9C0D60027C9341D00EE0691 /* Build configuration list for PBXNativeTarget "Car-Connect" */;
 			buildPhases = (
+				C9C0D5DA27C9341C00EE0691 /* Resources */,
 				C9C0D5D827C9341C00EE0691 /* Sources */,
 				C9C0D5D927C9341C00EE0691 /* Frameworks */,
-				C9C0D5DA27C9341C00EE0691 /* Resources */,
-				C913182C27C975B40022E8FA /* Crashlytics Upload */,
 			);
 			buildRules = (
 			);
@@ -275,7 +288,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1320;
-				LastUpgradeCheck = 1320;
+				LastUpgradeCheck = 1500;
 				TargetAttributes = {
 					C9C0D5DB27C9341C00EE0691 = {
 						CreatedOnToolsVersion = 13.2.1;
@@ -346,29 +359,6 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		C913182C27C975B40022E8FA /* Crashlytics Upload */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Resources/DWARF/${TARGET_NAME}",
-				"$(SRCROOT)/$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)",
-			);
-			name = "Crashlytics Upload";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${BUILD_DIR%/Build/*}/SourcePackages/checkouts/firebase-ios-sdk/Crashlytics/run\"\n";
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
 		C9C0D5D827C9341C00EE0691 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -376,11 +366,13 @@
 			files = (
 				C9C0D5E227C9341C00EE0691 /* ParkingView.swift in Sources */,
 				C913181527C944700022E8FA /* MainView.swift in Sources */,
+				C9ECD7F02B008AA400683010 /* ParkingMarker.swift in Sources */,
 				C913181727C944960022E8FA /* MeterView.swift in Sources */,
 				C913180F27C936790022E8FA /* CarConnect+Extensions.swift in Sources */,
 				C913180C27C936790022E8FA /* HapticGenerator.swift in Sources */,
 				C913181927C94B110022E8FA /* ParkingLocation.swift in Sources */,
 				C913180D27C936790022E8FA /* StorageHandler.swift in Sources */,
+				C9F73BB82B00602F004BBF6F /* AreaMap.swift in Sources */,
 				C913181127C936790022E8FA /* CLLocationCoordinate2D+Dictionary.swift in Sources */,
 				C913182227C964880022E8FA /* LocationManager.swift in Sources */,
 				C9C0D5E027C9341C00EE0691 /* Car_ConnectApp.swift in Sources */,
@@ -426,6 +418,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
@@ -459,6 +452,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -473,7 +467,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -487,6 +481,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
@@ -520,6 +515,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -528,7 +524,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -550,6 +546,7 @@
 				DEVELOPMENT_TEAM = NN495VBEDV;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.travel";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Car-Connet needs to access your location so that when requested, it can mark your parking place and provide walking directions back from anywhere.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -558,6 +555,7 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -583,6 +581,7 @@
 				DEVELOPMENT_TEAM = NN495VBEDV;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.travel";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Car-Connet needs to access your location so that when requested, it can mark your parking place and provide walking directions back from anywhere.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -591,6 +590,7 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
