@@ -11,7 +11,7 @@ import CoreLocation
 
 struct StorageHandler {
 
-    static private let locationKey = Constants.DefaultsKey.locationKey.rawValue
+    static let locationKey = Constants.DefaultsKey.locationKey.rawValue
 
     static func getParkingLocation() -> ParkingLocation? {
         guard let data = UserDefaults.standard.object(forKey: locationKey) as? Data else { return nil }

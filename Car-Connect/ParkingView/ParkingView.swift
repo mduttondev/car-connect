@@ -16,13 +16,22 @@ struct ParkingView: View {
     @State private var userTrackingMode = MapUserTrackingMode.follow
 
     @State var hasSetParkingSpot: Bool = StorageHandler.getParkingLocation() != nil
+    @AppStorage(StorageHandler.locationKey) private var parkingSpot: ParkingLocation? = nil
 
     var body: some View {
         ZStack {
-            Map(coordinateRegion: $region,
-                showsUserLocation: true,
-                userTrackingMode: .constant($userTrackingMode.wrappedValue))
-            .ignoresSafeArea()
+            if let parkingSpot {
+                Map(coordinateRegion: $region,
+                    showsUserLocation: true,
+                    userTrackingMode: .constant($userTrackingMode.wrappedValue),
+                    annotationItems: [parkingSpot]) { location in
+                    MapPin(coordinate: location.coordinate)
+                }
+            } else {
+                Map(coordinateRegion: $region,
+                    showsUserLocation: true,
+                    userTrackingMode: .constant($userTrackingMode.wrappedValue))
+            }
 
             VStack {
                 Spacer()
@@ -55,17 +64,19 @@ struct ParkingView: View {
                     Spacer()
 
                     Button(action: {
-                        if StorageHandler.getParkingLocation() == nil {
+                        if parkingSpot == nil {
                             guard let position = locationManager.userLocation?.coordinate else { return }
-                            StorageHandler.setParkingLocation(location: ParkingLocation(latitude: position.latitude,
-                                                                                        lonitude: position.longitude))
-                            self.hasSetParkingSpot = true
+                            withAnimation {
+                                parkingSpot = ParkingLocation(latitude: position.latitude,
+                                                              lonitude: position.longitude)
+                            }
                         } else {
-                            StorageHandler.clearSavedParkingLocation()
-                            self.hasSetParkingSpot = false
+                            withAnimation {
+                                parkingSpot = nil
+                            }
                         }
                     }, label: {
-                        if hasSetParkingSpot {
+                        if parkingSpot != nil {
                             VStack {
                                 Image(systemName: "mappin.slash")
                                 Text("Clear")
