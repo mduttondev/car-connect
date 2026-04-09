@@ -45,3 +45,6 @@ fastlane/screenshots
 fastlane/test_output
 Preview.html
 *.mobileprovision
+
+## Editor / AI session state
+.superset/
