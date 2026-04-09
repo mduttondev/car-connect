@@ -3,37 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 55;
+	objectVersion = 77;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C91317FD27C936570022E8FA /* CarConnectIconColor.pdf in Resources */ = {isa = PBXBuildFile; fileRef = C91317FB27C936570022E8FA /* CarConnectIconColor.pdf */; };
-		C91317FE27C936570022E8FA /* CarConnect.ai in Resources */ = {isa = PBXBuildFile; fileRef = C91317FC27C936570022E8FA /* CarConnect.ai */; };
-		C913180A27C936790022E8FA /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C913180127C936790022E8FA /* Constants.swift */; };
-		C913180C27C936790022E8FA /* HapticGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C913180327C936790022E8FA /* HapticGenerator.swift */; };
-		C913180D27C936790022E8FA /* StorageHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = C913180427C936790022E8FA /* StorageHandler.swift */; };
-		C913180E27C936790022E8FA /* UIAlertController+StandardAlerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = C913180527C936790022E8FA /* UIAlertController+StandardAlerts.swift */; };
-		C913180F27C936790022E8FA /* CarConnect+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C913180627C936790022E8FA /* CarConnect+Extensions.swift */; };
-		C913181527C944700022E8FA /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C913181427C944700022E8FA /* MainView.swift */; };
-		C913181727C944960022E8FA /* MeterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C913181627C944960022E8FA /* MeterView.swift */; };
-		C913181927C94B110022E8FA /* ParkingLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C913181827C94B110022E8FA /* ParkingLocation.swift */; };
-		C913181E27C95E8A0022E8FA /* The Ellipse.gpx in Resources */ = {isa = PBXBuildFile; fileRef = C913181B27C95E8A0022E8FA /* The Ellipse.gpx */; };
-		C913181F27C95E8A0022E8FA /* National Archives.gpx in Resources */ = {isa = PBXBuildFile; fileRef = C913181C27C95E8A0022E8FA /* National Archives.gpx */; };
-		C913182027C95E8A0022E8FA /* ArchivesToEllipse.gpx in Resources */ = {isa = PBXBuildFile; fileRef = C913181D27C95E8A0022E8FA /* ArchivesToEllipse.gpx */; };
-		C913182227C964880022E8FA /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C913182127C964880022E8FA /* LocationManager.swift */; };
-		C913182427C96A1A0022E8FA /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C913182327C96A1A0022E8FA /* Launch Screen.storyboard */; };
 		C913182727C9725C0022E8FA /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = C913182627C9725C0022E8FA /* FirebaseAnalytics */; };
 		C913182927C9725C0022E8FA /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = C913182827C9725C0022E8FA /* FirebaseCrashlytics */; };
-		C913182B27C973A70022E8FA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C913182A27C973A70022E8FA /* GoogleService-Info.plist */; };
-		C9C0D5E027C9341C00EE0691 /* Car_ConnectApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C0D5DF27C9341C00EE0691 /* Car_ConnectApp.swift */; };
-		C9C0D5E227C9341C00EE0691 /* ParkingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C0D5E127C9341C00EE0691 /* ParkingView.swift */; };
-		C9C0D5E427C9341D00EE0691 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C9C0D5E327C9341D00EE0691 /* Assets.xcassets */; };
-		C9C0D5E727C9341D00EE0691 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C9C0D5E627C9341D00EE0691 /* Preview Assets.xcassets */; };
-		C9C0D5F127C9341D00EE0691 /* Car_ConnectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C0D5F027C9341D00EE0691 /* Car_ConnectTests.swift */; };
-		C9C0D5FB27C9341D00EE0691 /* Car_ConnectUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C0D5FA27C9341D00EE0691 /* Car_ConnectUITests.swift */; };
-		C9C0D5FD27C9341D00EE0691 /* Car_ConnectUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C0D5FC27C9341D00EE0691 /* Car_ConnectUITestsLaunchTests.swift */; };
-		C9ECD7F02B008AA400683010 /* ParkingMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9ECD7EF2B008AA400683010 /* ParkingMarker.swift */; };
-		C9F73BB82B00602F004BBF6F /* AreaMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F73BB72B00602F004BBF6F /* AreaMap.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,35 +29,34 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		C91317FB27C936570022E8FA /* CarConnectIconColor.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = CarConnectIconColor.pdf; sourceTree = "<group>"; };
-		C91317FC27C936570022E8FA /* CarConnect.ai */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CarConnect.ai; sourceTree = "<group>"; };
-		C913180127C936790022E8FA /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		C913180327C936790022E8FA /* HapticGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HapticGenerator.swift; sourceTree = "<group>"; };
-		C913180427C936790022E8FA /* StorageHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StorageHandler.swift; sourceTree = "<group>"; };
-		C913180527C936790022E8FA /* UIAlertController+StandardAlerts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIAlertController+StandardAlerts.swift"; sourceTree = "<group>"; };
-		C913180627C936790022E8FA /* CarConnect+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CarConnect+Extensions.swift"; sourceTree = "<group>"; };
-		C913181427C944700022E8FA /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
-		C913181627C944960022E8FA /* MeterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeterView.swift; sourceTree = "<group>"; };
-		C913181827C94B110022E8FA /* ParkingLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkingLocation.swift; sourceTree = "<group>"; };
-		C913181B27C95E8A0022E8FA /* The Ellipse.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "The Ellipse.gpx"; sourceTree = "<group>"; };
-		C913181C27C95E8A0022E8FA /* National Archives.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "National Archives.gpx"; sourceTree = "<group>"; };
-		C913181D27C95E8A0022E8FA /* ArchivesToEllipse.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = ArchivesToEllipse.gpx; sourceTree = "<group>"; };
-		C913182127C964880022E8FA /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
-		C913182327C96A1A0022E8FA /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
-		C913182A27C973A70022E8FA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C9C0D5DC27C9341C00EE0691 /* Car-Connect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Car-Connect.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		C9C0D5DF27C9341C00EE0691 /* Car_ConnectApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Car_ConnectApp.swift; sourceTree = "<group>"; };
-		C9C0D5E127C9341C00EE0691 /* ParkingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkingView.swift; sourceTree = "<group>"; };
-		C9C0D5E327C9341D00EE0691 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		C9C0D5E627C9341D00EE0691 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		C9C0D5EC27C9341D00EE0691 /* Car-ConnectTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Car-ConnectTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		C9C0D5F027C9341D00EE0691 /* Car_ConnectTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Car_ConnectTests.swift; sourceTree = "<group>"; };
 		C9C0D5F627C9341D00EE0691 /* Car-ConnectUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Car-ConnectUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		C9C0D5FA27C9341D00EE0691 /* Car_ConnectUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Car_ConnectUITests.swift; sourceTree = "<group>"; };
-		C9C0D5FC27C9341D00EE0691 /* Car_ConnectUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Car_ConnectUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		C9ECD7EF2B008AA400683010 /* ParkingMarker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkingMarker.swift; sourceTree = "<group>"; };
-		C9F73BB72B00602F004BBF6F /* AreaMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AreaMap.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		C9C0D5DE27C9341C00EE0691 /* Car-Connect */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			explicitFileTypes = {};
+			explicitFolders = ();
+			path = "Car-Connect";
+			sourceTree = "<group>";
+		};
+		C9C0D5EF27C9341D00EE0691 /* Car-ConnectTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			explicitFileTypes = {};
+			explicitFolders = ();
+			path = "Car-ConnectTests";
+			sourceTree = "<group>";
+		};
+		C9C0D5F927C9341D00EE0691 /* Car-ConnectUITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			explicitFileTypes = {};
+			explicitFolders = ();
+			path = "Car-ConnectUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		C9C0D5D927C9341C00EE0691 /* Frameworks */ = {
@@ -111,37 +85,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		C91317FA27C936420022E8FA /* Artwork */ = {
-			isa = PBXGroup;
-			children = (
-				C91317FC27C936570022E8FA /* CarConnect.ai */,
-				C91317FB27C936570022E8FA /* CarConnectIconColor.pdf */,
-			);
-			path = Artwork;
-			sourceTree = "<group>";
-		};
-		C913180027C936790022E8FA /* Convenience Classes */ = {
-			isa = PBXGroup;
-			children = (
-				C913180127C936790022E8FA /* Constants.swift */,
-				C913180327C936790022E8FA /* HapticGenerator.swift */,
-				C913180427C936790022E8FA /* StorageHandler.swift */,
-				C913180527C936790022E8FA /* UIAlertController+StandardAlerts.swift */,
-				C913180627C936790022E8FA /* CarConnect+Extensions.swift */,
-			);
-			path = "Convenience Classes";
-			sourceTree = "<group>";
-		};
-		C913181A27C95E8A0022E8FA /* Location GPX Files */ = {
-			isa = PBXGroup;
-			children = (
-				C913181B27C95E8A0022E8FA /* The Ellipse.gpx */,
-				C913181C27C95E8A0022E8FA /* National Archives.gpx */,
-				C913181D27C95E8A0022E8FA /* ArchivesToEllipse.gpx */,
-			);
-			path = "Location GPX Files";
-			sourceTree = "<group>";
-		};
 		C9C0D5D327C9341C00EE0691 = {
 			isa = PBXGroup;
 			children = (
@@ -162,61 +105,6 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		C9C0D5DE27C9341C00EE0691 /* Car-Connect */ = {
-			isa = PBXGroup;
-			children = (
-				C913182A27C973A70022E8FA /* GoogleService-Info.plist */,
-				C91317FA27C936420022E8FA /* Artwork */,
-				C913181A27C95E8A0022E8FA /* Location GPX Files */,
-				C9C0D5DF27C9341C00EE0691 /* Car_ConnectApp.swift */,
-				C913181427C944700022E8FA /* MainView.swift */,
-				C9ECD7F12B008AF300683010 /* ParkingView */,
-				C913181627C944960022E8FA /* MeterView.swift */,
-				C9C0D5E327C9341D00EE0691 /* Assets.xcassets */,
-				C913182327C96A1A0022E8FA /* Launch Screen.storyboard */,
-				C913180027C936790022E8FA /* Convenience Classes */,
-				C9C0D5E527C9341D00EE0691 /* Preview Content */,
-			);
-			path = "Car-Connect";
-			sourceTree = "<group>";
-		};
-		C9C0D5E527C9341D00EE0691 /* Preview Content */ = {
-			isa = PBXGroup;
-			children = (
-				C9C0D5E627C9341D00EE0691 /* Preview Assets.xcassets */,
-			);
-			path = "Preview Content";
-			sourceTree = "<group>";
-		};
-		C9C0D5EF27C9341D00EE0691 /* Car-ConnectTests */ = {
-			isa = PBXGroup;
-			children = (
-				C9C0D5F027C9341D00EE0691 /* Car_ConnectTests.swift */,
-			);
-			path = "Car-ConnectTests";
-			sourceTree = "<group>";
-		};
-		C9C0D5F927C9341D00EE0691 /* Car-ConnectUITests */ = {
-			isa = PBXGroup;
-			children = (
-				C9C0D5FA27C9341D00EE0691 /* Car_ConnectUITests.swift */,
-				C9C0D5FC27C9341D00EE0691 /* Car_ConnectUITestsLaunchTests.swift */,
-			);
-			path = "Car-ConnectUITests";
-			sourceTree = "<group>";
-		};
-		C9ECD7F12B008AF300683010 /* ParkingView */ = {
-			isa = PBXGroup;
-			children = (
-				C913181827C94B110022E8FA /* ParkingLocation.swift */,
-				C9C0D5E127C9341C00EE0691 /* ParkingView.swift */,
-				C9F73BB72B00602F004BBF6F /* AreaMap.swift */,
-				C913182127C964880022E8FA /* LocationManager.swift */,
-				C9ECD7EF2B008AA400683010 /* ParkingMarker.swift */,
-			);
-			path = ParkingView;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -231,6 +119,9 @@
 			buildRules = (
 			);
 			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				C9C0D5DE27C9341C00EE0691 /* Car-Connect */,
 			);
 			name = "Car-Connect";
 			packageProductDependencies = (
@@ -254,6 +145,9 @@
 			dependencies = (
 				C9C0D5EE27C9341D00EE0691 /* PBXTargetDependency */,
 			);
+			fileSystemSynchronizedGroups = (
+				C9C0D5EF27C9341D00EE0691 /* Car-ConnectTests */,
+			);
 			name = "Car-ConnectTests";
 			productName = "Car-ConnectTests";
 			productReference = C9C0D5EC27C9341D00EE0691 /* Car-ConnectTests.xctest */;
@@ -272,6 +166,9 @@
 			dependencies = (
 				C9C0D5F827C9341D00EE0691 /* PBXTargetDependency */,
 			);
+			fileSystemSynchronizedGroups = (
+				C9C0D5F927C9341D00EE0691 /* Car-ConnectUITests */,
+			);
 			name = "Car-ConnectUITests";
 			productName = "Car-ConnectUITests";
 			productReference = C9C0D5F627C9341D00EE0691 /* Car-ConnectUITests.xctest */;
@@ -285,7 +182,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1320;
-				LastUpgradeCheck = 1500;
+				LastUpgradeCheck = 2630;
 				TargetAttributes = {
 					C9C0D5DB27C9341C00EE0691 = {
 						CreatedOnToolsVersion = 13.2.1;
@@ -301,7 +198,7 @@
 				};
 			};
 			buildConfigurationList = C9C0D5D727C9341C00EE0691 /* Build configuration list for PBXProject "Car-Connect" */;
-			compatibilityVersion = "Xcode 13.0";
+			compatibilityVersion = "Xcode 16.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -328,15 +225,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C9C0D5E727C9341D00EE0691 /* Preview Assets.xcassets in Resources */,
-				C91317FE27C936570022E8FA /* CarConnect.ai in Resources */,
-				C913182B27C973A70022E8FA /* GoogleService-Info.plist in Resources */,
-				C913182427C96A1A0022E8FA /* Launch Screen.storyboard in Resources */,
-				C91317FD27C936570022E8FA /* CarConnectIconColor.pdf in Resources */,
-				C913181F27C95E8A0022E8FA /* National Archives.gpx in Resources */,
-				C9C0D5E427C9341D00EE0691 /* Assets.xcassets in Resources */,
-				C913181E27C95E8A0022E8FA /* The Ellipse.gpx in Resources */,
-				C913182027C95E8A0022E8FA /* ArchivesToEllipse.gpx in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -361,19 +249,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C9C0D5E227C9341C00EE0691 /* ParkingView.swift in Sources */,
-				C913181527C944700022E8FA /* MainView.swift in Sources */,
-				C9ECD7F02B008AA400683010 /* ParkingMarker.swift in Sources */,
-				C913181727C944960022E8FA /* MeterView.swift in Sources */,
-				C913180F27C936790022E8FA /* CarConnect+Extensions.swift in Sources */,
-				C913180C27C936790022E8FA /* HapticGenerator.swift in Sources */,
-				C913181927C94B110022E8FA /* ParkingLocation.swift in Sources */,
-				C913180D27C936790022E8FA /* StorageHandler.swift in Sources */,
-				C9F73BB82B00602F004BBF6F /* AreaMap.swift in Sources */,
-				C913182227C964880022E8FA /* LocationManager.swift in Sources */,
-				C9C0D5E027C9341C00EE0691 /* Car_ConnectApp.swift in Sources */,
-				C913180A27C936790022E8FA /* Constants.swift in Sources */,
-				C913180E27C936790022E8FA /* UIAlertController+StandardAlerts.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -381,7 +256,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C9C0D5F127C9341D00EE0691 /* Car_ConnectTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -389,8 +263,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C9C0D5FD27C9341D00EE0691 /* Car_ConnectUITestsLaunchTests.swift in Sources */,
-				C9C0D5FB27C9341D00EE0691 /* Car_ConnectUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -446,6 +318,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = NN495VBEDV;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
@@ -463,11 +336,12 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -509,6 +383,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = NN495VBEDV;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
@@ -520,10 +395,11 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				VALIDATE_PRODUCT = YES;
@@ -539,7 +415,6 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_ASSET_PATHS = "\"Car-Connect/Preview Content\"";
-				DEVELOPMENT_TEAM = NN495VBEDV;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.travel";
@@ -551,7 +426,7 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -574,7 +449,6 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Car-Connect/Preview Content\"";
-				DEVELOPMENT_TEAM = NN495VBEDV;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.travel";
@@ -586,7 +460,7 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -604,13 +478,11 @@
 		C9C0D60427C9341D00EE0691 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = NN495VBEDV;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.mkdutton.Car-ConnectTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -624,13 +496,11 @@
 		C9C0D60527C9341D00EE0691 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = NN495VBEDV;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.mkdutton.Car-ConnectTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -644,10 +514,8 @@
 		C9C0D60727C9341D00EE0691 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = NN495VBEDV;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.mkdutton.Car-ConnectUITests";
@@ -662,10 +530,8 @@
 		C9C0D60827C9341D00EE0691 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = NN495VBEDV;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.mkdutton.Car-ConnectUITests";

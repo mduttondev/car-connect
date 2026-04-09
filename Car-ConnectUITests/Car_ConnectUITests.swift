@@ -7,36 +7,56 @@
 
 import XCTest
 
-class Car_ConnectUITests: XCTestCase {
+final class Car_ConnectUITests: XCTestCase {
 
     override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-
-        // In UI tests it is usually best to stop immediately when a failure occurs.
         continueAfterFailure = false
-
-        // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
     }
 
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
-
-    func testExample() throws {
-        // UI tests must launch the application that they test.
+    /// Launches the app with a bundled GPX route driving the LocationManager
+    /// and verifies the full save → expand menu → clear → save parking-spot
+    /// flow works through the floating action menu.
+    func testParkingFlowWithSimulatedGPXRoute() throws {
         let app = XCUIApplication()
+        app.launchArguments = ["-UITEST_RESET"]
+        app.launchEnvironment = ["UITEST_GPX": "ArchivesToEllipse"]
         app.launch()
 
-        // Use recording to get started writing UI tests.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+        let saveButton = app.buttons["SaveParkingSpotButton"]
+        let menuButton = app.buttons["ParkingMenuButton"]
+        let clearButton = app.buttons["ClearParkingSpotButton"]
+
+        XCTAssertTrue(saveButton.waitForExistence(timeout: 5),
+                      "Save FAB should be visible on launch with no saved spot")
+
+        // The mocked LocationManager publishes the first waypoint immediately,
+        // but give it a retry window in case the ViewModel hasn't consumed it yet.
+        let deadline = Date().addingTimeInterval(5)
+        var didSave = false
+        while Date() < deadline {
+            saveButton.tap()
+            if menuButton.waitForExistence(timeout: 1) {
+                didSave = true
+                break
+            }
+        }
+        XCTAssertTrue(didSave,
+                      "Tapping Save should transition the FAB to the menu state once a simulated location is available")
+
+        // Expand the floating menu and tap Clear
+        menuButton.tap()
+        XCTAssertTrue(clearButton.waitForExistence(timeout: 2),
+                      "Expanding the menu should reveal the Clear action")
+        clearButton.tap()
+
+        // After clearing, the FAB should return to its Save state
+        XCTAssertTrue(saveButton.waitForExistence(timeout: 3),
+                      "Tapping Clear should return the FAB to Save state")
     }
 
     func testLaunchPerformance() throws {
-        if #available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 7.0, *) {
-            // This measures how long it takes to launch your application.
-            measure(metrics: [XCTApplicationLaunchMetric()]) {
-                XCUIApplication().launch()
-            }
+        measure(metrics: [XCTApplicationLaunchMetric()]) {
+            XCUIApplication().launch()
         }
     }
 }

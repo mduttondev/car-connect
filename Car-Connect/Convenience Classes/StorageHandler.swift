@@ -7,46 +7,53 @@
 //
 
 import Foundation
-import CoreLocation
 
 struct StorageHandler {
 
     static let locationKey = Constants.DefaultsKey.locationKey.rawValue
+    static let meterExpirationKey = Constants.DefaultsKey.meterExpirationKey.rawValue
+    static let reminderFireDateKey = Constants.DefaultsKey.reminderFireDateKey.rawValue
+
+    // MARK: - Parking location
 
     static func getParkingLocation() -> ParkingLocation? {
-        guard let data = UserDefaults.standard.object(forKey: locationKey) as? Data else { return nil }
-
-        let decoder = JSONDecoder()
-        if let savedData = try? decoder.decode(ParkingLocation.self, from: data) {
-            return savedData
-        }
-
-        return nil
+        guard let data = UserDefaults.standard.data(forKey: locationKey) else { return nil }
+        return try? JSONDecoder().decode(ParkingLocation.self, from: data)
     }
 
     static func setParkingLocation(location: ParkingLocation) {
         guard let encodedData = try? JSONEncoder().encode(location) else { return }
-        UserDefaults.standard.setValue(encodedData,
-                                       forKey: locationKey)
+        UserDefaults.standard.set(encodedData, forKey: locationKey)
     }
 
-	/// Removes saved parking location if one exists
+    /// Removes saved parking location if one exists.
     static func clearSavedParkingLocation() {
         UserDefaults.standard.removeObject(forKey: locationKey)
-	}
+    }
 
-	// MARK: - Meter Expiration Defaults
-    static func readDateForKey(_ key: Constants.DefaultsKey) -> Date? {
-		guard let date = UserDefaults.standard.object(forKey: key.rawValue) as? Date else { return nil }
-		return date
-	}
+    // MARK: - Meter expiration + reminder
 
-    static func writeDate(_ date: Date, forKey key: Constants.DefaultsKey) {
-		UserDefaults.standard.set(date, forKey: key.rawValue)
-	}
+    static func getMeterExpiration() -> Date? {
+        UserDefaults.standard.object(forKey: meterExpirationKey) as? Date
+    }
 
-    static func clearDefaultsKey(_ key: Constants.DefaultsKey) {
-		guard let _ = UserDefaults.standard.object(forKey: key.rawValue) else { return }
-		UserDefaults.standard.removeObject(forKey: key.rawValue)
-	}
+    static func setMeterExpiration(_ date: Date) {
+        UserDefaults.standard.set(date, forKey: meterExpirationKey)
+    }
+
+    static func clearMeterExpiration() {
+        UserDefaults.standard.removeObject(forKey: meterExpirationKey)
+    }
+
+    static func getReminderFireDate() -> Date? {
+        UserDefaults.standard.object(forKey: reminderFireDateKey) as? Date
+    }
+
+    static func setReminderFireDate(_ date: Date) {
+        UserDefaults.standard.set(date, forKey: reminderFireDateKey)
+    }
+
+    static func clearReminderFireDate() {
+        UserDefaults.standard.removeObject(forKey: reminderFireDateKey)
+    }
 }

@@ -6,26 +6,27 @@
 //
 
 import SwiftUI
-import Firebase
+import FirebaseCore
+import UserNotifications
 
 @main
 struct Car_ConnectApp: App {
 
-    @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
+    init() {
+        FirebaseApp.configure()
+
+        if ProcessInfo.processInfo.arguments.contains("-UITEST_RESET") {
+            let defaults = UserDefaults.standard
+            defaults.removeObject(forKey: Constants.DefaultsKey.locationKey.rawValue)
+            defaults.removeObject(forKey: Constants.DefaultsKey.meterExpirationKey.rawValue)
+            defaults.removeObject(forKey: Constants.DefaultsKey.reminderFireDateKey.rawValue)
+            UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
+        }
+    }
 
     var body: some Scene {
         WindowGroup {
             MainView()
         }
-    }
-}
-
-final class AppDelegate: NSObject, UIApplicationDelegate {
-    func application(_ application: UIApplication,
-                     didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
-
-//        FirebaseApp.configure()
-
-        return true
     }
 }
