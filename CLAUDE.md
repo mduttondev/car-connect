@@ -13,7 +13,7 @@ The app was migrated from UIKit/Storyboards. Deleted UIKit code (`ParkingViewCon
 
 - **Deployment target:** iOS 26.0 (uses Liquid Glass button styles, `Map(position:) { Annotation }`, SF Symbol `.replace.downUp`).
 - **Dependencies:** FirebaseAnalytics + FirebaseCrashlytics via SPM, configured in `Car_ConnectApp.init`. `GoogleService-Info.plist` is in the app bundle.
-- **Default branch:** `master`. Active SwiftUI migration work lives on `Update_to_SwiftUI`.
+- **Default branch:** `main`. Active SwiftUI migration work lives on `Update_to_SwiftUI`.
 
 ## Build / run / test
 
