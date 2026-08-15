@@ -18,6 +18,19 @@ default_platform :ios
 platform :ios do
   before_all do
     puts 'Starting fastfile...'
+
+    # Authenticate with an App Store Connect API key so signing/upload actions
+    # (match, pilot, deliver, register_devices) don't fall back to interactive 2FA.
+    # Set the two values in fastlane/.env.default and drop AuthKey_<KEY_ID>.p8 in
+    # this fastlane/ folder — all gitignored. Once set here, every lane picks it up.
+    if ENV['APP_STORE_CONNECT_KEY_ID'] && ENV['APP_STORE_CONNECT_ISSUER_ID']
+      app_store_connect_api_key(
+        key_id: ENV['APP_STORE_CONNECT_KEY_ID'],
+        issuer_id: ENV['APP_STORE_CONNECT_ISSUER_ID'],
+        key_filepath: File.expand_path("../AuthKey_#{ENV['APP_STORE_CONNECT_KEY_ID']}.p8", __FILE__),
+        in_house: false
+      )
+    end
   end
 
   desc 'Runs all the tests'
