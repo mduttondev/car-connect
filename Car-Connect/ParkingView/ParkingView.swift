@@ -400,10 +400,10 @@ struct ParkingView: View {
     private var floatingMenu: some View {
         VStack(alignment: .trailing, spacing: 12) {
             if viewModel.hasParkingSpot && isMenuExpanded {
-                // "Go to Pin" is the widest capsule, so it anchors the top of
+                // "Show Pin" is the widest capsule, so it anchors the top of
                 // the menu to keep the stack visually balanced.
                 menuItem(
-                    label: "Go to Pin",
+                    label: "Show Pin",
                     systemImage: "scope",
                     tint: .green,
                     identifier: "GoToPinButton"
