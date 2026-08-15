@@ -400,6 +400,19 @@ struct ParkingView: View {
     private var floatingMenu: some View {
         VStack(alignment: .trailing, spacing: 12) {
             if viewModel.hasParkingSpot && isMenuExpanded {
+                // "Go to Pin" is the widest capsule, so it anchors the top of
+                // the menu to keep the stack visually balanced.
+                menuItem(
+                    label: "Go to Pin",
+                    systemImage: "scope",
+                    tint: .green,
+                    identifier: "GoToPinButton"
+                ) {
+                    goToPin()
+                    collapseMenu()
+                }
+                .transition(menuItemTransition(index: 0, count: expandedMenuItemCount))
+
                 menuItem(
                     label: viewModel.hasRoute ? "Hide Route" : "Walk",
                     systemImage: viewModel.hasRoute ? "xmark.circle.fill" : "figure.walk.circle.fill",
@@ -412,17 +425,6 @@ struct ParkingView: View {
                     } else {
                         Task { await viewModel.requestWalkingDirections() }
                     }
-                    collapseMenu()
-                }
-                .transition(menuItemTransition(index: 0, count: expandedMenuItemCount))
-
-                menuItem(
-                    label: "Go to Pin",
-                    systemImage: "scope",
-                    tint: .green,
-                    identifier: "GoToPinButton"
-                ) {
-                    goToPin()
                     collapseMenu()
                 }
                 .transition(menuItemTransition(index: 1, count: expandedMenuItemCount))
