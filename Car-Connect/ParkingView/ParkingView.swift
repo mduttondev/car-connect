@@ -145,7 +145,8 @@ final class ParkingViewModel: ObservableObject {
         let spot = ParkingLocation(
             id: existing.id,
             latitude: coordinate.latitude,
-            longitude: coordinate.longitude
+            longitude: coordinate.longitude,
+            parkedAt: existing.parkedAt
         )
         parkingSpot = spot
         StorageHandler.setParkingLocation(location: spot)
@@ -192,8 +193,14 @@ struct ParkingView: View {
     /// new parking spot location.
     @State private var isMovingPin = false
 
-    /// True while the floating action menu is expanded (showing Walk/Move/Clear).
+    /// True while the floating action menu is expanded (showing Walk/Go to
+    /// Pin/Move/Clear).
     @State private var isMenuExpanded = false
+
+    /// True while the tapped-pin callout showing when the car was parked is
+    /// visible. Toggled by tapping the pin; reset when the spot is moved or
+    /// cleared.
+    @State private var showPinCallout = false
 
     var body: some View {
         ZStack {
@@ -287,9 +294,10 @@ struct ParkingView: View {
             UserAnnotation()
 
             if let spot = viewModel.parkingSpot, !isMovingPin {
-                Annotation("Parked Here", coordinate: spot.coordinate) {
-                    pinIcon
+                Annotation("Parked Here", coordinate: spot.coordinate, anchor: .bottom) {
+                    parkingPin(for: spot)
                 }
+                .annotationTitles(.hidden)
             }
 
             if let polyline = viewModel.remainingRoutePolyline ?? viewModel.route?.polyline {
@@ -313,6 +321,55 @@ struct ParkingView: View {
             .foregroundStyle(.red)
             .background(Circle().fill(.white))
             .shadow(radius: 2)
+    }
+
+    /// The saved-spot annotation: a tappable pin that toggles a callout showing
+    /// when the car was parked. The pin sits at the bottom of the stack (its tip
+    /// stays anchored to the coordinate) with the callout floating above.
+    private func parkingPin(for spot: ParkingLocation) -> some View {
+        VStack(spacing: 6) {
+            if showPinCallout {
+                pinCallout(for: spot)
+                    .transition(
+                        .scale(scale: 0.7, anchor: .bottom).combined(with: .opacity)
+                    )
+            }
+            Button {
+                withAnimation(.spring(response: 0.35, dampingFraction: 0.72)) {
+                    showPinCallout.toggle()
+                }
+            } label: {
+                pinIcon
+            }
+            .buttonStyle(.plain)
+            .accessibilityIdentifier("ParkingPin")
+            .accessibilityLabel("Parked car location")
+        }
+    }
+
+    /// A small glass callout showing how long the car has been parked, plus the
+    /// clock time it was saved. The relative duration updates live.
+    private func pinCallout(for spot: ParkingLocation) -> some View {
+        VStack(spacing: 2) {
+            if let parkedAt = spot.parkedAt {
+                Text("Parked \(parkedAt, style: .relative) ago")
+                    .font(.footnote.weight(.semibold))
+                    .monospacedDigit()
+                Text(parkedAt.formatted(date: .omitted, time: .shortened))
+                    .font(.caption2)
+                    .foregroundStyle(.secondary)
+            } else {
+                Text("Parked here")
+                    .font(.footnote.weight(.semibold))
+            }
+        }
+        .fixedSize()
+        .padding(.horizontal, 12)
+        .padding(.vertical, 8)
+        .glassEffect(in: RoundedRectangle(cornerRadius: 14))
+        .shadow(radius: 3, y: 1)
+        .accessibilityElement(children: .combine)
+        .accessibilityIdentifier("ParkingPinCallout")
     }
 
     /// A floating pin centered on screen, used while the user is repositioning
@@ -357,7 +414,18 @@ struct ParkingView: View {
                     }
                     collapseMenu()
                 }
-                .transition(menuItemTransition(index: 0))
+                .transition(menuItemTransition(index: 0, count: expandedMenuItemCount))
+
+                menuItem(
+                    label: "Go to Pin",
+                    systemImage: "scope",
+                    tint: .green,
+                    identifier: "GoToPinButton"
+                ) {
+                    goToPin()
+                    collapseMenu()
+                }
+                .transition(menuItemTransition(index: 1, count: expandedMenuItemCount))
 
                 menuItem(
                     label: "Move",
@@ -368,7 +436,7 @@ struct ParkingView: View {
                     enterMoveMode()
                     collapseMenu()
                 }
-                .transition(menuItemTransition(index: 1))
+                .transition(menuItemTransition(index: 2, count: expandedMenuItemCount))
 
                 menuItem(
                     label: "Clear",
@@ -376,10 +444,11 @@ struct ParkingView: View {
                     tint: .red,
                     identifier: "ClearParkingSpotButton"
                 ) {
+                    showPinCallout = false
                     viewModel.toggleParkingSpot()
                     collapseMenu()
                 }
-                .transition(menuItemTransition(index: 2))
+                .transition(menuItemTransition(index: 3, count: expandedMenuItemCount))
             }
 
             mainFAB
@@ -455,8 +524,12 @@ struct ParkingView: View {
         }
     }
 
-    private func menuItemTransition(index: Int) -> AnyTransition {
-        let delay = Double(2 - index) * 0.04
+    /// Number of actions shown when the floating menu is expanded. Drives the
+    /// staggered insertion delay so items closest to the FAB animate in first.
+    private var expandedMenuItemCount: Int { 4 }
+
+    private func menuItemTransition(index: Int, count: Int) -> AnyTransition {
+        let delay = Double(count - 1 - index) * 0.04
         return .asymmetric(
             insertion: .scale(scale: 0.5, anchor: .bottomTrailing)
                 .combined(with: .opacity)
@@ -473,9 +546,23 @@ struct ParkingView: View {
         }
     }
 
+    /// Recenters the map on the saved parking spot. Disengages Follow so the
+    /// camera doesn't immediately snap back to the user's location.
+    private func goToPin() {
+        guard let spot = viewModel.parkingSpot else { return }
+        isFollowingUser = false
+        withAnimation(.easeInOut(duration: 0.5)) {
+            cameraPosition = .camera(
+                MapCamera(centerCoordinate: spot.coordinate,
+                          distance: currentDistance)
+            )
+        }
+    }
+
     private func enterMoveMode() {
         isFollowingUser = false
         isMovingPin = true
+        showPinCallout = false
         if let spot = viewModel.parkingSpot {
             cameraPosition = .camera(
                 MapCamera(centerCoordinate: spot.coordinate,
