@@ -1,0 +1,17 @@
+// base.xcconfig
+// Single source of truth for app identifiers and versioning.
+// Referenced as the project-level base configuration, so all targets inherit
+// these values. Test bundles derive their identifiers from
+// PRODUCT_BUNDLE_IDENTIFIER via $(inherited).
+
+// Marketing (App Store) version — bump on each release.
+MARKETING_VERSION = 3.2.0
+
+// Build number — increment per submitted build.
+CURRENT_PROJECT_VERSION = 5
+
+// Base bundle identifier (app target). Test targets append a suffix.
+PRODUCT_BUNDLE_IDENTIFIER = com.mkdutton.Car-Connect
+
+// Apple developer team.
+DEVELOPMENT_TEAM = NN495VBEDV
