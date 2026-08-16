@@ -26,6 +26,14 @@ jobs:
           ruby-version: '3.3'
           bundler-cache: true
 
+      - name: Configure git auth for the private certs repo
+        env:
+          MATCH_GIT_BASIC_AUTHORIZATION: ${{ secrets.MATCH_GIT_BASIC_AUTHORIZATION }}
+        run: |
+          token="$(python3 -c 'import base64,os,sys; sys.stdout.write(base64.b64decode(os.environ["MATCH_GIT_BASIC_AUTHORIZATION"]).decode().split(":",1)[1].strip())')"
+          echo "::add-mask::$token"
+          git config --global url."https://x-access-token:${token}@github.com/".insteadOf "https://github.com/"
+
       - name: Build & upload to App Store Connect
         run: bundle exec fastlane ci_beta
         env:
@@ -33,6 +41,4 @@ jobs:
           APP_STORE_CONNECT_ISSUER_ID: ${{ secrets.APP_STORE_CONNECT_ISSUER_ID }}
           APP_STORE_CONNECT_KEY_CONTENT: ${{ secrets.APP_STORE_CONNECT_KEY_CONTENT }}
           MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
-          MATCH_GIT_URL: https://github.com/mduttondev/Certificates.git
-          MATCH_GIT_BASIC_AUTHORIZATION: ${{ secrets.MATCH_GIT_BASIC_AUTHORIZATION }}
           FASTLANE_XCODEBUILD_SETTINGS_TIMEOUT: '120'
