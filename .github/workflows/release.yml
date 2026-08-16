@@ -8,7 +8,7 @@ on:
 jobs:
   release:
     name: Build & upload to TestFlight
-    runs-on: macos-16
+    runs-on: macos-latest
     timeout-minutes: 60
 
     steps:
