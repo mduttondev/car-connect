@@ -65,7 +65,7 @@ platform :ios do
     match(match_opts)
 
     # Bump the build number in base.xcconfig (single source of truth); the build reads it from there.
-    xcconfig = 'Config/base.xcconfig'
+    xcconfig = File.expand_path('../../Config/base.xcconfig', __FILE__)
     current_build = File.read(xcconfig)[/^\s*CURRENT_PROJECT_VERSION\s*=\s*(\d+)/, 1].to_i
     build_num = [
       current_build + 1,
