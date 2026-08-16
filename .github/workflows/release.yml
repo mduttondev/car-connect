@@ -30,7 +30,7 @@ jobs:
         env:
           MATCH_GIT_BASIC_AUTHORIZATION: ${{ secrets.MATCH_GIT_BASIC_AUTHORIZATION }}
         run: |
-          token="$(python3 -c 'import base64,os,sys; sys.stdout.write(base64.b64decode(os.environ["MATCH_GIT_BASIC_AUTHORIZATION"]).decode().split(":",1)[1].strip())')"
+          token="$(python3 -c 'import base64,os,re,sys; v=re.sub(r"\s","",os.environ["MATCH_GIT_BASIC_AUTHORIZATION"]); v+="="*((4-len(v)%4)%4); sys.stdout.write(base64.b64decode(v).decode().split(":",1)[1].strip())')"
           echo "::add-mask::$token"
           git config --global url."https://x-access-token:${token}@github.com/".insteadOf "https://github.com/"
 
