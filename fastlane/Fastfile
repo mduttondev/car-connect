@@ -63,10 +63,37 @@ platform :ios do
     # On CI, clone the certs repo over HTTPS; auth is provided by the workflow's git config (url.insteadOf).
     match_opts[:git_url] = 'https://github.com/mduttondev/Certificates.git' if ENV['CI']
     match(match_opts)
-    increment_build_number(
-      build_number: latest_testflight_build_number(app_identifier: 'com.mkdutton.Car-Connect') + 1
+
+    # Bump the build number in base.xcconfig (single source of truth); the build reads it from there.
+    xcconfig = 'Config/base.xcconfig'
+    current_build = File.read(xcconfig)[/^\s*CURRENT_PROJECT_VERSION\s*=\s*(\d+)/, 1].to_i
+    build_num = [
+      current_build + 1,
+      latest_testflight_build_number(app_identifier: 'com.mkdutton.Car-Connect') + 1
+    ].max
+    File.write(xcconfig, File.read(xcconfig).gsub(/^(\s*CURRENT_PROJECT_VERSION\s*=\s*).*$/, "\\1#{build_num}"))
+    UI.message("Set CURRENT_PROJECT_VERSION=#{build_num} in #{xcconfig}")
+
+    if ENV['CI']
+      # Hosted runners can't do automatic signing — pin manual signing to the match profile.
+      update_code_signing_settings(
+        use_automatic_signing: false,
+        path: 'Car-Connect.xcodeproj',
+        team_id: 'NN495VBEDV',
+        code_sign_identity: 'Apple Distribution',
+        profile_name: 'match AppStore com.mkdutton.Car-Connect',
+        targets: ['Car-Connect']
+      )
+    end
+
+    gym(
+      scheme: 'Car-Connect',
+      export_method: 'app-store',
+      export_options: {
+        signingStyle: 'manual',
+        provisioningProfiles: { 'com.mkdutton.Car-Connect' => 'match AppStore com.mkdutton.Car-Connect' }
+      }
     )
-    gym(scheme: 'Car-Connect')
     pilot(skip_waiting_for_build_processing: true)
   end
 
