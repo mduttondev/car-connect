@@ -59,7 +59,13 @@ platform :ios do
   desc 'CI: build and upload a new build to TestFlight (App Store Connect)'
   lane :ci_beta do
     setup_ci
-    match(type: 'appstore', readonly: true)
+    match_opts = { type: 'appstore', readonly: true }
+    if ENV['CI']
+      # On CI, clone the certs repo over HTTPS with the PAT (Matchfile's SSH url won't work on the runner)
+      match_opts[:git_url] = 'https://github.com/mduttondev/Certificates.git'
+      match_opts[:git_basic_authorization] = ENV['MATCH_GIT_BASIC_AUTHORIZATION']
+    end
+    match(match_opts)
     increment_build_number(
       build_number: latest_testflight_build_number(app_identifier: 'com.mkdutton.Car-Connect') + 1
     )
