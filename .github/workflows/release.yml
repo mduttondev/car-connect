@@ -30,7 +30,19 @@ jobs:
         env:
           MATCH_GIT_BASIC_AUTHORIZATION: ${{ secrets.MATCH_GIT_BASIC_AUTHORIZATION }}
         run: |
-          token="$(python3 -c 'import base64,os,re,sys; v=re.sub(r"\s","",os.environ["MATCH_GIT_BASIC_AUTHORIZATION"]); v+="="*((4-len(v)%4)%4); sys.stdout.write(base64.b64decode(v).decode().split(":",1)[1].strip())')"
+          token="$(python3 <<'PY'
+          import os, base64, re, sys
+          v = re.sub(r"\s", "", os.environ["MATCH_GIT_BASIC_AUTHORIZATION"])
+          tok = v  # default: treat the secret as the raw token
+          try:
+              t = base64.b64decode(v + "=" * ((4 - len(v) % 4) % 4)).decode()
+              if ":" in t:  # it was base64("user:token")
+                  tok = t.split(":", 1)[1]
+          except Exception:
+              pass
+          sys.stdout.write(tok.strip())
+          PY
+          )"
           echo "::add-mask::$token"
           git config --global url."https://x-access-token:${token}@github.com/".insteadOf "https://github.com/"
 
