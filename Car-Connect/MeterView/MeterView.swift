@@ -5,6 +5,7 @@
 //  SwiftUI rewrite of the parking-meter reminder feature.
 //
 
+import Combine
 import SwiftUI
 import UserNotifications
 

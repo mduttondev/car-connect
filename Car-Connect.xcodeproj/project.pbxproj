@@ -32,7 +32,7 @@
 		C9C0D5DC27C9341C00EE0691 /* Car-Connect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Car-Connect.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9C0D5EC27C9341D00EE0691 /* Car-ConnectTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Car-ConnectTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9C0D5F627C9341D00EE0691 /* Car-ConnectUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Car-ConnectUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		C9C0D6100000000000000001 /* base.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config/base.xcconfig; sourceTree = "<group>"; };
+		C9C0D6100000000000000001 /* Config/base.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config/base.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -71,7 +71,7 @@
 		C9C0D5D327C9341C00EE0691 = {
 			isa = PBXGroup;
 			children = (
-				C9C0D6100000000000000001 /* base.xcconfig */,
+				C9C0D6100000000000000001 /* Config/base.xcconfig */,
 				C9C0D5DE27C9341C00EE0691 /* Car-Connect */,
 				C9C0D5EF27C9341D00EE0691 /* Car-ConnectTests */,
 				C9C0D5F927C9341D00EE0691 /* Car-ConnectUITests */,
@@ -268,7 +268,7 @@
 /* Begin XCBuildConfiguration section */
 		C9C0D5FE27C9341D00EE0691 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C9C0D6100000000000000001 /* base.xcconfig */;
+			baseConfigurationReference = C9C0D6100000000000000001 /* Config/base.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -303,6 +303,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = NN495VBEDV;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
@@ -333,7 +334,7 @@
 		};
 		C9C0D5FF27C9341D00EE0691 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C9C0D6100000000000000001 /* base.xcconfig */;
+			baseConfigurationReference = C9C0D6100000000000000001 /* Config/base.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -368,6 +369,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = NN495VBEDV;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
@@ -395,6 +397,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_STYLE = Automatic;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_ASSET_PATHS = "\"Car-Connect/Preview Content\"";
@@ -427,6 +430,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Car-Connect/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
