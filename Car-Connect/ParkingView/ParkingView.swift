@@ -60,8 +60,9 @@ final class ParkingViewModel: ObservableObject {
         defer { isCalculatingRoute = false }
 
         let request = MKDirections.Request()
-        request.source = MKMapItem(placemark: MKPlacemark(coordinate: userLocation.coordinate))
-        request.destination = MKMapItem(placemark: MKPlacemark(coordinate: spot.coordinate))
+        let spotLocation = CLLocation(latitude: spot.coordinate.latitude, longitude: spot.coordinate.longitude)
+        request.source = MKMapItem(location: userLocation, address: nil)
+        request.destination = MKMapItem(location: spotLocation, address: nil)
         request.transportType = .walking
 
         do {
