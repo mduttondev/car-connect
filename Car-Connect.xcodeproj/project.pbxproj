@@ -403,7 +403,6 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Car-Connect/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.travel";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Car-Connet needs to access your location so that when requested, it can mark your parking place and provide walking directions back from anywhere.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -436,7 +435,6 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Car-Connect/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.travel";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Car-Connet needs to access your location so that when requested, it can mark your parking place and provide walking directions back from anywhere.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;

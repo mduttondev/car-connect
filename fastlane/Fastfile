@@ -1,100 +1,107 @@
-# Customise this file, documentation can be found here:
-# https://docs.fastlane.tools/actions/
-# All available actions: https://docs.fastlane.tools/actions
-# can also be listed using the `fastlane actions` command
-
-# Change the syntax highlighting to Ruby
-# All lines starting with a # are ignored when running `fastlane`
-
-# If you want to automatically update fastlane if a new version is available:
-# update_fastlane
-
-# This is the minimum version number required.
-# Update this, if you use features of a newer version
-fastlane_version '2.60.1'
+fastlane_version "2.60.1"
 
 default_platform :ios
 
+# ---------------------------------------------------------------------------
+# Per-repo constants. Everything below this block is kept identical across the
+# Car-Connect and PlainTextPaste Fastfiles. Version + build number live in
+# Config/base.xcconfig (single source of truth, inherited by every target).
+# ---------------------------------------------------------------------------
+PROJECT           = "Car-Connect.xcodeproj"
+SCHEME            = "Car-Connect"
+TEAM_ID           = "NN495VBEDV"
+APP_ID            = "com.mkdutton.Car-Connect"
+# Every target that ships in the archive, mapped to its bundle identifier.
+SIGNED_TARGETS    = { "Car-Connect" => APP_ID }
+ALL_IDS           = SIGNED_TARGETS.values
+UNIT_TEST_TARGETS = ["Car-ConnectTests"]
+TEST_DEVICE       = "iPhone 17 Pro Max"
+XCCONFIG          = File.expand_path("../../Config/base.xcconfig", __FILE__)
+
 platform :ios do
   before_all do
-    puts 'Starting fastfile...'
-
     # Authenticate with an App Store Connect API key so signing/upload actions
-    # (match, pilot, deliver, register_devices) don't fall back to interactive 2FA.
-    # Set the two values in fastlane/.env.default and drop AuthKey_<KEY_ID>.p8 in
-    # this fastlane/ folder — all gitignored. Once set here, every lane picks it up.
-    if !ENV['APP_STORE_CONNECT_KEY_CONTENT'].to_s.empty?
+    # (match, pilot, register_devices) don't fall back to interactive 2FA.
+    if !ENV["APP_STORE_CONNECT_KEY_CONTENT"].to_s.empty?
       # CI: key delivered as a base64 secret (no .p8 file on disk)
       app_store_connect_api_key(
-        key_id: ENV['APP_STORE_CONNECT_KEY_ID'],
-        issuer_id: ENV['APP_STORE_CONNECT_ISSUER_ID'],
-        key_content: ENV['APP_STORE_CONNECT_KEY_CONTENT'],
+        key_id: ENV["APP_STORE_CONNECT_KEY_ID"],
+        issuer_id: ENV["APP_STORE_CONNECT_ISSUER_ID"],
+        key_content: ENV["APP_STORE_CONNECT_KEY_CONTENT"],
         is_key_content_base64: true,
         in_house: false
       )
-    elsif ENV['APP_STORE_CONNECT_KEY_ID'] && ENV['APP_STORE_CONNECT_ISSUER_ID']
-      # Local: key read from fastlane/AuthKey_<KEY_ID>.p8
+    elsif ENV["APP_STORE_CONNECT_KEY_ID"] && ENV["APP_STORE_CONNECT_ISSUER_ID"]
+      # Local: key read from fastlane/AuthKey_<KEY_ID>.p8 (values in fastlane/.env.default)
       app_store_connect_api_key(
-        key_id: ENV['APP_STORE_CONNECT_KEY_ID'],
-        issuer_id: ENV['APP_STORE_CONNECT_ISSUER_ID'],
+        key_id: ENV["APP_STORE_CONNECT_KEY_ID"],
+        issuer_id: ENV["APP_STORE_CONNECT_ISSUER_ID"],
         key_filepath: File.expand_path("../AuthKey_#{ENV['APP_STORE_CONNECT_KEY_ID']}.p8", __FILE__),
         in_house: false
       )
     end
   end
 
-  desc 'Runs all the tests'
+  desc "Run all unit tests"
   lane :test do
-    scan
+    scan(
+      project: PROJECT,
+      scheme: SCHEME,
+      devices: [TEST_DEVICE],
+      only_testing: UNIT_TEST_TARGETS
+    )
   end
 
-  desc 'Submit a new Beta Build to Apple TestFlight'
-  desc 'This will also make sure the profile is up to date'
+  desc "Submit a new Beta Build to Apple TestFlight, then commit and push the build number"
   lane :beta do
-    match(type: 'appstore') # more information: https://codesigning.guide
-    gym(scheme: 'Car-Connect') # Build your app - more options available
+    increment
+    match(type: "appstore", readonly: true)
+    gym
     pilot(skip_waiting_for_build_processing: true)
+    # Commit only after a successful upload, so the repo never claims a build TestFlight lacks.
+    commit_increment(message: "Build number bump [ci skip]")
   end
 
-  desc 'CI: build and upload a new build to TestFlight (App Store Connect)'
+  desc "CI: build and upload a new build to TestFlight (App Store Connect)"
   lane :ci_beta do
     setup_ci
-    match_opts = { type: 'appstore', readonly: true }
+    match_opts = { type: "appstore", readonly: true }
     # On CI, clone the certs repo over HTTPS; auth is provided by the workflow's git config (url.insteadOf).
-    match_opts[:git_url] = 'https://github.com/mduttondev/Certificates.git' if ENV['CI']
+    match_opts[:git_url] = "https://github.com/mduttondev/Certificates.git" if ENV["CI"]
     match(match_opts)
 
     bump_xcconfig_build_number
 
-    if ENV['CI']
-      # Hosted runners can't do automatic signing — pin manual signing to the match profile.
-      update_code_signing_settings(
-        use_automatic_signing: false,
-        path: 'Car-Connect.xcodeproj',
-        team_id: 'NN495VBEDV',
-        code_sign_identity: 'Apple Distribution',
-        profile_name: 'match AppStore com.mkdutton.Car-Connect',
-        targets: ['Car-Connect']
-      )
+    if ENV["CI"]
+      # Hosted runners can't do automatic signing — pin each target to its match profile.
+      SIGNED_TARGETS.each do |target, bundle_id|
+        update_code_signing_settings(
+          use_automatic_signing: false,
+          path: PROJECT,
+          team_id: TEAM_ID,
+          code_sign_identity: "Apple Distribution",
+          profile_name: "match AppStore #{bundle_id}",
+          targets: [target]
+        )
+      end
     end
 
     gym(
-      scheme: 'Car-Connect',
-      export_method: 'app-store',
+      export_method: "app-store",
       export_options: {
-        signingStyle: 'manual',
-        provisioningProfiles: { 'com.mkdutton.Car-Connect' => 'match AppStore com.mkdutton.Car-Connect' }
+        signingStyle: "manual",
+        provisioningProfiles: ALL_IDS.to_h { |bundle_id| [bundle_id, "match AppStore #{bundle_id}"] }
       }
     )
     pilot(skip_waiting_for_build_processing: true)
   end
 
-  desc 'Revoke ONLY expired/dead certs + profiles, then regenerate what is missing (never touches valid ones)'
+  desc "Revoke ONLY expired/dead certs + profiles, then regenerate what is missing (never touches valid ones)"
   lane :resetSigning do
     revoke_expired_signing
     # match now finds the expired items gone and regenerates only those; valid certs/profiles are reused.
-    match(type: 'development', app_identifier: ['com.mkdutton.Car-Connect'], force_for_new_devices: true)
-    match(type: 'appstore', app_identifier: ['com.mkdutton.Car-Connect'])
+    match(type: "development", app_identifier: ALL_IDS, force_for_new_devices: true)
+    match(type: "appstore", app_identifier: ALL_IDS)
   end
 
   # Surgically revoke ONLY expired certificates and delete ONLY dead/expired provisioning
@@ -117,7 +124,7 @@ platform :ios do
     end
     Spaceship::ConnectAPI::Profile.all.each do |p|
       exp = (Time.parse(p.expiration_date) rescue nil)
-      dead = p.profile_state.to_s.upcase != 'ACTIVE' || (exp && exp < now)
+      dead = p.profile_state.to_s.upcase != "ACTIVE" || (exp && exp < now)
       next unless dead
       UI.important("Deleting DEAD/EXPIRED profile: #{p.name} — state #{p.profile_state}")
       p.delete!
@@ -127,194 +134,43 @@ platform :ios do
   # Bump the build number in base.xcconfig (single source of truth) past both the local value and
   # TestFlight's latest; agvtool's increment_build_number would edit the project file instead.
   private_lane :bump_xcconfig_build_number do
-    xcconfig = File.expand_path('../../Config/base.xcconfig', __FILE__)
-    contents = File.read(xcconfig)
+    contents = File.read(XCCONFIG)
     current_build = contents[/^\s*CURRENT_PROJECT_VERSION\s*=\s*(\d+)/, 1].to_i
     build_num = [
       current_build + 1,
-      latest_testflight_build_number(app_identifier: 'com.mkdutton.Car-Connect') + 1
+      latest_testflight_build_number(app_identifier: APP_ID) + 1
     ].max
-    File.write(xcconfig, contents.gsub(/^(\s*CURRENT_PROJECT_VERSION\s*=\s*).*$/, "\\1#{build_num}"))
-    UI.message("Set CURRENT_PROJECT_VERSION=#{build_num} in #{xcconfig}")
+    File.write(XCCONFIG, contents.gsub(/^(\s*CURRENT_PROJECT_VERSION\s*=\s*).*$/, "\\1#{build_num}"))
+    UI.message("Set CURRENT_PROJECT_VERSION=#{build_num} in #{XCCONFIG}")
   end
 
-  desc 'Increment the build number and Commit'
+  desc "Increment the build number and Commit"
   lane :increment do |options|
     bump_xcconfig_build_number
 
     if options[:commit]
-      commit_increment(
-        branch: 'develop',
-        message: 'Build number bump by fastlane - [ios increment] lane'
-      )
+      commit_increment(message: "Build number bump by fastlane - [ios increment] lane")
     end
   end
 
-  desc 'Submit a new Beta Build to Apple TestFlight, submit for review and release to internal testers'
-  desc 'This will also make sure the profile is up to date'
-  lane :betaInternal do
-    increment
-
-    match(type: 'appstore')
-
-    gym(
-      scheme: 'Car-Connect',
-      clean: true
-    )
-
-    version = get_version_number(
-      target: 'Car-Connect'
-    )
-
-    deliver(
-      app_version: version.to_s,
-      skip_binary_upload: true,
-      skip_screenshots: true,
-      skip_metadata: true,
-      force: true
-    )
-
-    pilot(distribute_external: false,
-          skip_waiting_for_build_processing: true,
-          changelog: 'Newest changes, added functionality, bug fixes')
-
-    commit_all_changes(
-      message: 'Fastlane Beta - Internal',
-      branch: 'develop'
-    )
-  end
-
-  desc 'Submit a new Beta Build to Apple TestFlight, submit for review and release to all testers'
-  desc 'This will also make sure the profile is up to date'
-  lane :betaRelease do
-    increment
-
-    match(type: 'appstore') # more information: https://codesigning.guide
-
-    gym(scheme: 'Car-Connect',
-        clean: true) # Build your app - more options available
-
-    pilot(distribute_external: true,
-          groups: ['External'],
-          changelog: 'Newest changes, added functionality, bug fixes')
-
-    commit_all_changes(
-      message: 'Fastlane Beta - Release',
-      branch: 'develop'
-    )
-  end
-
-  desc 'Deploy a new version to the App Store'
-  lane :release do
-    increment
-    match(type: 'appstore')
-    gym(scheme: 'Car-Connect') # Build your app - more options available
-    deliver(force: true)
-
-    commit_all_changes(
-      message: 'Fastlane Release',
-      branch: 'develop'
-    )
-  end
-
-  desc 'Deploy Metadata and screenshots from the App Store'
-  lane :download_metadata do
-    sh 'fastlane deliver download_screenshots --force'
-    sh 'fastlane deliver download_metadata --force'
-  end
-
-  desc 'Upload Metadata to App Store'
-  lane :upload_metadata do
-    deliver(
-      submit_for_review: false,
-      force: true,
-      metadata_path: './fastlane/metadata'
-    )
-  end
-
-  desc 'Update version with given type (patch|minor|major). Called as: fastlane bump type:minor'
-  lane :bump do |options|
-    increment_version_number(
-      bump_type: (options[:type]).to_s
-    )
-
-    version = get_version_number(
-      target: 'Car-Connect'
-    )
-
-    deliver(
-      app_version: version,
-      skip_binary_upload: true
-    )
-
-    increment(commit: true)
-  end
-
-  desc 'Upload testers file to TestFlight'
-  lane :upload_testers do
-    sh 'fastlane pilot import -c ./testers.csv'
-  end
-
-  desc 'Download testers file to TestFlight'
-  lane :download_testers do
-    sh 'fastlane pilot export -c ./testers.csv'
-  end
-
-  desc 'Push ./devices.txt to register new devices and create a new profile accordingly'
+  desc "Push ./devices.txt to register new devices and create a new profile accordingly"
   lane :deviceRegistration do
-    register_devices(devices_file: './fastlane/devices.txt')
-    match(type: 'development', force_for_new_devices: true)
-  end
-
-  desc 'Force autocorrect using swiftlint'
-  lane :lint do
-    swiftlint(
-      mode: :autocorrect, # SwiftLint mode: :lint (default) or :autocorrect
-      ignore_exit_status: true
-    ) # Allow fastlane to continue even if SwiftLint returns a non-zero exit status
-
-    git_commit(path: '.', message: 'Fastlane lint')
-    push_to_git_remote
+    register_devices(devices_file: "./fastlane/devices.txt")
+    match(type: "development", app_identifier: ALL_IDS, force_for_new_devices: true)
   end
 
   ####################################
   ## Convenience Lanes
   ####################################
-  desc 'Commit and push the build number increase'
+  desc "Commit and push the build number increase"
   lane :commit_increment do |options|
-    message = options[:message] ||= 'No commit message specified'
-    branch = options[:branch] ||= 'develop'
+    message = options[:message] ||= "No commit message specified"
+    branch = options[:branch] ||= "main"
 
-    # Commit and push to remote
-    commit_version_bump(
-      message: message,
-      force: true
-    )
+    git_commit(path: "Config/base.xcconfig", message: message)
 
     push_to_git_remote(
-      remote: 'origin',
-      local_branch: branch,
-      remote_branch: branch,
-      tags: false
-    )
-  end
-
-  desc 'Commit and push all changes in the working directory to the specified branch'
-  lane :commit_all_changes do |options|
-    message = options[:message] ||= 'No commit message specified'
-    branch = options[:branch] ||= `git rev-parse --abbrev-ref HEAD`
-
-    git_add(
-      path: '.'
-    )
-
-    git_commit(
-      path: '.',
-      message: message
-    )
-
-    push_to_git_remote(
-      remote: 'origin',
+      remote: "origin",
       local_branch: branch,
       remote_branch: branch,
       tags: false

@@ -39,6 +39,7 @@ playground.xcworkspace
 Carthage/Build
 
 
+fastlane/README.md
 fastlane/report.xml
 fastlane/Preview.html
 fastlane/screenshots
@@ -53,3 +54,5 @@ Preview.html
 
 ## Editor / AI session state
 .superset/
+.superpowers/
+docs/superpowers/

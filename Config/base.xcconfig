@@ -15,3 +15,7 @@ PRODUCT_BUNDLE_IDENTIFIER = com.mkdutton.Car-Connect
 
 // Apple developer team.
 DEVELOPMENT_TEAM = NN495VBEDV
+
+// Export compliance: the app uses only standard/exempt encryption (HTTPS), so
+// declare it here to skip the encryption prompt on every App Store Connect upload.
+INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO

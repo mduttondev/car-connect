@@ -36,7 +36,7 @@ xcrun simctl install "iPhone 17 Pro" path/to/Car-Connect.app
 xcrun simctl launch "iPhone 17 Pro" com.mkdutton.Car-Connect
 ```
 
-Fastlane lanes (in `fastlane/Fastfile`) cover release automation: `fastlane test`, `fastlane beta`, `fastlane betaInternal`, `fastlane release`, `fastlane lint` (SwiftLint autocorrect), `fastlane bump type:patch|minor|major`. Fastlane uses `match` for code signing and `pilot`/`deliver` for TestFlight/App Store upload.
+Fastlane lanes (in `fastlane/Fastfile`) match PlainTextPaste's lane for lane: everything below the per-repo constants block is identical in both Fastfiles, so keep them in sync. Lanes: `test` (unit tests), `beta` (bump the build in `Config/base.xcconfig`, upload to TestFlight, then commit and push the xcconfig to `main`), `ci_beta` (CI upload, run by `release.yml`), `increment`, `resetSigning`, `deviceRegistration`. Signing uses `match`, and uploads use `pilot`. Submit App Store releases from App Store Connect.
 
 ## Adding / removing files
 
