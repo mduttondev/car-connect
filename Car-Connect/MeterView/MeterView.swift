@@ -185,7 +185,7 @@ struct MeterView: View {
                     meterRow
                     reminderRow
                 } footer: {
-                    Text("Set how long until your meter expires, then choose how soon before expiration you want a reminder notification.")
+                    Text("Enter the time left on your meter, then choose how early you want a reminder before it runs out.")
                 }
 
                 if viewModel.meterExpiration != nil {
