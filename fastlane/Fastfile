@@ -64,15 +64,7 @@ platform :ios do
     match_opts[:git_url] = 'https://github.com/mduttondev/Certificates.git' if ENV['CI']
     match(match_opts)
 
-    # Bump the build number in base.xcconfig (single source of truth); the build reads it from there.
-    xcconfig = File.expand_path('../../Config/base.xcconfig', __FILE__)
-    current_build = File.read(xcconfig)[/^\s*CURRENT_PROJECT_VERSION\s*=\s*(\d+)/, 1].to_i
-    build_num = [
-      current_build + 1,
-      latest_testflight_build_number(app_identifier: 'com.mkdutton.Car-Connect') + 1
-    ].max
-    File.write(xcconfig, File.read(xcconfig).gsub(/^(\s*CURRENT_PROJECT_VERSION\s*=\s*).*$/, "\\1#{build_num}"))
-    UI.message("Set CURRENT_PROJECT_VERSION=#{build_num} in #{xcconfig}")
+    bump_xcconfig_build_number
 
     if ENV['CI']
       # Hosted runners can't do automatic signing — pin manual signing to the match profile.
@@ -132,9 +124,23 @@ platform :ios do
     end
   end
 
+  # Bump the build number in base.xcconfig (single source of truth) past both the local value and
+  # TestFlight's latest; agvtool's increment_build_number would edit the project file instead.
+  private_lane :bump_xcconfig_build_number do
+    xcconfig = File.expand_path('../../Config/base.xcconfig', __FILE__)
+    contents = File.read(xcconfig)
+    current_build = contents[/^\s*CURRENT_PROJECT_VERSION\s*=\s*(\d+)/, 1].to_i
+    build_num = [
+      current_build + 1,
+      latest_testflight_build_number(app_identifier: 'com.mkdutton.Car-Connect') + 1
+    ].max
+    File.write(xcconfig, contents.gsub(/^(\s*CURRENT_PROJECT_VERSION\s*=\s*).*$/, "\\1#{build_num}"))
+    UI.message("Set CURRENT_PROJECT_VERSION=#{build_num} in #{xcconfig}")
+  end
+
   desc 'Increment the build number and Commit'
   lane :increment do |options|
-    increment_build_number
+    bump_xcconfig_build_number
 
     if options[:commit]
       commit_increment(

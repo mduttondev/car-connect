@@ -33,6 +33,22 @@ Submit a new Beta Build to Apple TestFlight
 
 This will also make sure the profile is up to date
 
+### ios ci_beta
+
+```sh
+[bundle exec] fastlane ios ci_beta
+```
+
+CI: build and upload a new build to TestFlight (App Store Connect)
+
+### ios resetSigning
+
+```sh
+[bundle exec] fastlane ios resetSigning
+```
+
+Revoke ONLY expired/dead certs + profiles, then regenerate what is missing (never touches valid ones)
+
 ### ios increment
 
 ```sh
