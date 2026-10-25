@@ -185,6 +185,9 @@ struct ParkingView: View {
     /// the user's actual location isn't available yet.
     @State private var currentMapCenter: CLLocationCoordinate2D?
     @State private var isFollowingUser = true
+    /// False until the first location fix, which snaps the camera to the user
+    /// instead of animating a long fly-over from the default region.
+    @State private var hasCenteredOnUser = false
     @State private var showPermissionAlert = false
 
     /// True while the user is repositioning the pin via the crosshair UI.
@@ -227,11 +230,17 @@ struct ParkingView: View {
                 viewModel.trimRouteToUser(currentLocation: newLocation)
             }
             guard isFollowingUser else { return }
+            let userCamera = MapCameraPosition.camera(
+                MapCamera(centerCoordinate: newLocation.coordinate,
+                          distance: currentDistance)
+            )
+            guard hasCenteredOnUser else {
+                hasCenteredOnUser = true
+                cameraPosition = userCamera
+                return
+            }
             withAnimation {
-                cameraPosition = .camera(
-                    MapCamera(centerCoordinate: newLocation.coordinate,
-                              distance: currentDistance)
-                )
+                cameraPosition = userCamera
             }
         }
         .onMapCameraChange(frequency: .continuous) { context in
