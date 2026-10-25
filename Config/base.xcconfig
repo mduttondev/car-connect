@@ -5,10 +5,10 @@
 // PRODUCT_BUNDLE_IDENTIFIER via $(inherited).
 
 // Marketing (App Store) version — bump on each release.
-MARKETING_VERSION = 3.2.0
+MARKETING_VERSION = 3.2.1
 
 // Build number — increment per submitted build.
-CURRENT_PROJECT_VERSION = 9
+CURRENT_PROJECT_VERSION = 10
 
 // Base bundle identifier (app target). Test targets append a suffix.
 PRODUCT_BUNDLE_IDENTIFIER = com.mkdutton.Car-Connect
