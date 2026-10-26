@@ -96,6 +96,18 @@ platform :ios do
     pilot(skip_waiting_for_build_processing: true)
   end
 
+  desc "Upload App Store metadata and screenshots from fastlane/metadata and fastlane/screenshots (no binary)"
+  lane :upload_metadata do
+    deliver(
+      app_identifier: APP_ID,
+      skip_binary_upload: true,
+      overwrite_screenshots: true, # local screenshots folder is the source of truth
+      force: true, # skip the HTML preview confirmation
+      run_precheck_before_submit: false,
+      submit_for_review: false
+    )
+  end
+
   desc "Revoke ONLY expired/dead certs + profiles, then regenerate what is missing (never touches valid ones)"
   lane :resetSigning do
     revoke_expired_signing
